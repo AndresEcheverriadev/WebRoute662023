@@ -1,0 +1,28 @@
+.NavbarWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.navbarLinksContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  gap: 20px;
+}
+
+.navbarLink {
+  color: var(--AmarilloContraste);
+}
+
+.navbarLink:hover {
+  color: var(--Blanco);
+}

@@ -1,0 +1,55 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--Blanco);
+  width: 100%;
+  height: auto;
+  padding: 20px 20px 0px 20px;
+  gap: 20px;
+}
+
+.homeBanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 90%;
+  height: auto;
+  flex-wrap: wrap;
+  padding: 20px;
+  position: relative;
+  border: 1px hidden hidden;
+  border-radius: 15px;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0)
+    ),
+    url("../../imgs/homeBannerImgt.jpg");
+  background-size: cover;
+}
+
+.homeBanner__Title {
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+
+.homeBanner__subtitle {
+  width: 46%;
+  height: auto;
+  text-align: left;
+  z-index: 1;
+}
+
+.homeBanner__specialTitle {
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: var(--AmarilloContraste);
+  font-size: var(--specialTitle);
+  top: 10%;
+  z-index: 0;
+}

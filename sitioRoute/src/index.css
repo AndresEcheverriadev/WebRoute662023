@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --CafePrimario: #aaa295;
+  --CafeOscuro: #3c190e;
+  --Rojo: #e30613;
+  --Negro: #1d1d1b;
+  --Blanco: #ffffff;
+  --BlancoTrans: rgba(255, 255, 255, 0.2);
+  --CelesteOscuro: rgba(46, 52, 143, 1);
+  --GrisOscuro: rgba(57, 59, 92, 1);
+  --AzulBase: rgba(21, 34, 64, 1);
+  --GrisLuz: rgba(89, 92, 143, 1);
+  --CelesteLuz: rgba(70, 80, 219, 1);
+  --CremaBase: rgba(253, 255, 221, 1);
+  --AmarilloContraste: rgba(254, 228, 193, 1);
+  --Gap: 20px;
+  --Margin: 10px;
+  --Padding: 10px;
+  --Title: 600;
+  --Link: 600;
+  --Cuerpo: 400;
+  --h1: 2.488rem;
+  --h2: 2.074rem;
+  --h3: 1.728rem;
+  --h4: 1.44rem;
+  --h5: 1.2rem;
+  --specialTitle: 4rem;
+  --notification: 0.833rem;
+  --p: 14px;
+  --bold: 700;
+  --italic: italic;
+  background-color: var(--AzulBase) !important;
+  color: var(--Blanco);
+}
+
+.logo {
+  width: 125px;
+  height: auto;
+}
+
+.logo--azul {
+  width: 100px;
+}
+
+.botonReserva {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 150px;
+  border: 1px solid transparent;
+  border-radius: 8px !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: var(--AmarilloContraste);
+  color: var(--AzulBase);
+  font-size: var(--h5);
+  font-weight: var(--bold);
+}
+
+.botonReserva:hover {
+  background-color: var(--AzulBase);
+  color: var(--AmarilloContraste);
+  border: 1px solid var(--AmarilloContraste);
+}

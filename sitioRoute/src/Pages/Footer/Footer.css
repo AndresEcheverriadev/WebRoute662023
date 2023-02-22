@@ -1,0 +1,87 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 88%;
+  height: auto;
+  background-color: var(--Blanco);
+  padding: 20px 20px 0px 20px;
+  margin-top: 50px;
+  color: var(--AzulBase);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.footer__Block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  width: auto;
+  height: auto;
+}
+
+.footer__Block p {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__Block hr {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--AzulBase);
+}
+
+.footer__ContactWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+}
+
+.ContactWrapperUp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+}
+
+.ContactWrapperUp__Block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.ContactWrapperUp__Block p {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.ContactWrapperUp__Link {
+  color: var(--AzulBase);
+}
+
+.ContactWrapperUp__Link:hover {
+  color: var(--AzulBase);
+}
+
+.ContactWrapperBottom {
+  display: flex;
+  flex-direction: row;
+  width: 630px;
+  height: 200px;
+  background-color: bisque;
+  margin-top: 20px;
+}
