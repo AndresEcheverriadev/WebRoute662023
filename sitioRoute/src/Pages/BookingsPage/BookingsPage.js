@@ -4,6 +4,7 @@ import { BookingService } from "../../Services/BookingService.js";
 import logo from "../../logo-blanco.svg";
 import bookingZones from "../../Data/bookingZones.mjs";
 import timeRanges from "../../Data/timeRanges.mjs";
+import { downloadPdf } from "./pdfGenerator.js";
 import "./BookingsPage.css";
 
 function BookingsPage() {
@@ -105,7 +106,11 @@ function BookingsPage() {
       customBooking.zonaReserva,
       customBooking.comentarioReserva
     );
-    window.location.reload(false);
+    if (sendBooking.success === true) {
+      window.location.reload(false);
+    } else {
+      return alert("Error creando reserva");
+    }
   };
 
   return (
@@ -298,7 +303,13 @@ function BookingsPage() {
         </div>
         <div className="bookingsTimesContainer">
           <div className="bookingPodsHeader">
-            <h5>Reservas realizadas</h5>
+            <h5>Reservas realizadas</h5>{" "}
+            {downloadPdf(
+              toDayFilter,
+              filteredBookings.length,
+              reducer,
+              filteredBookings
+            )}
           </div>
           <div className="bookingPodsContainer">
             <div className="bookingPodTitles">

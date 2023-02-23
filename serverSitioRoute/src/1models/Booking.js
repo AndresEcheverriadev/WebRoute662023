@@ -15,7 +15,7 @@ class Booking {
       horaReserva: { type: String, required: true, maxLength: 20 },
       cantidadReserva: { type: Number, required: true, min: 1, max: 99 },
       zonaReserva: { type: String, required: true, maxLength: 20 },
-      comentarioReserva: { type: String, required: true, maxLength: 100 },
+      comentarioReserva: { type: String, maxLength: 100 },
     };
   }
 }
