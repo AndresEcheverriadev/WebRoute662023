@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { LoginContext } from "../context/LoginContext.js";
 import { simpleDate, normalizeDate } from "../../Data/utils/simpleDate.js";
 import { BookingService } from "../../Services/BookingService.js";
 import logo from "../../logo-blanco.svg";
@@ -8,6 +9,7 @@ import { downloadPdf } from "./pdfGenerator.js";
 import "./BookingsPage.css";
 
 function BookingsPage() {
+  const { logOut } = useContext(LoginContext);
   const [filterDays, setfilterDays] = useState(0);
   const toDay = new Date();
   const toDayFilter = simpleDate(toDay, filterDays);
@@ -106,7 +108,7 @@ function BookingsPage() {
       customBooking.zonaReserva,
       customBooking.comentarioReserva
     );
-    if (sendBooking.success === true) {
+    if (sendBooking) {
       window.location.reload(false);
     } else {
       return alert("Error creando reserva");
@@ -122,7 +124,7 @@ function BookingsPage() {
       <div className="logBtns">
         <button className="logBtns_admin">Admin Login</button>
         <a href="/">
-          <button className="logBtns_logout" href="/">
+          <button className="logBtns_logout" onClick={() => logOut()}>
             Logout
           </button>
         </a>

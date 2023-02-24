@@ -36,7 +36,10 @@ class Dao {
 
   getAll = async (options, entity) => {
     if (!this.models[entity]) throw new Error(`La entidad no existe`);
-    let result = await this.models[entity].find(options).lean();
+    let result = await this.models[entity]
+      .find(options)
+      .sort({ horaReserva: 1 })
+      .lean();
     return result;
   };
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logo-blanco.svg";
+import { AuthService } from "../../Services/AuthService.js";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -8,6 +9,8 @@ function LoginPage() {
   const passer = "123456A";
   const year = new Date().getFullYear();
   const [loginData, setLoginData] = useState({ user: "", password: "" });
+  const inputPassword = document.getElementById("inputPassManager");
+  const inputUser = document.getElementById("inputUserManager");
   const navigate = useNavigate();
 
   const updateUser = (e) => {
@@ -18,12 +21,29 @@ function LoginPage() {
     setLoginData((prev) => ({ ...prev, password: e.target.value }));
   };
 
-  const login = () => {
-    if ((loginData.user === userer) & (loginData.password === passer)) {
-      navigate("/bookings");
+  const loginUser = async () => {
+    const response = await AuthService.login(
+      loginData.user,
+      loginData.password
+    );
+    if (response.success) {
+      inputUser.value = "";
+      inputPassword.value = "";
+      return navigate("/bookings");
     } else {
-      alert("Datos incorrectos");
+      alert("Intente Nuevamente");
     }
+
+    // if ((loginData.user === userer) & (loginData.password === passer)) {
+    //   AuthService.login(loginData.user, loginData.password);
+    //   navigate("/bookings");
+    //   inputUser.value = "";
+    //   inputPassword.value = "";
+    // } else {
+    //   inputUser.value = "";
+    //   inputPassword.value = "";
+    //   alert("Datos incorrectos");
+    // }
   };
 
   return (
@@ -37,14 +57,16 @@ function LoginPage() {
           className="credentials__input"
           type="text"
           onChange={(e) => updateUser(e)}
+          id="inputUserManager"
         />
         <p className="credentials__text">Password</p>
         <input
           className="credentials__input"
           type="password"
           onChange={(e) => updatePassword(e)}
+          id="inputPassManager"
         ></input>
-        <button className="credentials__btn" onClick={login}>
+        <button className="credentials__btn" onClick={loginUser}>
           Ingresar
         </button>
       </form>
