@@ -43,17 +43,11 @@ const loginToken = async () => {
   try {
     const token = await LocalStorageService.getItem("token");
     if (!token) return { success: false };
-    // if (token) return { success: true };
     return { success: true, user: true };
   } catch (error) {
     return { success: false };
   }
 };
-
-// const isLogged = () => {
-//   const token = LocalStorageService.getItem("token");
-//   return !!token;
-// };
 
 const logout = async () => {
   try {

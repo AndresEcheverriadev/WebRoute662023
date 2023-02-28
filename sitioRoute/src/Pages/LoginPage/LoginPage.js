@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import logo from "../../logo-blanco.svg";
+import { LoginContext } from "../context/LoginContext.js";
 import { AuthService } from "../../Services/AuthService.js";
 import "./LoginPage.css";
 
@@ -11,6 +12,7 @@ function LoginPage() {
   const [loginData, setLoginData] = useState({ user: "", password: "" });
   const inputPassword = document.getElementById("inputPassManager");
   const inputUser = document.getElementById("inputUserManager");
+  const { setisLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const updateUser = (e) => {
@@ -21,29 +23,20 @@ function LoginPage() {
     setLoginData((prev) => ({ ...prev, password: e.target.value }));
   };
 
-  const loginUser = async () => {
+  const loginUser = async (e) => {
+    e.preventDefault();
     const response = await AuthService.login(
       loginData.user,
       loginData.password
     );
     if (response.success) {
-      inputUser.value = "";
-      inputPassword.value = "";
-      return navigate("/bookings");
+      setisLoggedIn(true);
+      navigate("/bookings");
     } else {
       alert("Intente Nuevamente");
+      inputUser.value = "";
+      inputPassword.value = "";
     }
-
-    // if ((loginData.user === userer) & (loginData.password === passer)) {
-    //   AuthService.login(loginData.user, loginData.password);
-    //   navigate("/bookings");
-    //   inputUser.value = "";
-    //   inputPassword.value = "";
-    // } else {
-    //   inputUser.value = "";
-    //   inputPassword.value = "";
-    //   alert("Datos incorrectos");
-    // }
   };
 
   return (

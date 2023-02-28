@@ -29,10 +29,8 @@ function LoginContextProvider({ children }) {
   const checkToken = async () => {
     const data = await AuthService.loginToken();
     if (data.success === true) {
-      alert("data success");
       setisLoggedIn(true);
     } else {
-      alert("data fail");
       setisLoggedIn(false);
     }
   };
@@ -41,7 +39,12 @@ function LoginContextProvider({ children }) {
 
   return (
     <LoginContext.Provider
-      value={{ checkToken, logOut, isLoggedIn, setisLoggedIn }}
+      value={{
+        checkToken,
+        logOut,
+        isLoggedIn,
+        setisLoggedIn,
+      }}
     >
       {children}
     </LoginContext.Provider>

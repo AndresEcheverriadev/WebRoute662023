@@ -142,7 +142,6 @@ const MyDocument = (date, qReservas, tpersonas, bookinsgArray) => (
 );
 
 const downloadPdf = (date, qReservas, tpersonas, bookingsArray) => {
-  console.log(bookingsArray);
   return (
     <div>
       <PDFDownloadLink

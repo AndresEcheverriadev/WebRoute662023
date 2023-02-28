@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(onAuthorizationHeaders);
 
-app.use("/api/user", isAuthorized, usersRouter);
+app.use("/api/user", usersRouter);
 app.use("/api/bookings", isAuthorized, bookingsRouter);
 app.use("/api/createBooking", createBookingRouter);
 

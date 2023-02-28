@@ -26,7 +26,8 @@ const post = async (url, data) => {
   try {
     const token = LocalStorageService.getItem("token");
     const response = await axios.post(url, data, {
-      headers: { Authorization: `Bearer ${token}` },
+      // headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `${token}` },
     });
     return response;
   } catch (error) {

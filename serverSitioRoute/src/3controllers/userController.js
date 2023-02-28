@@ -14,17 +14,12 @@ const loginUser = async (req, res) => {
       });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "24h",
+      expiresIn: "10m",
     });
     ServerResponse.success({
       res,
       data: {
         token,
-        user: {
-          userName: user.userName,
-          password: user.password,
-        },
-        auth: true,
       },
     });
   } catch (error) {
