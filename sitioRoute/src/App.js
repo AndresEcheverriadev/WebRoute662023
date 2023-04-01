@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LoginContextProvider from "./Pages/context/LoginContext.js";
 import Guard from "./Pages/Guard/Guard.js";
@@ -6,11 +6,9 @@ import HomePage from "./Pages/HomePage/HomePage.js";
 import AdminPage from "./Pages/AdminPage/AdminPage.js";
 import BookingsPage from "./Pages/BookingsPage/BookingsPage.js";
 import LoginPage from "./Pages/LoginPage/LoginPage.js";
-import { LoginContext } from "./Pages/context/LoginContext.js";
 import "./App.css";
 
 function App() {
-  const { isLoggedIn } = useContext(LoginContext);
   return (
     <BrowserRouter>
       <LoginContextProvider>

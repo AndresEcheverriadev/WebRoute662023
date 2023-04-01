@@ -1,5 +1,6 @@
 import { ServerResponse } from "../config/serverResponses.js";
 import { bookingService } from "../2services/index.js";
+import sendMail from "../2services/mailReservaService.js";
 
 const allBookings = async (req, res) => {
   try {
@@ -102,6 +103,7 @@ const addBooking = async (req, res) => {
       comentarioReserva,
     };
     let createdBooking = await bookingService.save(newBooking);
+    sendMail(newBooking);
     ServerResponse.success({
       res,
       result: "Reserva creada",
