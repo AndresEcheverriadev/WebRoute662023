@@ -29,6 +29,7 @@
     ),
     url("../../imgs/homeBannerImgt.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .homeBanner__Title {

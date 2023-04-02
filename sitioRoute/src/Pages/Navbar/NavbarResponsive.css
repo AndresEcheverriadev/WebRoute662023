@@ -1,0 +1,9 @@
+@media (max-width: 480px) {
+  .NavbarWrapper {
+    flex-direction: column;
+  }
+
+  .navbarLinksContainer {
+    flex-direction: column;
+  }
+}

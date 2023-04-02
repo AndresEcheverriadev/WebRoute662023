@@ -1,0 +1,93 @@
+@media (max-width: 480px) {
+  .carta__SelectorsContainer {
+    flex-wrap: wrap;
+  }
+
+  .carta__Selectors__Btn {
+    width: 30%;
+    height: 50px;
+    font-size: small;
+  }
+
+  .carta__DisplayContainer {
+    width: 95%;
+    gap: 10px;
+    padding: 0px;
+  }
+
+  .carta__PlatoCard {
+    width: 100%;
+    height: auto !important;
+  }
+
+  .carta__PlatoCard__Nombre {
+    display: none;
+  }
+
+  .carta__PlatoCard__Nombre--Mobile {
+    height: 50px;
+    font-weight: var(--bold);
+    color: var(--Blanco);
+  }
+
+  .carta__PlatoCard__Descripcion {
+    display: none;
+  }
+
+  .carta__PlatoCard__Imagen {
+    height: 100px;
+  }
+
+  .carta__PlatoCard__TextContainer {
+    padding: 5px;
+  }
+
+  .accordion {
+    display: initial !important;
+  }
+
+  .btnCollapse {
+    width: 100% !important;
+  }
+
+  .accordion-item {
+    background-color: transparent !important;
+    color: var(--Blanco) !important;
+    border-style: hidden !important;
+  }
+
+  .accordion-button {
+    height: 70px !important;
+    background-color: transparent !important;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  }
+
+  .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+
+  .accordion-button:focus {
+    box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0
+      transparent !important;
+  }
+}
+
+/* 
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 960px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1328px) {
+} */

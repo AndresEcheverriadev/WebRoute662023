@@ -24,10 +24,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
+  height: 35px;
   width: 100%;
   border: 1px solid var(--Blanco);
   border-radius: 8px;
+  padding: 5px;
 }
 
 .carta__Selectors__Btn:hover {
@@ -55,6 +56,10 @@
   border: 1px solid var(--Blanco);
   border-radius: 4px;
   text-align: left;
+}
+
+.accordion {
+  display: none !important;
 }
 
 .carta__PlatoCard__Imagen {

@@ -2,9 +2,9 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import BookingModule from "../BookingModule/BookingModule.js";
 import CartaModule from "../CartaModule/CartaModule.js";
-import RatingsModules from "../RatingsModule/RatingsModules.js";
 import Footer from "../Footer/Footer.js";
 import "./HomePage.css";
+import "./HomePageResponsive.css";
 
 function HomePage() {
   return (
@@ -18,12 +18,11 @@ function HomePage() {
           Disfruta platos y sabores de distintos lugares del mundo,
           seleccionados especialmente para ti.
         </h5>
-        <a href="#reservas">
+        <a href="#reservas" className="botonReservaWrapper">
           <button className="botonReserva"> Reservar</button>
         </a>
       </main>
       <CartaModule />
-      <RatingsModules />
       <BookingModule />
       <Footer />
     </div>
