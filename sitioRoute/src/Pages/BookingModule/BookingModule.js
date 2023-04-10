@@ -5,11 +5,12 @@ import { addDays } from "date-fns";
 import es from "date-fns/locale/es";
 import timeRanges from "../../Data/timeRanges.mjs";
 import bookingZones from "../../Data/bookingZones.mjs";
-import interiorDemo from "../../Data/interiorDemo.jpg";
-import salonDemo from "../../Data/salonDemo.jpg";
-import terrazaDemo from "../../Data/terrazaDemo.jpg";
+import interiorDemo from "../BookingModule/interiorDemo.jpg";
+import salonDemo from "../BookingModule/salonDemo.jpg";
+import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
 import { BookingService } from "../../Services/BookingService.js";
 import "./BookingModule.css";
+import "./BookingModuleResponsive.css";
 setDefaultLocale("es");
 registerLocale("es", es);
 
@@ -58,7 +59,7 @@ function BookingModule() {
 
   useEffect(() => {
     const salonNotification = document.getElementById("salonNotification");
-    const imgBooking = document.getElementById("imgBooking");
+    const imgBooking = document.getElementById("bookingImg");
     switch (zoneSelected) {
       case "Salon ejecutivo":
         imgBooking.src = salonDemo;
@@ -105,6 +106,7 @@ function BookingModule() {
   }
 
   useEffect(() => {
+    const bookingNotification = document.getElementById("notificationBooking");
     if (
       bookingData.nombreReserva !== "" &&
       bookingData.emailReserva !== "" &&
@@ -112,9 +114,11 @@ function BookingModule() {
     ) {
       setDataOk(true);
       setDisabled("");
+      bookingNotification.style.visibility = "hidden";
     } else {
       setDataOk(false);
       setDisabled("disabled");
+      bookingNotification.style.visibility = "visible";
     }
   }, [bookingData]);
 
@@ -154,13 +158,13 @@ function BookingModule() {
 
   return (
     <div className="bookingModuleMainWrapper" id="reservas">
-      <h2>Agenda tu reserva</h2>
+      <div className="titleBookingWrapper">
+        <h2 id="bookingTitle">Agenda tu reserva</h2>
+        <img id="bookingImg" src={interiorDemo} alt="" />
+      </div>
       {bookingCompleted === false ? (
         <div className="conditionalWrapper">
           <div className="bookingWrapper">
-            <div className="imageWrapper">
-              <img id="imgBooking" src={interiorDemo} alt="" />
-            </div>
             <div className="pickersWrapper">
               <div className="datePickerContainer">
                 <p>Seleccione día</p>
@@ -263,9 +267,8 @@ function BookingModule() {
                 }
               />
             </div>
-
             <div className="btnReservarContainer">
-              <p className="notificationBooking">*Datos requeridos</p>
+              <p id="notificationBooking">*Datos requeridos</p>
               <button
                 id="btnReservar"
                 disabled={disabled}
@@ -290,7 +293,7 @@ function BookingModule() {
           <div className="bookingConfirmDataContainer">
             <div className="titlesBookingContainer">
               <b>¡Tu reserva ya esta lista!</b>
-              <b>Te esperamos.</b>
+              <b>Revisa tu correo.</b>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"

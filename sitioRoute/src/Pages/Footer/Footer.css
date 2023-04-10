@@ -41,6 +41,8 @@
   flex-direction: column;
   width: 50%;
   height: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .ContactWrapperUp {
@@ -48,7 +50,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
@@ -80,8 +82,9 @@
 .ContactWrapperBottom {
   display: flex;
   flex-direction: row;
-  width: 630px;
+  justify-content: center;
+  align-items: center;
+  width: 705px;
   height: 200px;
-  background-color: bisque;
   margin-top: 20px;
 }

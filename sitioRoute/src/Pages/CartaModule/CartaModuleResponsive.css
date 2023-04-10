@@ -35,7 +35,7 @@
   }
 
   .carta__PlatoCard__Imagen {
-    height: 100px;
+    height: 50px;
   }
 
   .carta__PlatoCard__TextContainer {
@@ -75,19 +75,17 @@
   }
 }
 
-/* 
-
-@media (max-width: 480px) {
+@media (min-width: 481px) and (max-width: 960px) {
+  .carta__PlatoCard {
+    width: 31%;
+    height: auto !important;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1450px) {
+  .carta__Selectors__Btn {
+    width: 30%;
+    height: 50px;
+    font-size: small;
+  }
 }
-
-@media (max-width: 960px) {
-}
-
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 1328px) {
-} */

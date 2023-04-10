@@ -7,6 +7,27 @@
   gap: 20px;
 }
 
+.titleBookingWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 70%;
+}
+
+#bookingTitle {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#bookingImg {
+  height: auto;
+  width: 100%;
+  border-style: hidden;
+  border-radius: 15px;
+}
+
 .conditionalWrapper {
   display: flex;
   flex-direction: column;
@@ -23,36 +44,17 @@
   justify-content: flex-start;
   align-items: center;
   height: auto;
-  width: 90%;
-  /* outline-style: solid;
-  outline-width: 2px;
-  border-radius: 30px; */
-  padding: var(--Padding);
-}
-
-.imageWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  height: auto;
-  width: 33%;
-}
-
-.imageWrapper img {
-  height: auto;
   width: 100%;
-  border-style: hidden;
-  border-radius: 15px;
+  padding: var(--Padding);
 }
 
 .pickersWrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: auto;
-  width: 33%;
+  width: 50%;
 }
 
 .datePickerContainer {
@@ -60,7 +62,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  height: 150px;
   width: 50%;
   text-align: center;
   padding: 10px;
@@ -107,7 +109,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  height: 150px;
   width: 50%;
   text-align: center;
   padding: 10px;
@@ -136,7 +138,7 @@
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 33%;
+  width: 50%;
 }
 
 .peopleContainer {
@@ -144,7 +146,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  height: 150px;
   width: 50%;
   padding: 10px;
 }
@@ -162,6 +164,7 @@
   align-items: flex-start;
   height: 45px;
   width: 100%;
+  margin-top: 35px;
 }
 
 .quantityIndicator {
@@ -217,7 +220,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  height: 150px;
   width: 50%;
   padding: 10px;
 }
@@ -229,7 +232,7 @@
 }
 
 .zoneSelector {
-  width: 200px;
+  width: 100%;
   height: 45px;
   border-radius: 15px;
   padding-left: 10px;
@@ -237,6 +240,7 @@
   border-style: solid;
   border-width: 1px;
   border-color: var(--Blanco);
+  margin-top: 10px;
 }
 
 .userWrapper {
@@ -246,17 +250,13 @@
   align-items: center;
   height: auto;
   width: 90%;
-  /* border-style: solid;
-  border-width: 2px;
-  border-radius: 30px; */
   padding: var(--Padding);
-  gap: 10px;
 }
 
 .userInputsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: auto;
   width: 33%;
@@ -269,15 +269,15 @@
 }
 
 .userInputsContainer input {
-  width: 90%;
-  height: 45px;
+  width: 100%;
+  height: 40px;
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
   border-style: solid;
   border-width: 1px;
   border-color: var(--Blanco);
-  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .userMessaggeContainer {
@@ -296,7 +296,7 @@
 }
 
 #userMessaggeInput {
-  height: 135px;
+  height: 150px;
   width: 90%;
   border-radius: 15px;
   padding-left: 10px;
@@ -305,7 +305,6 @@
   border-style: solid;
   border-width: 1px;
   border-color: var(--Blanco);
-  margin-bottom: 5px;
   resize: none;
 }
 
@@ -330,13 +329,13 @@
   border-style: solid;
   border-width: 3px;
   border-color: var(--CafeOscuro);
-  background-color: var(--Blanco);
+  background-color: var(--CremaBase);
 }
 
 #btnReservar:enabled:hover {
   background-color: var(--CafeOscuro);
-  color: var(--Blanco);
-  border-color: var(--Blanco);
+  color: var(--CremaBase);
+  border-color: var(--CremaBase);
 }
 
 .calendarIcon {
@@ -344,13 +343,13 @@
   height: 25px;
 }
 
-.notificationBooking {
+#notificationBooking {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70px;
-  width: 85%;
+  height: auto;
+  width: 100%;
 }
 
 .confirmedWrapper {

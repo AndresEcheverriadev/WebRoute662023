@@ -2,24 +2,42 @@ import React from "react";
 import logo from "../../logo.svg";
 import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
 import "./Footer.css";
+import "./FooterResponsive.css";
+import { useRef } from "react";
+import { useLayoutEffect } from "react";
+import { useState } from "react";
 
 function Footer() {
   const mail = "contacto@route66.cl";
-  const mapWidth = "630px";
+  const mapWidth = "200px";
   const mapHeight = "200px";
+
+  const refMapContainer = useRef(null);
+  const [widthMapContainer, setWidthMapContainer] = useState(0);
+  const [heightMapContainer, setHeightMapContainer] = useState(0);
+
+  useLayoutEffect(() => {
+    setWidthMapContainer(refMapContainer.current.offsetWidth);
+    setHeightMapContainer(refMapContainer.current.offsetHeight);
+  }, []);
 
   return (
     <div className="footer">
       <img src={logo} alt="" className=" logo logo--azul" />
+      <h5>Horarios:</h5>
       <div className="footer__Block footerBlock--leftAligned">
-        <p>Horarios:</p>
-        <p>domingo a Miercoles</p>
-        <p>12:30 a 00:00 Hrs</p>
-        <p>cierre de cocina a las 23:00 Hrs</p>
-        <hr />
-        <p>Jueves a Sábado</p>
-        <p>12:30 a 01:00 Hrs</p>
-        <p>cierre de cocina a las 00:00 Hrs</p>
+        <div className="footer__BlockUp">
+          <p>domingo a Miercoles</p>
+          <p>12:30 a 00:00 Hrs</p>
+          <p>cierre de cocina a las 23:00 Hrs</p>
+          <hr />
+        </div>
+        <div className="footer__BlockBottom">
+          <p>Jueves a Sábado</p>
+          <p>12:30 a 01:00 Hrs</p>
+          <p>cierre de cocina a las 00:00 Hrs</p>
+          <hr />
+        </div>
       </div>
 
       <div className="footer__ContactWrapper">
@@ -100,8 +118,11 @@ function Footer() {
             </svg>
           </a>
         </div>
-        <div className="ContactWrapperBottom">
-          <GoogleMapModule mapWidth={mapWidth} mapHeight={mapHeight} />
+        <div className="ContactWrapperBottom" ref={refMapContainer}>
+          <GoogleMapModule
+            mapWidth={widthMapContainer}
+            mapHeight={heightMapContainer}
+          />
         </div>
       </div>
     </div>

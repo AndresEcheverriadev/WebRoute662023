@@ -4,10 +4,9 @@ import logo from "../../logo-blanco.svg";
 import { LoginContext } from "../context/LoginContext.js";
 import { AuthService } from "../../Services/AuthService.js";
 import "./LoginPage.css";
+import "./LoginPageResponsive.css";
 
 function LoginPage() {
-  const userer = "andresE";
-  const passer = "123456A";
   const year = new Date().getFullYear();
   const [loginData, setLoginData] = useState({ user: "", password: "" });
   const inputPassword = document.getElementById("inputPassManager");
@@ -44,6 +43,10 @@ function LoginPage() {
       <a href="/">
         <img className="logo" src={logo} alt="logo Route" />
       </a>
+      <h5 className="smallScreenWarning">
+        No se puede acceder desde la pantalla de este dispositivo. Intenta
+        acceder desde un computador de escritorio
+      </h5>
       <form className="credentials">
         <p className="credentials__text">Usuario</p>
         <input

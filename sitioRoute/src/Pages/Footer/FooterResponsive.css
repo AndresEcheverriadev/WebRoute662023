@@ -1,0 +1,126 @@
+@media (max-width: 320px) {
+  .ContactWrapperBottom {
+    width: 250px !important;
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ContactWrapperUp {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 400px) {
+  .ContactWrapperBottom {
+    width: 300px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+  .ContactWrapperBottom {
+    width: 380px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  .ContactWrapperBottom {
+    width: 480px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .ContactWrapperUp {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .ContactWrapperBottom {
+    width: 500px !important;
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+  }
+
+  .footer__Block {
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .footer__ContactWrapper {
+    width: 100%;
+  }
+
+  .ContactWrapperUp__Block {
+    align-items: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 800px) {
+  .ContactWrapperBottom {
+    width: 700px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 900px) {
+  .ContactWrapperBottom {
+    width: 750px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1000px) {
+  .ContactWrapperBottom {
+    width: 850px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .ContactWrapperBottom {
+    width: 950px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .ContactWrapperBottom {
+    width: 1050px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+  .ContactWrapperBottom {
+    width: 500px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 1301px) and (max-width: 1500px) {
+  .ContactWrapperBottom {
+    width: 600px !important;
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+  .ContactWrapperBottom {
+    width: 650px !important;
+    height: 200px !important;
+  }
+}

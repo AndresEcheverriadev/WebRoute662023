@@ -10,6 +10,16 @@
   gap: 20px;
 }
 
+.smallScreenWarning {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  flex-wrap: wrap;
+}
+
 .credentials {
   display: flex;
   flex-direction: column;
