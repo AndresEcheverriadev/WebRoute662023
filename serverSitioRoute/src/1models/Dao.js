@@ -8,7 +8,10 @@ mongoose.set("strictQuery", false);
 class Dao {
   constructor() {
     this.mongoose = mongoose
-      .connect(`${process.env.MONGOURL}`)
+      .connect(`${process.env.MONGOURL}`, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
       .then(() => {
         console.log(`conectado a base de datos`);
       })
