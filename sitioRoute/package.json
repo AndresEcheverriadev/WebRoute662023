@@ -1,7 +1,7 @@
 {
-  "name": "agenda_web",
+  "name": "route66_web",
   "version": "0.1.0",
-  "homepage": "https://brandpro.cl/route66/",
+  "homepage": "http://159.89.93.244/",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.6",
