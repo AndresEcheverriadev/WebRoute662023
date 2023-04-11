@@ -7,6 +7,7 @@ const loginUser = async (req, res) => {
   try {
     const { userName, password } = req.body;
     const user = await userService.getOne({ userName });
+    console.log(user);
     if (!user || !isValidPassword(user, password)) {
       // return ServerResponse.unauthorized({
       //   res,
@@ -17,6 +18,7 @@ const loginUser = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "10m",
     });
+    console.log(token);
     ServerResponse.success({
       res,
       data: {
