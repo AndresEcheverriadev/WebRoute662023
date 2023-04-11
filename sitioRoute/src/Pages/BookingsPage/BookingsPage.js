@@ -6,6 +6,7 @@ import logo from "../../logo-blanco.svg";
 import bookingZones from "../../Data/bookingZones.mjs";
 import timeRanges from "../../Data/timeRanges.mjs";
 import { downloadPdf } from "./pdfGenerator.js";
+import { Helmet } from "react-helmet";
 import "./BookingsPage.css";
 
 function BookingsPage() {
@@ -116,215 +117,220 @@ function BookingsPage() {
   };
 
   return (
-    <div className="bookingsMainWrapper">
-      <a href="/">
-        <img className="mainLogoBookings" src={logo} alt="" />
-      </a>
-      <h1>Administrador de reservas Route 66</h1>
-      <div className="logBtns">
-        <button className="logBtns_admin">Admin Login</button>
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <div className="bookingsMainWrapper">
         <a href="/">
-          <button className="logBtns_logout" onClick={() => logOut()}>
-            Logout
-          </button>
+          <img className="mainLogoBookings" src={logo} alt="" />
         </a>
-      </div>
-      <div className="bookingsVisualizerContainer">
-        <div className="bookingsOptionsContainer">
-          <div className="activeDateContainer">
-            <h5 className="activeDateHeaderTitle">Opciones de filtro</h5>
-            <h4 className="todayPod">{toDayFilter}</h4>
-            <div className="todayFilterBtns">
-              <button
-                className="btnDayMinus"
-                onClick={() => handlerFilterDay(-1)}
-              >
-                Dia -
-              </button>
-              <button
-                className="btnDayToday"
-                onClick={() => handlerFilterToday()}
-              >
-                Hoy
-              </button>
-              <button
-                className="btnDayPlus"
-                onClick={() => handlerFilterDay(1)}
-              >
-                Dia +
-              </button>
-            </div>
-          </div>
-          <div className="bookingsStatsContainer">
-            <h5 className="bookingStatsHeaderTitle">
-              Estadísticas de reservas
-            </h5>
-            <div className="statPodsContainer">
-              <div className="statPod">
-                <p>Cantidad de Reservas</p>
-                <h5> {filteredDates.length}</h5>
-              </div>
-              <div className="statPod">
-                <p>Total personas</p>
-                <h5> {reducer}</h5>
+        <h1>Administrador de reservas Route 66</h1>
+        <div className="logBtns">
+          <button className="logBtns_admin">Admin Login</button>
+          <a href="/">
+            <button className="logBtns_logout" onClick={() => logOut()}>
+              Logout
+            </button>
+          </a>
+        </div>
+        <div className="bookingsVisualizerContainer">
+          <div className="bookingsOptionsContainer">
+            <div className="activeDateContainer">
+              <h5 className="activeDateHeaderTitle">Opciones de filtro</h5>
+              <h4 className="todayPod">{toDayFilter}</h4>
+              <div className="todayFilterBtns">
+                <button
+                  className="btnDayMinus"
+                  onClick={() => handlerFilterDay(-1)}
+                >
+                  Dia -
+                </button>
+                <button
+                  className="btnDayToday"
+                  onClick={() => handlerFilterToday()}
+                >
+                  Hoy
+                </button>
+                <button
+                  className="btnDayPlus"
+                  onClick={() => handlerFilterDay(1)}
+                >
+                  Dia +
+                </button>
               </div>
             </div>
+            <div className="bookingsStatsContainer">
+              <h5 className="bookingStatsHeaderTitle">
+                Estadísticas de reservas
+              </h5>
+              <div className="statPodsContainer">
+                <div className="statPod">
+                  <p>Cantidad de Reservas</p>
+                  <h5> {filteredDates.length}</h5>
+                </div>
+                <div className="statPod">
+                  <p>Total personas</p>
+                  <h5> {reducer}</h5>
+                </div>
+              </div>
+            </div>
+            <div className="createBookingContainer">
+              <h5 className="createBookingHeaderTitle">Crear reserva</h5>
+
+              <div className="createBookingInputs">
+                <form action="" className="bookingInputForm">
+                  <div className="bookingInputDateData">
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Dia</p>
+                      <input
+                        className="bookingInputField"
+                        type="date"
+                        locale
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            diaReserva: normalizeDate(e.target.value),
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Hora</p>
+
+                      <select
+                        className="bookingInputField"
+                        name=""
+                        id=""
+                        onChange={(e) =>
+                          handleCustomBooking({ horaReserva: e.target.value })
+                        }
+                      >
+                        {timeRanges.map((times, index) => {
+                          return (
+                            <option key={index} value={times}>
+                              {times}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Cantidad</p>
+                      <input
+                        value={customBooking.cantidadReserva}
+                        className="bookingInputField"
+                        type="number"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            cantidadReserva: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Zona</p>
+
+                      <select
+                        className="bookingInputField"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            zonaReserva: e.target.value,
+                          })
+                        }
+                      >
+                        {bookingZones.map((zones, index) => {
+                          return (
+                            <option key={index} value={zones}>
+                              {zones}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="bookingInputPersonalData">
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Nombre</p>
+                      <input
+                        className="bookingInputField"
+                        type="text"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            nombreReserva: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Telefono</p>
+                      <input
+                        className="bookingInputField"
+                        type="text"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            telefonoReserva: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Correo</p>
+                      <input
+                        className="bookingInputField"
+                        type="email"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            emailReserva: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div className="bookingInput">
+                      <p className="bookingInputName">Comentario</p>
+                      <input
+                        className="bookingInputField"
+                        type="text"
+                        onChange={(e) =>
+                          handleCustomBooking({
+                            comentarioReserva: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <button
+                      className="bookingInputBtn"
+                      onClick={(e) => createBooking(e)}
+                    >
+                      Crear reserva
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="createBookingContainer">
-            <h5 className="createBookingHeaderTitle">Crear reserva</h5>
-
-            <div className="createBookingInputs">
-              <form action="" className="bookingInputForm">
-                <div className="bookingInputDateData">
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Dia</p>
-                    <input
-                      className="bookingInputField"
-                      type="date"
-                      locale
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          diaReserva: normalizeDate(e.target.value),
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Hora</p>
-
-                    <select
-                      className="bookingInputField"
-                      name=""
-                      id=""
-                      onChange={(e) =>
-                        handleCustomBooking({ horaReserva: e.target.value })
-                      }
-                    >
-                      {timeRanges.map((times, index) => {
-                        return (
-                          <option key={index} value={times}>
-                            {times}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Cantidad</p>
-                    <input
-                      value={customBooking.cantidadReserva}
-                      className="bookingInputField"
-                      type="number"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          cantidadReserva: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Zona</p>
-
-                    <select
-                      className="bookingInputField"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          zonaReserva: e.target.value,
-                        })
-                      }
-                    >
-                      {bookingZones.map((zones, index) => {
-                        return (
-                          <option key={index} value={zones}>
-                            {zones}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                </div>
-                <div className="bookingInputPersonalData">
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Nombre</p>
-                    <input
-                      className="bookingInputField"
-                      type="text"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          nombreReserva: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Telefono</p>
-                    <input
-                      className="bookingInputField"
-                      type="text"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          telefonoReserva: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Correo</p>
-                    <input
-                      className="bookingInputField"
-                      type="email"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          emailReserva: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="bookingInput">
-                    <p className="bookingInputName">Comentario</p>
-                    <input
-                      className="bookingInputField"
-                      type="text"
-                      onChange={(e) =>
-                        handleCustomBooking({
-                          comentarioReserva: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <button
-                    className="bookingInputBtn"
-                    onClick={(e) => createBooking(e)}
-                  >
-                    Crear reserva
-                  </button>
-                </div>
-              </form>
+          <div className="bookingsTimesContainer">
+            <div className="bookingPodsHeader">
+              <h5>Reservas realizadas</h5>{" "}
+              {downloadPdf(
+                toDayFilter,
+                filteredBookings.length,
+                reducer,
+                filteredBookings
+              )}
+            </div>
+            <div className="bookingPodsContainer">
+              <div className="bookingPodTitles">
+                <p>Fecha</p>
+                <p>Hora</p>
+                <p>cantidad</p>
+                <p>Zona</p>
+              </div>
+              {filteredDates}
             </div>
           </div>
         </div>
-        <div className="bookingsTimesContainer">
-          <div className="bookingPodsHeader">
-            <h5>Reservas realizadas</h5>{" "}
-            {downloadPdf(
-              toDayFilter,
-              filteredBookings.length,
-              reducer,
-              filteredBookings
-            )}
-          </div>
-          <div className="bookingPodsContainer">
-            <div className="bookingPodTitles">
-              <p>Fecha</p>
-              <p>Hora</p>
-              <p>cantidad</p>
-              <p>Zona</p>
-            </div>
-            {filteredDates}
-          </div>
-        </div>
       </div>
-    </div>
+    </>
   );
 }
 
