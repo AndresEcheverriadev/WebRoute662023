@@ -7,18 +7,6 @@ export const LoginContext = createContext([]);
 function LoginContextProvider({ children }) {
   const navigate = useNavigate();
 
-  //   const logIn = (userName, password) => {
-  //     const data = sessionStorage.getItem("adminLogged");
-  //     if (data == null) {
-  //       sessionStorage.setItem(
-  //         "adminLogged",
-  //         JSON.stringify(`adminLogged${Date.now()}`)
-  //       );
-  //     } else {
-  //       alert("Ya existe sesión");
-  //     }
-  //   };
-
   const logOut = () => {
     const data = AuthService.logout();
     if (data.success === true) {
