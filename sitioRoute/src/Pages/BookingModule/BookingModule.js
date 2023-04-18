@@ -6,7 +6,6 @@ import es from "date-fns/locale/es";
 import timeRanges from "../../Data/timeRanges.mjs";
 import bookingZones from "../../Data/bookingZones.mjs";
 import interiorDemo from "../BookingModule/interiorDemo.jpg";
-import salonDemo from "../BookingModule/salonDemo.jpg";
 import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
 import { BookingService } from "../../Services/BookingService.js";
 import "./BookingModule.css";
@@ -61,16 +60,12 @@ function BookingModule() {
     const salonNotification = document.getElementById("salonNotification");
     const imgBooking = document.getElementById("bookingImg");
     switch (zoneSelected) {
-      case "Salon ejecutivo":
-        imgBooking.src = salonDemo;
-        break;
       case "Interior":
         imgBooking.src = interiorDemo;
         break;
       case "Terraza":
         imgBooking.src = terrazaDemo;
         break;
-
       default:
         break;
     }

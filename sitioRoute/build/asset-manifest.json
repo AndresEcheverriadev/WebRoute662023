@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.dca07e53.css",
-    "main.js": "/static/js/main.889e5278.js",
+    "main.css": "/static/css/main.9baacfd8.css",
+    "main.js": "/static/js/main.93ceefc2.js",
     "static/js/787.493ddf15.chunk.js": "/static/js/787.493ddf15.chunk.js",
     "static/media/Capresse.webp": "/static/media/Capresse.2b27543690cb742fd7dd.webp",
     "static/media/Gamberetti.webp": "/static/media/Gamberetti.ba2cf82e0002dca81515.webp",
@@ -50,7 +50,6 @@
     "static/media/FreshBurger.webp": "/static/media/FreshBurger.b2c42ba003368d38aadb.webp",
     "static/media/PulpoAlOlivo.webp": "/static/media/PulpoAlOlivo.0d4d0a54d1a58846fea0.webp",
     "static/media/Brownie.webp": "/static/media/Brownie.cc1eadde944a52faa1e2.webp",
-    "static/media/salonDemo.jpg": "/static/media/salonDemo.1d0c2c06147ddb02cc5a.jpg",
     "static/media/TomatoCreamShrimpPasta.webp": "/static/media/TomatoCreamShrimpPasta.073f403195bb1f70139d.webp",
     "static/media/SmokeSalmonHoneySalad.webp": "/static/media/SmokeSalmonHoneySalad.c9d531bae67207cba903.webp",
     "static/media/RedVelvet.webp": "/static/media/RedVelvet.1762e3e506b548b90400.webp",
@@ -67,12 +66,12 @@
     "static/media/logo-contraste.svg": "/static/media/logo-contraste.7ddc12ebe66a8491be1140703728458f.svg",
     "static/media/logo.svg": "/static/media/logo.e448ad2b64dd4ffa7cf434140f885b13.svg",
     "index.html": "/index.html",
-    "main.dca07e53.css.map": "/static/css/main.dca07e53.css.map",
-    "main.889e5278.js.map": "/static/js/main.889e5278.js.map",
+    "main.9baacfd8.css.map": "/static/css/main.9baacfd8.css.map",
+    "main.93ceefc2.js.map": "/static/js/main.93ceefc2.js.map",
     "787.493ddf15.chunk.js.map": "/static/js/787.493ddf15.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dca07e53.css",
-    "static/js/main.889e5278.js"
+    "static/css/main.9baacfd8.css",
+    "static/js/main.93ceefc2.js"
   ]
 }

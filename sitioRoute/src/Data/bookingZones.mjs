@@ -1,3 +1,3 @@
-const bookingZones = ["Interior", "Terraza", "Salon ejecutivo"];
+const bookingZones = ["Interior", "Terraza"];
 
 export default bookingZones;

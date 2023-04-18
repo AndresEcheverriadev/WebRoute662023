@@ -7,18 +7,15 @@ const loginUser = async (req, res) => {
   try {
     const { userName, password } = req.body;
     const user = await userService.getOne({ userName });
-    console.log(user);
     if (!user || !isValidPassword(user, password)) {
-      // return ServerResponse.unauthorized({
-      //   res,
-      //   error: "Datos de sesión incorrectos",
-      // });
-      console.log("Datos de sesión incorrectos");
+      return ServerResponse.unauthorized({
+        res,
+        error: "Datos de sesión incorrectos",
+      });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "10m",
     });
-    console.log(token);
     ServerResponse.success({
       res,
       data: {
@@ -26,11 +23,10 @@ const loginUser = async (req, res) => {
       },
     });
   } catch (error) {
-    // ServerResponse.internalError({
-    //   res,
-    //   error: "Error interno en login de usuario",
-    // });
-    console.log("Error interno en login de usuario");
+    ServerResponse.internalError({
+      res,
+      error: "Error interno en login de usuario",
+    });
   }
 };
 

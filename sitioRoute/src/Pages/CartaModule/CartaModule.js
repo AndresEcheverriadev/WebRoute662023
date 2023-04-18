@@ -102,46 +102,34 @@ function CartaModule() {
                         <p className="carta__PlatoCard__Descripcion--Mobile">
                           {plato.texto}
                         </p>
+                        <img
+                          className="carta__PlatoCard__Imagen--Responsive"
+                          src={plato.img}
+                          alt={`${plato.nombre} ${plato.texto}`}
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
-
-                {/* <a
-                  className="btn btnCollapse"
-                  data-bs-toggle={`collapse${plato.id}`}
-                  href={`#collapse${plato.id}`}
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseExample"
-                >
-                  <p className="carta__PlatoCard__Nombre--Mobile">
-                    {plato.nombre}
-                  </p>
-                </a>
-                <div className="collapse" id={`collapse${plato.id}`}>
-                  <div class="card card-body">
-                    <p className="carta__PlatoCard__Descripcion--Mobile">
-                      {plato.texto}
-                    </p>
-                  </div>
-                </div> */}
-
                 <div className="carta__PlatoCard__IconsContainer">
                   {plato.top === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon">
+                      <span class="material-symbols-outlined carta__PlatoCard__Icon animateColorTextFav">
                         favorite
                       </span>
-                      <p className="carta__PlatoCard__IconText">Favorito</p>
+                      <p className="carta__PlatoCard__IconText animateColorTextFav">
+                        Favorito
+                      </p>
                     </>
                   ) : null}
                   {plato.vegan === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon">
+                      <span class="material-symbols-outlined carta__PlatoCard__Icon animateColorTextVeg">
                         eco
                       </span>
-                      <p className="carta__PlatoCard__IconText">Vegan</p>
+                      <p className="carta__PlatoCard__IconText animateColorTextVeg">
+                        Vegan
+                      </p>
                     </>
                   ) : null}
                 </div>
