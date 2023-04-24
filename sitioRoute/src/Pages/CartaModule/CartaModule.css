@@ -110,40 +110,42 @@
   margin: 0 !important;
 }
 
-.animateColorTextFav {
-  font-weight: bolder;
-  background-image: linear-gradient(-225deg, #fff 0%, #e30613 100%);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: var(--h5);
+.colorIconFav {
+  color: var(--Rojo);
 }
 
-.animateColorTextVeg {
-  font-weight: bolder;
-  background-image: linear-gradient(-225deg, #fff 0%, #04720a 100%);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: var(--h5);
+.animateColorBorderFav {
+  animation: colorChangeBorderFav 2s infinite;
 }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
+@keyframes colorChangeBorderFav {
+  0% {
+    border-color: var(--Blanco);
+  }
+  50% {
+    border-color: var(--Rojo);
+  }
+  100% {
+    border-color: var(--Blanco);
+  }
+}
+
+.colorIconVeg {
+  color: var(--Verde);
+}
+
+.animateColorBorderVeg {
+  animation: colorChangeBorderVeg 2s infinite;
+}
+
+@keyframes colorChangeBorderVeg {
+  0% {
+    border-color: var(--Blanco);
+  }
+  50% {
+    border-color: var(--Verde);
+  }
+  100% {
+    border-color: var(--Blanco);
   }
 }

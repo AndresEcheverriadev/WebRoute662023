@@ -1,11 +1,9 @@
-import React from "react";
-import logo from "../../logo.svg";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
+import logo from "../../logo.svg";
+import logoWaze from "./logoWaze.svg";
 import "./Footer.css";
 import "./FooterResponsive.css";
-import { useRef } from "react";
-import { useLayoutEffect } from "react";
-import { useState } from "react";
 
 function Footer() {
   const mail = "contacto@route66.cl";
@@ -27,7 +25,7 @@ function Footer() {
       <h5>Horarios:</h5>
       <div className="footer__Block footerBlock--leftAligned">
         <div className="footer__BlockUp">
-          <p>domingo a Miercoles</p>
+          <p>Domingo a Miércoles</p>
           <p>12:30 a 00:00 Hrs</p>
           <p>cierre de cocina a las 23:00 Hrs</p>
           <hr />
@@ -83,6 +81,14 @@ function Footer() {
             </svg>
             <p href="">{mail}</p>
           </div>
+          <a
+            className="ContactWrapperUp__Link"
+            href="https://ul.waze.com/ul?place=ChIJ-z_XWkDPYpYR53MaP2adAu4&ll=-33.41398000%2C-70.59992880&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="logoWaze" src={logoWaze} alt="logo Waze" />
+          </a>
           <a
             className="ContactWrapperUp__Link"
             href="https://www.instagram.com/route66_chile/"

@@ -88,3 +88,9 @@
   height: 200px;
   margin-top: 20px;
 }
+
+.logoWaze {
+  width: 30px;
+  height: auto;
+  -webkit-text-stroke-color: brown;
+}

@@ -14,6 +14,7 @@ body {
   --CafePrimario: #aaa295;
   --CafeOscuro: #3c190e;
   --Rojo: #e30613;
+  --Verde: #009625;
   --Negro: #1d1d1b;
   --Blanco: #ffffff;
   --BlancoTrans: rgba(255, 255, 255, 0.2);
@@ -51,32 +52,4 @@ body {
 
 .logo--azul {
   width: 100px;
-}
-
-.botonReserva {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: 150px;
-  border: 1px solid transparent;
-  border-radius: 8px !important;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  background-color: var(--AmarilloContraste);
-  color: var(--AzulBase);
-  font-size: var(--h5);
-  font-weight: var(--bold);
-  line-height: 1;
-}
-
-.botonReserva:hover {
-  background-color: var(--AzulBase);
-  color: var(--AmarilloContraste);
-  border: 1px solid var(--AmarilloContraste);
 }

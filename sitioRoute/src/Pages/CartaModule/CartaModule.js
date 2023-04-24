@@ -66,7 +66,12 @@ function CartaModule() {
       <div className="carta__DisplayContainer">
         {cartaSelected.map((plato) => {
           return (
-            <div className="carta__PlatoCard" key={`${plato.id}`}>
+            <div
+              className={`carta__PlatoCard ${
+                plato.top === true ? "animateColorBorderFav" : ""
+              } ${plato.vegan === true ? "animateColorBorderVeg" : ""}`}
+              key={`${plato.id}`}
+            >
               <img
                 className="carta__PlatoCard__Imagen"
                 src={plato.img}
@@ -114,22 +119,18 @@ function CartaModule() {
                 <div className="carta__PlatoCard__IconsContainer">
                   {plato.top === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon animateColorTextFav">
+                      <span class="material-symbols-outlined carta__PlatoCard__Icon colorIconFav">
                         favorite
                       </span>
-                      <p className="carta__PlatoCard__IconText animateColorTextFav">
-                        Favorito
-                      </p>
+                      <p className="carta__PlatoCard__IconText">Recomendado</p>
                     </>
                   ) : null}
                   {plato.vegan === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon animateColorTextVeg">
+                      <span class="material-symbols-outlined carta__PlatoCard__Icon colorIconVeg">
                         eco
                       </span>
-                      <p className="carta__PlatoCard__IconText animateColorTextVeg">
-                        Vegan
-                      </p>
+                      <p className="carta__PlatoCard__IconText">Vegan</p>
                     </>
                   ) : null}
                 </div>

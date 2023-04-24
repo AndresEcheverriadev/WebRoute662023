@@ -31,11 +31,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70%;
     height: auto;
   }
 
   .botonReserva {
+    padding: 10px 10px 10px 10px;
     width: 100%;
     height: auto;
   }
