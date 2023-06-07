@@ -8,6 +8,8 @@ import bookingZones from "../../Data/bookingZones.mjs";
 import interiorDemo from "../BookingModule/interiorDemo.jpg";
 import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
 import { BookingService } from "../../Services/BookingService.js";
+import Modal from "../Modal/Modal.js";
+import ModalService from "../../Services/ModalService.js";
 import "./BookingModule.css";
 import "./BookingModuleResponsive.css";
 setDefaultLocale("es");
@@ -143,21 +145,52 @@ function BookingModule() {
         bookingData.comentarioReserva
       );
       setBookingCompleted(true);
-      setTimeout(() => {
-        window.location.reload(false);
-      }, 2000);
     } else {
       alert("Faltan datos para generar la reserva");
     }
   };
 
+  const { show, showModal, hideModal } = ModalService();
+
+  useEffect(() => {
+    if (bookingCompleted === true) {
+      showModal();
+    }
+  }, [bookingCompleted]);
+
+  const refreshAndScroll = () => {
+    // window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 10);
+  };
+
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
+
+  const btnsEditModal = () => {
+    return (
+      <button className="btnBackHome" onClick={refreshAndScroll}>
+        Volver al sitio
+      </button>
+    );
+  };
+
   return (
-    <div className="bookingModuleMainWrapper" id="reservas">
-      <div className="titleBookingWrapper">
-        <h2 id="bookingTitle">Agenda tu reserva</h2>
-        <img id="bookingImg" src={interiorDemo} alt="" />
-      </div>
-      {bookingCompleted === false ? (
+    <>
+      <Modal
+        show={show}
+        contextButton={btnsEditModal()}
+        bookingData={bookingData}
+        peopleBooking={peopleBooking}
+      />
+      <div className="bookingModuleMainWrapper" id="reservas">
+        <div className="titleBookingWrapper">
+          <h2 id="bookingTitle">Agenda tu reserva</h2>
+          <img id="bookingImg" src={interiorDemo} alt="" />
+        </div>
+
         <div className="conditionalWrapper">
           <div className="bookingWrapper">
             <div className="pickersWrapper">
@@ -283,8 +316,8 @@ function BookingModule() {
             </div>
           </div>
         </div>
-      ) : (
-        <div className="confirmedWrapper">
+
+        {/* <div className="confirmedWrapper">
           <div className="bookingConfirmDataContainer">
             <div className="titlesBookingContainer">
               <b>¡Tu reserva ya esta lista!</b>
@@ -313,9 +346,9 @@ function BookingModule() {
               <img id="imgBookingConfirmed" src={interiorDemo} alt="" />
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        </div> */}
+      </div>
+    </>
   );
 }
 

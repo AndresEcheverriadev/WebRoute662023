@@ -52,7 +52,14 @@
   background-repeat: no-repeat;
 }
 
-.homeBanner__Title {
+.homeBanner__MobileTitle2,
+#mobileEmptyBR {
+  display: none;
+}
+
+.homeBanner__Title,
+.homeBanner__Title2,
+.homeBanner__MobileTitle2 {
   width: auto;
   height: auto;
   text-align: left;

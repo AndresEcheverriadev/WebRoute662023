@@ -78,11 +78,19 @@
   height: auto;
   object-fit: cover;
   z-index: -1;
-  background-color: brown;
 }
 
 .carta__PlatoCard__TextContainer {
   padding: 20px;
+  overflow: hidden;
+}
+
+.PlatoCardTop {
+  background-color: var(--Rojo);
+}
+
+.PlatoCardVegan {
+  background-color: var(--Verde);
 }
 
 .carta__PlatoCard__Nombre {
@@ -111,10 +119,11 @@
 }
 
 .colorIconFav {
-  color: var(--Rojo);
+  color: var(--Blanco);
 }
 
 .animateColorBorderFav {
+  border-width: 3px;
   animation: colorChangeBorderFav 2s infinite;
 }
 
@@ -131,7 +140,7 @@
 }
 
 .colorIconVeg {
-  color: var(--Verde);
+  color: var(--Blanco);
 }
 
 .animateColorBorderVeg {

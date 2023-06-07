@@ -1,6 +1,5 @@
 import * as dotenv from "dotenv";
 dotenv.config();
-import cors from "cors";
 import express from "express";
 import { onAuthorizationHeaders } from "./middlewares/onAuthorizationHeaders.js";
 import { isAuthorized } from "./middlewares/isAuthorized.js";

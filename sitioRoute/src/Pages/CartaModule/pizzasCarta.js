@@ -7,6 +7,14 @@ import pizzas6 from "./imgsCarta/TheWorks.webp";
 
 const pizzas = [
   {
+    nombre: "Pepperoni",
+    texto:
+      "Pepperoni spicy, queso mozzarella y orégano… ¡El clásico preferido de américa!",
+    img: `${pizzas4}`,
+    id: `pizzas4`,
+    top: true,
+  },
+  {
     nombre: "Bbq Chicken",
     texto: "Mezcla de quesos, pollo, salsa bbq, cebolla morada y cilantro.",
     img: `${pizzas1}`,
@@ -24,14 +32,7 @@ const pizzas = [
     img: `${pizzas3}`,
     id: `pizzas3`,
   },
-  {
-    nombre: "Pepperoni",
-    texto:
-      "Pepperoni spicy, queso mozzarella y orégano… ¡El clásico preferido de américa!",
-    img: `${pizzas4}`,
-    id: `pizzas4`,
-    top: true,
-  },
+
   {
     nombre: "Serrano Arúgula",
     texto:

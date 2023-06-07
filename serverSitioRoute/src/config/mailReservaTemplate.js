@@ -116,7 +116,7 @@ Comentario: ${bookingData.comentarioReserva}</p>
 	line-height:125%;
 	text-align:center;
 ">
-                                <p><a href="https://www.route66.cl/">Route 66 </a></p>
+                                <p><a href="https://www.route66.cl/">www.route66.cl</a></p>
                                 <p>Isidora Goyenechea 2960</p>
                                 <p>Las Condes</p>
                                 <p>tel: +56232669954</p>

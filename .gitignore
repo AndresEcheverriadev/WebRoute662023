@@ -8,10 +8,6 @@
 # testing
 /coverage
 
-# build
-/build
-
-
 # misc
 .env
 .DS_Store

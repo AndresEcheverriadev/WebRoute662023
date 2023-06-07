@@ -16,6 +16,17 @@ function CartaModule() {
     setcartaSelected(carta);
   }
 
+  const hidePreview = (id) => {
+    const image = document.querySelectorAll(`.hidePreview${id}`);
+    image.forEach((show) => {
+      if (show.style.display === "none") {
+        show.style.display = "block";
+      } else {
+        show.style.display = "none";
+      }
+    });
+  };
+
   return (
     <div className="cartaWrapper" id="carta">
       <h2 className="carta__Title">Nuestra deliciosa carta</h2>
@@ -77,7 +88,11 @@ function CartaModule() {
                 src={plato.img}
                 alt={`${plato.nombre} ${plato.texto}`}
               />
-              <div className="carta__PlatoCard__TextContainer">
+              <div
+                className={`carta__PlatoCard__TextContainer ${
+                  plato.top === true ? "PlatoCardTop" : ""
+                }${plato.vegan === true ? "PlatoCardVegan" : ""} `}
+              >
                 <p className="carta__PlatoCard__Nombre">{plato.nombre}</p>
                 <p className="carta__PlatoCard__Descripcion">{plato.texto}</p>
 
@@ -85,6 +100,7 @@ function CartaModule() {
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                       <button
+                        onClick={() => hidePreview(plato.id)}
                         class="accordion-button"
                         type="button"
                         data-bs-toggle="collapse"
@@ -97,6 +113,16 @@ function CartaModule() {
                         </p>
                       </button>
                     </h2>
+                    <div
+                      id={`hidePreview${plato.id}`}
+                      className={`carta__PlatoCard__Imagen--PreviewButton hidePreview${plato.id}`}
+                    >
+                      <img
+                        className="carta__PlatoCard__Imagen--PreviewImage"
+                        src={plato.img}
+                        alt={`${plato.nombre} ${plato.texto}`}
+                      />
+                    </div>
                     <div
                       id={`collapseOne${plato.id}`}
                       class="accordion-collapse collapse"

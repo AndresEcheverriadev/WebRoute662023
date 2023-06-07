@@ -12,6 +12,14 @@ import specialities11 from "./imgsCarta/RibsTenders.webp";
 
 const specialities = [
   {
+    nombre: "Honey Bbq",
+    texto:
+      "Espectacular Baby-Back Ribs, glaseada con nuestra deliciosa salsa honey BBQ. Servida con papas fritas caseras, porotos negros y ensalada coleslaw.",
+    img: `${specialities10}`,
+    id: 10,
+    top: true,
+  },
+  {
     nombre: "Camaron Saltado A La Criolla",
     texto:
       "Camarones salteados con cebolla, tomate, cebollín y orégano. Servido con arroz blanco y papas fritas caseras.",
@@ -73,14 +81,7 @@ const specialities = [
     img: `${specialities9}`,
     id: 9,
   },
-  {
-    nombre: "Honey Bbq",
-    texto:
-      "Espectacular Baby-Back Ribs, glaseada con nuestra deliciosa salsa honey BBQ. Servida con papas fritas caseras, porotos negros y ensalada coleslaw.",
-    img: `${specialities10}`,
-    id: 10,
-    top: true,
-  },
+
   {
     nombre: "Ribs & Tenders",
     texto:

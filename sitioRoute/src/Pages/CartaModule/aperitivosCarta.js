@@ -9,6 +9,14 @@ import aperitivos8 from "./imgsCarta/TunaTartar.webp";
 
 const aperitivos = [
   {
+    nombre: "Spicy Buffalo Wings",
+    texto:
+      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    img: `${aperitivos7}`,
+    id: 7,
+    top: true,
+  },
+  {
     nombre: "Classic Chicken Quesadilla",
     texto:
       "Crocante tortilla de harina rellena con queso, trocitos de pollo y pico de gallo. Acompañada de salsa, guacamole y sour cream.",
@@ -49,14 +57,7 @@ const aperitivos = [
     img: `${aperitivos6}`,
     id: 6,
   },
-  {
-    nombre: "Spicy Buffalo Wings",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
-    img: `${aperitivos7}`,
-    id: 7,
-    top: true,
-  },
+
   {
     nombre: "Tuna Tartar",
     texto:

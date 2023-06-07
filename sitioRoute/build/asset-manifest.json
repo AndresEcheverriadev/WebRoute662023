@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.84f73876.css",
-    "main.js": "/static/js/main.aebc20a8.js",
+    "main.css": "/static/css/main.9057d287.css",
+    "main.js": "/static/js/main.3fe100d2.js",
     "static/js/787.493ddf15.chunk.js": "/static/js/787.493ddf15.chunk.js",
     "static/media/Capresse.webp": "/static/media/Capresse.2b27543690cb742fd7dd.webp",
     "static/media/Gamberetti.webp": "/static/media/Gamberetti.ba2cf82e0002dca81515.webp",
@@ -44,6 +44,7 @@
     "static/media/LomoSaltadoALaCriolla.webp": "/static/media/LomoSaltadoALaCriolla.6549c18b9263fe6603d9.webp",
     "static/media/ChickenCaesarSalad.webp": "/static/media/ChickenCaesarSalad.7da6dc613f1632d537e4.webp",
     "static/media/terrazaDemo.jpg": "/static/media/terrazaDemo.f95b87e039b51742f7ae.jpg",
+    "static/media/homeBanner1-480.jpg": "/static/media/homeBanner1-480.ab74be73b512ec8cb2af.jpg",
     "static/media/BaconCheeseburger.webp": "/static/media/BaconCheeseburger.83f890aef8a0a232ee68.webp",
     "static/media/OreoCheesecake.webp": "/static/media/OreoCheesecake.ad21d7f2abe154291b6b.webp",
     "static/media/CamaronSaltadoALaCriolla.webp": "/static/media/CamaronSaltadoALaCriolla.b2192caa66bfb631d99a.webp",
@@ -62,18 +63,19 @@
     "static/media/CarrotCake.webp": "/static/media/CarrotCake.290a55d1e926eff259e9.webp",
     "static/media/Pepperoni.webp": "/static/media/Pepperoni.ee6cbfa9cd543d983c3a.webp",
     "static/media/RisottoEspecialRoute66.webp": "/static/media/RisottoEspecialRoute66.92885d1fe59c58d56c3f.webp",
-    "static/media/homeBanner480.jpg": "/static/media/homeBanner480.108108d9cfa840e39db6.jpg",
-    "static/media/homeBanner320.jpg": "/static/media/homeBanner320.2b9a82c20fd0c179923d.jpg",
+    "static/media/homeBanner1-320.jpg": "/static/media/homeBanner1-320.3faa8cb618df42485078.jpg",
+    "static/media/homeBanner2-480.jpg": "/static/media/homeBanner2-480.108108d9cfa840e39db6.jpg",
+    "static/media/homeBanner2-320.jpg": "/static/media/homeBanner2-320.2b9a82c20fd0c179923d.jpg",
     "static/media/logo-blanco.svg": "/static/media/logo-blanco.a165b94f18becc24cb8b8bbb86f1c427.svg",
     "static/media/logo-contraste.svg": "/static/media/logo-contraste.7ddc12ebe66a8491be1140703728458f.svg",
     "static/media/logo.svg": "/static/media/logo.e448ad2b64dd4ffa7cf434140f885b13.svg",
     "index.html": "/index.html",
-    "main.84f73876.css.map": "/static/css/main.84f73876.css.map",
-    "main.aebc20a8.js.map": "/static/js/main.aebc20a8.js.map",
+    "main.9057d287.css.map": "/static/css/main.9057d287.css.map",
+    "main.3fe100d2.js.map": "/static/js/main.3fe100d2.js.map",
     "787.493ddf15.chunk.js.map": "/static/js/787.493ddf15.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84f73876.css",
-    "static/js/main.aebc20a8.js"
+    "static/css/main.9057d287.css",
+    "static/js/main.3fe100d2.js"
   ]
 }

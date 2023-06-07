@@ -5,7 +5,22 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner320.jpg");
+      url("../../imgs/homeBanner1-320.jpg");
+  }
+
+  .homeBanner2 {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0)
+      ),
+      url("../../imgs/homeBanner2-320.jpg");
+  }
+
+  #mobileEmptyBR {
+    display: block;
+    width: auto;
+    height: 32.15px;
   }
 }
 
@@ -17,9 +32,29 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner480.jpg");
+      url("../../imgs/homeBanner1-480.jpg");
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .homeBanner2 {
+    width: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0)
+      ),
+      url("../../imgs/homeBanner2-480.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .homeBanner__Title2 {
+    display: none;
+  }
+
+  .homeBanner__MobileTitle2 {
+    display: block;
   }
 
   .homeBanner__subtitle {
@@ -39,5 +74,64 @@
     padding: 10px 10px 10px 10px;
     width: 100%;
     height: auto;
+  }
+}
+
+@media (min-width: 700px) {
+  .carouselControlMarginPrev {
+    margin-left: -30px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -30px !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  .carouselControlMarginPrev {
+    margin-left: -50px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -50px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carouselControlMarginPrev {
+    margin-left: -60px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -60px !important;
+  }
+}
+@media (min-width: 1300px) {
+  .carouselControlMarginPrev {
+    margin-left: -70px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -70px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carouselControlMarginPrev {
+    margin-left: -80px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -80px !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  .carouselControlMarginPrev {
+    margin-left: -90px !important;
+  }
+
+  .carouselControlMarginNext {
+    margin-right: -90px !important;
   }
 }

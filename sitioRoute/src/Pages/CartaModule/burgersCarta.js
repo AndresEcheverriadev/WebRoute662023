@@ -9,6 +9,14 @@ import burgers8 from "./imgsCarta/BeyondMeat.webp";
 
 const burgers = [
   {
+    nombre: "Route 66 Burger",
+    texto:
+      "¡Simplemente espectacular! …salsa BBQ, queso azul, tiras de tocino y anillos de cebolla. Acompañada de lechuga, salsa route, tomate, cebolla y pepinillos.",
+    img: `${burgers4}`,
+    id: 4,
+    top: true,
+  },
+  {
     nombre: "Fresh Burger",
     texto:
       "¡Sensacional! Queso de cabra, espárragos y pimentón asado glaseados con salsa teriyaki. Acompañado de rucula, tomate y cebolla.",
@@ -29,14 +37,7 @@ const burgers = [
     img: `${burgers3}`,
     id: 3,
   },
-  {
-    nombre: "Route 66 Burger",
-    texto:
-      "¡Simplemente espectacular! …salsa BBQ, queso azul, tiras de tocino y anillos de cebolla. Acompañada de lechuga, salsa route, tomate, cebolla y pepinillos.",
-    img: `${burgers4}`,
-    id: 4,
-    top: true,
-  },
+
   {
     nombre: "Bacon Guacamole Burger",
     texto:

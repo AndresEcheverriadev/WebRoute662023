@@ -8,6 +8,14 @@ import ensaladas7 from "./imgsCarta/TunaGrilledSalad.webp";
 
 const ensaladas = [
   {
+    nombre: "Tuna Grilled Salad",
+    texto:
+      "Deliciosos trozos de atún sellado sobre mezcla de ensalada verde, tomates cherry, zanahoria, cebolla, repollo, betarraga y brotes de alfalfa. Cubierta con aderezo de mostaza.",
+    img: `${ensaladas7}`,
+    id: 7,
+    top: true,
+  },
+  {
     nombre: "California Cobb Salad",
     texto:
       "Pollo a la plancha, lechuga costina picada, palta, tomate, queso rallado, huevo y tocino. Aderezado con salsa ranch.",
@@ -48,14 +56,6 @@ const ensaladas = [
       "Combinación perfecta de salmón ahumado, queso de cabra, lechuga hidropónica, almendras, tomate, palta y nuestra salsa honey.",
     img: `${ensaladas6}`,
     id: 6,
-  },
-  {
-    nombre: "Tuna Grilled Salad",
-    texto:
-      "Deliciosos trozos de atún sellado sobre mezcla de ensalada verde, tomates cherry, zanahoria, cebolla, repollo, betarraga y brotes de alfalfa. Cubierta con aderezo de mostaza.",
-    img: `${ensaladas7}`,
-    id: 7,
-    top: true,
   },
 ];
 

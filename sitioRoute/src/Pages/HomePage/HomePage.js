@@ -40,24 +40,26 @@ function HomePage() {
           <div class="carousel-item">
             <Banner2 />
           </div>
+          <button
+            class="carousel-control-prev carouselControlMarginPrev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next carouselControlMarginNext"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-
-      {/* <main className="homeBanner">
-        <h1 className="homeBanner__Title">
-          La mejor onda,
-          <br />
-          la comida mas rica.
-        </h1>
-        <h5 className="homeBanner__subtitle">
-          Disfruta platos y sabores de distintos lugares del mundo,
-          <br />
-          seleccionados especialmente para ti.
-        </h5>
-        <a href="#reservas" className="botonReservaWrapper">
-          <button className="botonReserva"> Reservar</button>
-        </a>
-      </main> */}
       <CartaModule />
       <BookingModule />
       <Footer />
