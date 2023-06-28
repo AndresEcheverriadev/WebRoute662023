@@ -159,7 +159,6 @@ function BookingModule() {
   }, [bookingCompleted]);
 
   const refreshAndScroll = () => {
-    // window.scrollTo(0, 0);
     setTimeout(() => {
       window.location.reload(false);
     }, 10);

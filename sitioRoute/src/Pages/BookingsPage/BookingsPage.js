@@ -8,6 +8,7 @@ import timeRanges from "../../Data/timeRanges.mjs";
 import { downloadPdf } from "./pdfGenerator.js";
 import { Helmet } from "react-helmet";
 import "./BookingsPage.css";
+import "./BookingsPageResponsive.css";
 
 function BookingsPage() {
   const { logOut } = useContext(LoginContext);
@@ -54,7 +55,9 @@ function BookingsPage() {
           </div>
           <div className="bookingContactComentario">
             <p id="bookingContactTitle">Comentarios:</p>
-            <p>{booking.comentarioReserva}</p>
+            <p className="bookingContactComentarioText">
+              {booking.comentarioReserva}
+            </p>
           </div>
         </div>
       </div>
@@ -177,7 +180,6 @@ function BookingsPage() {
             </div>
             <div className="createBookingContainer">
               <h5 className="createBookingHeaderTitle">Crear reserva</h5>
-
               <div className="createBookingInputs">
                 <form action="" className="bookingInputForm">
                   <div className="bookingInputDateData">
@@ -322,7 +324,7 @@ function BookingsPage() {
               <div className="bookingPodTitles">
                 <p>Fecha</p>
                 <p>Hora</p>
-                <p>cantidad</p>
+                <p>Cantidad</p>
                 <p>Zona</p>
               </div>
               {filteredDates}

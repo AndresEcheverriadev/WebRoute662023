@@ -5,7 +5,7 @@ import { LoginContext } from "../context/LoginContext.js";
 function Guard({ children }) {
   useEffect(() => {
     checkToken();
-  });
+  }, []);
   const navigate = useNavigate();
   const { checkToken, isLoggedIn } = useContext(LoginContext);
   if (isLoggedIn === false) {

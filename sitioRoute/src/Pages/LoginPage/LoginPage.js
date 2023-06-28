@@ -5,7 +5,6 @@ import { LoginContext } from "../context/LoginContext.js";
 import { AuthService } from "../../Services/AuthService.js";
 import { Helmet } from "react-helmet";
 import "./LoginPage.css";
-import "./LoginPageResponsive.css";
 
 function LoginPage() {
   const year = new Date().getFullYear();
@@ -48,10 +47,6 @@ function LoginPage() {
         <a href="/">
           <img className="logo" src={logo} alt="logo Route" />
         </a>
-        <h5 className="smallScreenWarning">
-          No se puede acceder desde la pantalla de este dispositivo. Intenta
-          acceder desde un computador de escritorio
-        </h5>
         <form className="credentials">
           <p className="credentials__text">Usuario</p>
           <input
@@ -72,7 +67,8 @@ function LoginPage() {
           </button>
         </form>
         <p className="copyright">
-          {year} Route SPA. Todos los derechos reservados.
+          {year} Route SPA. <br />
+          Todos los derechos reservados.
         </p>
       </div>
     </>

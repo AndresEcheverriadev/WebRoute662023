@@ -1,9 +1,2 @@
-@media (max-width: 1100px) {
-  .smallScreenWarning {
-    display: flex;
-  }
-
-  .credentials {
-    display: none;
-  }
+@media (max-width: 320px) {
 }
