@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import {
+  filteredSimpleDate,
+  simpleDate,
+} from "../../Data/utils/formatDates.js";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addDays } from "date-fns";
+import { addDays, subDays } from "date-fns";
 import es from "date-fns/locale/es";
 import timeRanges from "../../Data/timeRanges.mjs";
 import bookingZones from "../../Data/bookingZones.mjs";
@@ -16,36 +20,25 @@ setDefaultLocale("es");
 registerLocale("es", es);
 
 function BookingModule() {
-  const [beforeDays, setBeforeDays] = useState(1);
-  const [afterDays, setAfterDays] = useState(0);
-  const [displayDate, setDisplayDate] = useState(new Date());
+  const [bookingSameDay, setBookingSameDay] = useState(true);
   const [startingDate, setStartingDate] = useState(new Date());
+  const [displayDate, setDisplayDate] = useState();
+  const [bookingDaysRange, setBookingDaysRange] = useState(20);
   const [peopleBooking, setPeopleBooking] = useState(1);
   const [zoneSelected, setZoneSelected] = useState("");
   const [dataOk, setDataOk] = useState(false);
   const [disabled, setDisabled] = useState("disabled");
-
-  useEffect(() => {
-    const toDay = new Date();
-    const newStart = startingDate.setDate(toDay.getDate() + beforeDays);
-    setDisplayDate(newStart);
-  }, [startingDate, beforeDays]);
-
   const [bookingData, setBookingData] = useState({
     nombreReserva: "",
     emailReserva: "",
     telefonoReserva: "",
     diaReserva: "",
-    horaReserva: timeRanges[0],
+    horaReserva: timeRanges.slice(0, 1).shift().time,
     cantidadReserva: peopleBooking,
-    zonaReserva: bookingZones[0],
+    zonaReserva: bookingZones.slice(0, 1).shift().zone,
     comentarioReserva: "",
   });
   const [bookingCompleted, setBookingCompleted] = useState(false);
-
-  useEffect(() => {
-    updateBooking({ diaReserva: simpleDate(startingDate) });
-  }, []);
 
   useEffect(() => {
     const quantityNotification = document.getElementById(
@@ -119,19 +112,6 @@ function BookingModule() {
     }
   }, [bookingData]);
 
-  const simpleDate = (date) => {
-    const newDate = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
-    return newDate;
-  };
-
-  const upDates = (date) => {
-    setStartingDate(date);
-    setDisplayDate(startingDate);
-    updateBooking({ diaReserva: date });
-  };
-
   const sendDataBooking = () => {
     if (dataOk === true) {
       const sendBooking = BookingService.addBooking(
@@ -176,6 +156,30 @@ function BookingModule() {
     );
   };
 
+  const handleDateChange = (date) => {
+    setDisplayDate(date);
+    updateBooking({ diaReserva: simpleDate(date) });
+  };
+
+  const [blockDays, setblockDays] = useState([1, 3]);
+
+  const filterDates = (date) => {
+    const day = date.getDay();
+    const result = blockDays.every((element) => {
+      if (element === day) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    return result;
+  };
+
+  //DEBUG ZONE
+  useEffect(() => {
+    console.log(bookingData);
+  }, [bookingData]);
+
   return (
     <>
       <Modal
@@ -199,12 +203,18 @@ function BookingModule() {
                   className="datePicker"
                   dateFormat="dd/MM/yyyy"
                   locale="es"
-                  selected={startingDate}
-                  excludeDates={[new Date()]}
+                  filterDate={filterDates}
+                  selected={displayDate}
                   includeDateIntervals={[
-                    { start: startingDate, end: addDays(new Date(), 30) },
+                    {
+                      start: subDays(
+                        new Date(),
+                        bookingSameDay === true ? 1 : 0
+                      ),
+                      end: addDays(new Date(), bookingDaysRange),
+                    },
                   ]}
-                  onChange={(date) => upDates(date)}
+                  onChange={(date) => handleDateChange(date)}
                   withPortal
                 />
               </div>
@@ -218,8 +228,12 @@ function BookingModule() {
                     updateBooking({ horaReserva: e.target.value })
                   }
                 >
-                  {timeRanges.map((times) => {
-                    return <option value={times}>{times}</option>;
+                  {timeRanges.map((times, index) => {
+                    return (
+                      <option key={index} value={times.time}>
+                        {times.time}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
@@ -250,8 +264,12 @@ function BookingModule() {
                     name=""
                     onChange={getOptionValue}
                   >
-                    {bookingZones.map((zones) => {
-                      return <option value={zones}>{zones}</option>;
+                    {bookingZones.map((zones, index) => {
+                      return (
+                        <option key={index} value={zones.zone}>
+                          {zones.zone}
+                        </option>
+                      );
                     })}
                   </select>
                 </div>
@@ -315,37 +333,6 @@ function BookingModule() {
             </div>
           </div>
         </div>
-
-        {/* <div className="confirmedWrapper">
-          <div className="bookingConfirmDataContainer">
-            <div className="titlesBookingContainer">
-              <b>¡Tu reserva ya esta lista!</b>
-              <b>Revisa tu correo.</b>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="calendarOkIcon"
-                viewBox="0 0 16 16"
-              >
-                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-              </svg>
-            </div>
-            <div className="bookingDataContainer">
-              <p>Nombre: {bookingData.nombreReserva}</p>
-              <p>Email: {bookingData.emailReserva}</p>
-              <p>Teléfono: {bookingData.telefonoReserva}</p>
-              <p>Fecha: {bookingData.diaReserva}</p>
-              <p>Hora:{bookingData.horaReserva}</p>
-              <p>Cantidad de personas: {peopleBooking}</p>
-              <p>Zona de reserva: {bookingData.zonaReserva}</p>
-              <p>Comentario: {bookingData.comentarioReserva}</p>
-            </div>
-            <div className="bookingDataZoneContainer">
-              <img id="imgBookingConfirmed" src={interiorDemo} alt="" />
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   );

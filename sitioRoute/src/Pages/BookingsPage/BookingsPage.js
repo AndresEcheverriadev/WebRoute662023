@@ -1,12 +1,17 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { LoginContext } from "../context/LoginContext.js";
-import { simpleDate, normalizeDate } from "../../Data/utils/simpleDate.js";
+import {
+  filteredSimpleDate,
+  normalizeDate,
+} from "../../Data/utils/formatDates.js";
 import { BookingService } from "../../Services/BookingService.js";
 import logo from "../../logo-blanco.svg";
 import bookingZones from "../../Data/bookingZones.mjs";
 import timeRanges from "../../Data/timeRanges.mjs";
 import { downloadPdf } from "./pdfGenerator.js";
 import { Helmet } from "react-helmet";
+import ModalService from "../../Services/ModalService.js";
+import ModalSettings from "../ModalSettings/ModalSettings.js";
 import "./BookingsPage.css";
 import "./BookingsPageResponsive.css";
 
@@ -14,7 +19,7 @@ function BookingsPage() {
   const { logOut } = useContext(LoginContext);
   const [filterDays, setfilterDays] = useState(0);
   const toDay = new Date();
-  const toDayFilter = simpleDate(toDay, filterDays);
+  const toDayFilter = filteredSimpleDate(toDay, filterDays);
   const [filteredBookings, setfilteredBookings] = useState([]);
 
   const handlerFilterDay = (days) => {
@@ -74,9 +79,9 @@ function BookingsPage() {
     emailReserva: "",
     telefonoReserva: "",
     diaReserva: "",
-    horaReserva: timeRanges[0],
+    horaReserva: timeRanges.slice(0, 1).shift().time,
     cantidadReserva: 1,
-    zonaReserva: bookingZones[0],
+    zonaReserva: bookingZones.slice(0, 1).shift().zone,
     comentarioReserva: "",
   });
 
@@ -119,6 +124,16 @@ function BookingsPage() {
     }
   };
 
+  const { show, showModal, hideModal } = ModalService();
+
+  const btnsEditModalSettings = () => {
+    return (
+      <button className="btnBackModalSettings" onClick={hideModal}>
+        Cerrar
+      </button>
+    );
+  };
+
   return (
     <>
       <Helmet>
@@ -130,7 +145,9 @@ function BookingsPage() {
         </a>
         <h1>Administrador de reservas Route 66</h1>
         <div className="logBtns">
-          <button className="logBtns_admin">Admin Login</button>
+          <button className="logBtns_admin" onClick={showModal}>
+            Admin Login
+          </button>
           <a href="/">
             <button className="logBtns_logout" onClick={() => logOut()}>
               Logout
@@ -138,6 +155,7 @@ function BookingsPage() {
           </a>
         </div>
         <div className="bookingsVisualizerContainer">
+          <ModalSettings show={show} contextButton={btnsEditModalSettings()} />
           <div className="bookingsOptionsContainer">
             <div className="activeDateContainer">
               <h5 className="activeDateHeaderTitle">Opciones de filtro</h5>
@@ -188,7 +206,7 @@ function BookingsPage() {
                       <input
                         className="bookingInputField"
                         type="date"
-                        locale
+                        locale="true"
                         onChange={(e) =>
                           handleCustomBooking({
                             diaReserva: normalizeDate(e.target.value),
@@ -209,8 +227,8 @@ function BookingsPage() {
                       >
                         {timeRanges.map((times, index) => {
                           return (
-                            <option key={index} value={times}>
-                              {times}
+                            <option key={index} value={times.time}>
+                              {times.time}
                             </option>
                           );
                         })}
@@ -242,8 +260,8 @@ function BookingsPage() {
                       >
                         {bookingZones.map((zones, index) => {
                           return (
-                            <option key={index} value={zones}>
-                              {zones}
+                            <option key={index} value={zones.zone}>
+                              {zones.zone}
                             </option>
                           );
                         })}

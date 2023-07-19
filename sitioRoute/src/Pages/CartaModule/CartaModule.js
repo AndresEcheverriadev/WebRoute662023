@@ -96,12 +96,12 @@ function CartaModule() {
                 <p className="carta__PlatoCard__Nombre">{plato.nombre}</p>
                 <p className="carta__PlatoCard__Descripcion">{plato.texto}</p>
 
-                <div class="accordion" id={`accordion${plato.id}`}>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
+                <div className="accordion" id={`accordion${plato.id}`}>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingOne">
                       <button
                         onClick={() => hidePreview(plato.id)}
-                        class="accordion-button"
+                        className="accordion-button"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target={`#collapseOne${plato.id}`}
@@ -125,11 +125,11 @@ function CartaModule() {
                     </div>
                     <div
                       id={`collapseOne${plato.id}`}
-                      class="accordion-collapse collapse"
+                      className="accordion-collapse collapse"
                       aria-labelledby="headingOne"
                       data-bs-parent={`#accordion${plato.id}`}
                     >
-                      <div class="accordion-body">
+                      <div className="accordion-body">
                         <p className="carta__PlatoCard__Descripcion--Mobile">
                           {plato.texto}
                         </p>
@@ -145,7 +145,7 @@ function CartaModule() {
                 <div className="carta__PlatoCard__IconsContainer">
                   {plato.top === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon colorIconFav">
+                      <span className="material-symbols-outlined carta__PlatoCard__Icon colorIconFav">
                         favorite
                       </span>
                       <p className="carta__PlatoCard__IconText">Recomendado</p>
@@ -153,7 +153,7 @@ function CartaModule() {
                   ) : null}
                   {plato.vegan === true ? (
                     <>
-                      <span class="material-symbols-outlined carta__PlatoCard__Icon colorIconVeg">
+                      <span className="material-symbols-outlined carta__PlatoCard__Icon colorIconVeg">
                         eco
                       </span>
                       <p className="carta__PlatoCard__IconText">Vegan</p>

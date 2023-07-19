@@ -91,6 +91,7 @@
 
 .react-datepicker__header {
   border-radius: 15px;
+  border-top-right-radius: 15px !important;
   background-color: var(--CafePrimario);
   border: 1px solid var(--CafeOscuro);
 }
