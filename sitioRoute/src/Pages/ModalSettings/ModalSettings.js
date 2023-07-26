@@ -1,4 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import days from "../../Data/days.mjs";
+import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
+import AccordionModule from "../Acordion/Acordion.js";
 import "./ModalSettings.css";
 
 const ModalSettings = ({ show, contextButton, bookingSettingsData }) => {
@@ -24,48 +28,32 @@ const ModalSettings = ({ show, contextButton, bookingSettingsData }) => {
       <div className="modal-dialog modalDialogStyle">
         <div className={`modal-content modalContentStyle`}>
           <div className="modal-body modalBodyEdit">
+            {contextButton}
             <div className="modalContent">
               <h2>Configuración de Reservas</h2>
+              <div className="weekdaysSeparators">
+                <p className="weekdaysSeparatorWeekday">Día de la semana</p>
+              </div>
               <div className="weekdaysWrapper">
-                <div className="weekday">
-                  <h5>Lunes</h5>
-                  <h6>Habilitado</h6>
-                  <div className="weekdayTimesContainer">
-                    <h6>Horarios habilitados</h6>
-                    <div className="weekdayTime">13:00</div>
-                    <div className="weekdayTime">13:15</div>
-                    <div className="weekdayTime">13:30</div>
-                    <div className="weekdayTime">13:45</div>
-                    <div className="weekdayTime">14:00</div>
-                    <div className="weekdayTime">14:15</div>
-                    <div className="weekdayTime">14:30</div>
-                    <div className="weekdayTime">14:45</div>
-                    <div className="weekdayTime">15:00</div>
-                    <div className="weekdayTime">15:15</div>
-                    <div className="weekdayTime">15:30</div>
-                    <div className="weekdayTime">15:45</div>
-                    <div className="weekdayTime">16:00</div>
-                    <div className="weekdayTime">16:15</div>
-                    <div className="weekdayTime">16:30</div>
-                    <div className="weekdayTime">16:45</div>
-                    <div className="weekdayTime">17:00</div>
-                    <div className="weekdayTime">17:15</div>
-                    <div className="weekdayTime">17:30</div>
-                    <div className="weekdayTime">17:45</div>
-                    <div className="weekdayTime">18:00</div>
-                    <div className="weekdayTime">18:15</div>
-                    <div className="weekdayTime">18:30</div>
-                    <div className="weekdayTime">18:45</div>
-                    <div className="weekdayTime">19:00</div>
-                    <div className="weekdayTime">19:15</div>
-                    <div className="weekdayTime">19:30</div>
-                    <div className="weekdayTime">19:45</div>
-                    <div className="weekdayTime">20:00</div>
-                    <div className="weekdayTime">20:15</div>
-                    <div className="weekdayTime">20:30</div>
-                    <div className="weekdayTime">20:45</div>
-                  </div>
-                </div>
+                {days.map((day) => {
+                  return (
+                    <div className="weekday">
+                      <h6 className="weekdayTitle">{day.nameDay}</h6>
+
+                      <div className="weekdayEnabledContainer">
+                        {day.enabled ? (
+                          <h6 className="weekdayTitleEnabled">Habilitado</h6>
+                        ) : (
+                          <h6 className="weekdayTitleDisabled">Bloqueado</h6>
+                        )}
+                        <input type="checkbox" className="weekdayCheckbox" />
+                      </div>
+                      <div className="weekdayTimesContainer">
+                        <AccordionModule content={day} />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             {contextButton}
