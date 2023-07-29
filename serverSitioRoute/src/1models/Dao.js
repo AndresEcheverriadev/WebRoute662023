@@ -3,6 +3,7 @@ dotenv.config();
 import mongoose from "mongoose";
 import User from "./User.js";
 import Booking from "./Booking.js";
+import Day from "./Day.js";
 mongoose.set("strictQuery", false);
 
 class Dao {
@@ -24,10 +25,12 @@ class Dao {
 
     const userSchema = mongoose.Schema(User.schema, timestamps);
     const bookingSchema = mongoose.Schema(Booking.schema, timestamps);
+    const daySchema = mongoose.Schema(Day.schema, timestamps);
 
     this.models = {
       [User.collection]: mongoose.model(User.collection, userSchema),
       [Booking.collection]: mongoose.model(Booking.collection, bookingSchema),
+      [Day.collection]: mongoose.model(Day.collection, daySchema),
     };
   }
 
@@ -37,12 +40,9 @@ class Dao {
     return result;
   };
 
-  getAll = async (options, entity) => {
+  getAll = async (options, sort, entity) => {
     if (!this.models[entity]) throw new Error(`La entidad no existe`);
-    let result = await this.models[entity]
-      .find(options)
-      .sort({ horaReserva: 1 })
-      .lean();
+    let result = await this.models[entity].find(options).sort(sort).lean();
     return result;
   };
 
@@ -52,9 +52,11 @@ class Dao {
     return result;
   };
 
-  updateOne = async (options, entity) => {
+  updateOne = async (filter, update, entity) => {
     if (!this.models[entity]) throw new Error(`La entidad no existe`);
-    let result = await this.models[entity].findOneAndUpdate(options).lean();
+    let result = await this.models[entity]
+      .findOneAndUpdate(filter, update)
+      .lean();
     return result;
   };
 

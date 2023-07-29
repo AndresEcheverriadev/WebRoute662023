@@ -30,15 +30,15 @@ function BookingsPage() {
     setfilterDays(0);
   };
 
-  const getBookings = useCallback(async () => {
+  const getBookings = async () => {
     const bookings = await BookingService.getFilteredBookings(toDayFilter);
     if (!bookings) return;
     setfilteredBookings(bookings.data);
-  }, [toDayFilter]);
+  };
 
   useEffect(() => {
     getBookings();
-  }, [filteredBookings]);
+  }, [toDayFilter]);
 
   const filteredDates = filteredBookings?.map((booking, index) => {
     return (

@@ -8,20 +8,20 @@ class GenericRepository {
     return this.dao.save(data, this.model);
   };
 
-  getAll = async (params) => {
-    return this.dao.getAll(params, this.model);
+  getAll = async (params, sort) => {
+    return this.dao.getAll(params, sort, this.model);
   };
 
   getOne = async (params) => {
     return this.dao.getOne(params, this.model);
   };
 
-  getFiltered = async (params) => {
-    return this.dao.getAll(params, this.model);
+  getFiltered = async (params, sort) => {
+    return this.dao.getAll(params, sort, this.model);
   };
 
-  updateOne = async (params) => {
-    return this.dao.updateOne(params, this.model);
+  updateOne = async (find, update) => {
+    return this.dao.updateOne(find, update, this.model);
   };
 
   deleteOne = async (params) => {

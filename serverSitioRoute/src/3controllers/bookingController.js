@@ -27,9 +27,12 @@ const filteredBookings = async (req, res) => {
         error: "Sin filtro de fechas",
       });
     }
-    const filteredBookings = await bookingService.getFiltered({
-      diaReserva: date,
-    });
+    const filteredBookings = await bookingService.getFiltered(
+      {
+        diaReserva: date,
+      },
+      { horaReserva: 1 }
+    );
     ServerResponse.success({
       res,
       result: "Reservas obtenidas",

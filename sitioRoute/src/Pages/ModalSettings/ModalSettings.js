@@ -1,19 +1,47 @@
 import React, { useEffect, useState } from "react";
-import days from "../../Data/days.mjs";
-import Accordion from "react-bootstrap/Accordion";
-import Button from "react-bootstrap/Button";
-import AccordionModule from "../Acordion/Acordion.js";
+import AccordionModule from "../Accordion/Accordion.js";
+import { DayService } from "../../Services/DayService.js";
 import "./ModalSettings.css";
 
-const ModalSettings = ({ show, contextButton, bookingSettingsData }) => {
+const ModalSettings = ({ show, contextButton }) => {
+  // useEffect(() => {
+  //   if (show === true) {
+  //     document.body.style.overflowY = "hidden";
+  //     return () => {
+  //       document.body.style.overflowY = "auto";
+  //     };
+  //   }
+  // }, [show]);
+
+  const [days, setDays] = useState([]);
+
+  const getAllDays = async () => {
+    const days = await DayService.getAllDays();
+    if (!days) return;
+    setDays(days.data);
+  };
+
   useEffect(() => {
-    if (show === true) {
-      document.body.style.overflowY = "hidden";
-      return () => {
-        document.body.style.overflowY = "auto";
-      };
+    getAllDays();
+  }, []);
+
+  const enableDay = async (dayNumber) => {
+    await DayService.enableDay({ dayToEnable: dayNumber });
+    getAllDays();
+  };
+
+  const disableDay = async (dayNumber) => {
+    await DayService.disableDay({ dayToDisable: dayNumber });
+    getAllDays();
+  };
+
+  const handleEnable = (enabled, dayNumber) => {
+    if (!enabled) {
+      enableDay(dayNumber);
+    } else {
+      disableDay(dayNumber);
     }
-  }, [show]);
+  };
 
   return (
     <div
@@ -35,9 +63,9 @@ const ModalSettings = ({ show, contextButton, bookingSettingsData }) => {
                 <p className="weekdaysSeparatorWeekday">Día de la semana</p>
               </div>
               <div className="weekdaysWrapper">
-                {days.map((day) => {
+                {days.map((day, index) => {
                   return (
-                    <div className="weekday">
+                    <div className="weekday" key={index}>
                       <h6 className="weekdayTitle">{day.nameDay}</h6>
 
                       <div className="weekdayEnabledContainer">
@@ -46,10 +74,17 @@ const ModalSettings = ({ show, contextButton, bookingSettingsData }) => {
                         ) : (
                           <h6 className="weekdayTitleDisabled">Bloqueado</h6>
                         )}
-                        <input type="checkbox" className="weekdayCheckbox" />
+                        <input
+                          type="checkbox"
+                          className="weekdayCheckbox"
+                          checked={day.enabled ? true : false}
+                          onChange={() =>
+                            handleEnable(day.enabled, day.dayNumber)
+                          }
+                        />
                       </div>
                       <div className="weekdayTimesContainer">
-                        <AccordionModule content={day} />
+                        <AccordionModule content={day} key={index} />
                       </div>
                     </div>
                   );
