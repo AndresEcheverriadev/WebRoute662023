@@ -9,6 +9,7 @@
 /coverage
 
 # misc
+/backupBBDDMongo
 .env
 .DS_Store
 .env.local
