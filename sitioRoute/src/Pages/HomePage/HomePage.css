@@ -26,7 +26,7 @@
       rgba(0, 0, 0, 1),
       rgba(0, 0, 0, 0)
     ),
-    url("../../imgs/homeBannerImg1.jpg");
+    url("../../imgs/homeBannerImg1.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -47,7 +47,7 @@
       rgba(0, 0, 0, 1),
       rgba(0, 0, 0, 0)
     ),
-    url("../../imgs/homeBannerImg2.jpg");
+    url("../../imgs/homeBannerImg2.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }

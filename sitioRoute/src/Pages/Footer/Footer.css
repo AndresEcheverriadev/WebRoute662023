@@ -84,13 +84,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 705px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   margin-top: 20px;
+}
+
+.ContactWrapperBottom__map {
+  width: 100%;
 }
 
 .logoWaze {
   width: 30px;
   height: auto;
-  -webkit-text-stroke-color: brown;
 }

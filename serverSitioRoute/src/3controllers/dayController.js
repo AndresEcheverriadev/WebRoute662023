@@ -104,27 +104,23 @@ const disableDay = async (req, res) => {
   }
 };
 
-const addTime = async (req, res) => {
-  let { day, timeToAdd } = req.body;
-  const filteredDay = await dayService.getOne({
-    dayNumber: day,
-  });
-  if (!timeToAdd || !filteredDay)
+const enableTime = async (req, res) => {
+  let { dayNumber, timeToAdd } = req.body;
+  if (
+    dayNumber == undefined ||
+    dayNumber == null ||
+    dayNumber < 0 ||
+    dayNumber > 6 ||
+    !timeToAdd
+  )
     return ServerResponse.badRequest({
       res,
       error: "Faltan datos para habilitar horario",
     });
   try {
-    if (filteredDay.times.includes(timeToAdd)) {
-      return ServerResponse.badRequest({
-        res,
-        error: "Horario ya existe",
-      });
-    }
-    const enableTime = {
-      $addToSet: { times: timeToAdd },
-    };
-    let enabledTime = await dayService.updateOne(filteredDay, enableTime);
+    const enableTime = { dayNumber: dayNumber, "times.time": timeToAdd };
+    const argEnabled = { $set: { "times.$.enabled": true } };
+    let enabledTime = await dayService.updateOne(enableTime, argEnabled);
     ServerResponse.success({
       res,
       result: "Horario habilitado",
@@ -138,36 +134,32 @@ const addTime = async (req, res) => {
   }
 };
 
-const eraseTime = async (req, res) => {
-  let { day, timeToErase } = req.body;
-  const filteredDay = await dayService.getOne({
-    dayNumber: day,
-  });
-  if (!timeToErase || !filteredDay)
+const disableTime = async (req, res) => {
+  let { dayNumber, timeToErase } = req.body;
+  if (
+    dayNumber == undefined ||
+    dayNumber == null ||
+    dayNumber < 0 ||
+    dayNumber > 6 ||
+    !timeToErase
+  )
     return ServerResponse.badRequest({
       res,
-      error: "Faltan datos para deshabilitar horario",
+      error: "Faltan datos para inhabilitar horario",
     });
   try {
-    if (!filteredDay.times.includes(timeToErase)) {
-      return ServerResponse.badRequest({
-        res,
-        error: "Horario no existe",
-      });
-    }
-    const disableTime = {
-      $pull: { times: timeToErase },
-    };
-    let disabledTime = await dayService.updateOne(filteredDay, disableTime);
+    const disableTime = { dayNumber: dayNumber, "times.time": timeToErase };
+    const argDisabled = { $set: { "times.$.enabled": false } };
+    let disabledTime = await dayService.updateOne(disableTime, argDisabled);
     ServerResponse.success({
       res,
-      result: "Horario deshabilitado",
+      result: "Horario inhabilitado",
       data: disabledTime,
     });
   } catch (error) {
     ServerResponse.internalError({
       res,
-      error: "Error interno deshabilitando horario",
+      error: "Error interno inhabilitando horario",
     });
   }
 };
@@ -177,6 +169,6 @@ export default {
   filteredDay,
   enableDay,
   disableDay,
-  addTime,
-  eraseTime,
+  enableTime,
+  disableTime,
 };

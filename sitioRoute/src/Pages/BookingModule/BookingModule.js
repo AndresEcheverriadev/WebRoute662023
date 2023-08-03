@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  filteredSimpleDate,
-  simpleDate,
-} from "../../Data/utils/formatDates.js";
+import { simpleDate, getDay } from "../../Data/utils/formatDates.js";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, subDays } from "date-fns";
 import es from "date-fns/locale/es";
-import timeRanges from "../../Data/timeRanges.mjs";
 import bookingZones from "../../Data/bookingZones.mjs";
 import interiorDemo from "../BookingModule/interiorDemo.jpg";
 import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
@@ -16,14 +12,38 @@ import Modal from "../Modal/Modal.js";
 import ModalService from "../../Services/ModalService.js";
 import "./BookingModule.css";
 import "./BookingModuleResponsive.css";
+import { DayService } from "../../Services/DayService.js";
 setDefaultLocale("es");
 registerLocale("es", es);
 
 function BookingModule() {
-  const [bookingSameDay, setBookingSameDay] = useState(true);
-  const [startingDate, setStartingDate] = useState(new Date());
-  const [displayDate, setDisplayDate] = useState();
+  const [availableTimes, setAvailableTimes] = useState([]);
+
+  const getAvailableTimes = async (day) => {
+    let dayNumber = getDay(day);
+    let availableTimesTemp = [];
+    const days = await DayService.getAllDays();
+    const filteredDay = await days.data?.filter(
+      (day) => day.dayNumber === dayNumber
+    );
+    const filteredTimes = filteredDay[0].times.filter(
+      (time) => time.enabled === true
+    );
+    for (let index = 0; index < filteredTimes.length; index++) {
+      availableTimesTemp.push(filteredTimes[index].time);
+    }
+    setAvailableTimes(availableTimesTemp);
+  };
+
+  useEffect(() => {
+    if (availableTimes.length !== 0) {
+      updateBooking({ horaReserva: availableTimes[0] });
+    }
+  }, [availableTimes]);
+
+  const [bookingSameDay, setBookingSameDay] = useState(false);
   const [bookingDaysRange, setBookingDaysRange] = useState(20);
+  const [displayDate, setDisplayDate] = useState();
   const [peopleBooking, setPeopleBooking] = useState(1);
   const [zoneSelected, setZoneSelected] = useState("");
   const [dataOk, setDataOk] = useState(false);
@@ -33,9 +53,9 @@ function BookingModule() {
     emailReserva: "",
     telefonoReserva: "",
     diaReserva: "",
-    horaReserva: timeRanges.slice(0, 1).shift().time,
+    horaReserva: availableTimes[0],
     cantidadReserva: peopleBooking,
-    zonaReserva: bookingZones.slice(0, 1).shift().zone,
+    zonaReserva: bookingZones[0].zone,
     comentarioReserva: "",
   });
   const [bookingCompleted, setBookingCompleted] = useState(false);
@@ -100,7 +120,10 @@ function BookingModule() {
     if (
       bookingData.nombreReserva !== "" &&
       bookingData.emailReserva !== "" &&
-      bookingData.telefonoReserva !== ""
+      bookingData.telefonoReserva !== "" &&
+      bookingData.diaReserva !== "" &&
+      bookingData.horaReserva !== "" &&
+      bookingData.cantidadReserva !== ""
     ) {
       setDataOk(true);
       setDisabled("");
@@ -112,9 +135,9 @@ function BookingModule() {
     }
   }, [bookingData]);
 
-  const sendDataBooking = () => {
+  const sendDataBooking = async () => {
     if (dataOk === true) {
-      const sendBooking = BookingService.addBooking(
+      const sendBooking = await BookingService.addBooking(
         bookingData.nombreReserva,
         bookingData.emailReserva,
         bookingData.telefonoReserva,
@@ -124,25 +147,26 @@ function BookingModule() {
         bookingData.zonaReserva,
         bookingData.comentarioReserva
       );
-      setBookingCompleted(true);
+      // console.log(`BookingModule: ${JSON.stringify(sendBooking.result.error)}`);
+      if (sendBooking.result.error === "Faltan datos para reserva") {
+        alert("Faltan datos para generar la reserva.");
+      } else if (sendBooking.result.error === "Reserva ya existe") {
+        alert("Ya existe reserva con estos datos. Elija otro día/horario.");
+      } else {
+        setBookingCompleted(true);
+      }
     } else {
-      alert("Faltan datos para generar la reserva");
+      alert("Error generando reserva. Disculpe las molestias.");
     }
   };
 
-  const { show, showModal, hideModal } = ModalService();
+  const { show, showModal, refreshAndScroll } = ModalService();
 
   useEffect(() => {
     if (bookingCompleted === true) {
       showModal();
     }
-  }, [bookingCompleted]);
-
-  const refreshAndScroll = () => {
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 10);
-  };
+  }, [bookingCompleted, showModal]);
 
   useEffect(() => {
     window.history.scrollRestoration = "manual";
@@ -158,10 +182,10 @@ function BookingModule() {
 
   const handleDateChange = (date) => {
     setDisplayDate(date);
+    getAvailableTimes(date);
     updateBooking({ diaReserva: simpleDate(date) });
+    updateBooking({ horaReserva: availableTimes[0] });
   };
-
-  const [blockDays, setblockDays] = useState([1, 3]);
 
   const filterDates = (date) => {
     const day = date.getDay();
@@ -175,10 +199,24 @@ function BookingModule() {
     return result;
   };
 
-  //DEBUG ZONE
+  const [blockDays, setBlockDays] = useState([]);
+
+  const getblockDays = async () => {
+    let blockDays = [];
+    const days = await DayService.getAllDays();
+    const filteredDays = await days.data?.filter(
+      (day) => day.enabled === false
+    );
+    if (!filteredDays) return;
+    filteredDays?.map((day) => {
+      return blockDays.push(day.dayNumber);
+    });
+    setBlockDays(blockDays);
+  };
+
   useEffect(() => {
-    console.log(bookingData);
-  }, [bookingData]);
+    getblockDays();
+  }, []);
 
   return (
     <>
@@ -221,6 +259,7 @@ function BookingModule() {
               <div className="timePickerContainer">
                 <p>Seleccione horario</p>
                 <select
+                  defaultValue={availableTimes[0]}
                   className="timeSelector"
                   name=""
                   id=""
@@ -228,10 +267,10 @@ function BookingModule() {
                     updateBooking({ horaReserva: e.target.value })
                   }
                 >
-                  {timeRanges.map((times, index) => {
+                  {availableTimes.map((times, index) => {
                     return (
-                      <option key={index} value={times.time}>
-                        {times.time}
+                      <option key={index} value={times}>
+                        {times}
                       </option>
                     );
                   })}

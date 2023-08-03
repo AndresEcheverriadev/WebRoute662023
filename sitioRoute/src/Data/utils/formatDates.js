@@ -28,4 +28,8 @@ const normalizeDate = (strDate) => {
   return normalizedDate;
 };
 
-export { simpleDate, filteredSimpleDate, normalizeDate };
+const getDay = (date) => {
+  return date.getDay();
+};
+
+export { simpleDate, filteredSimpleDate, normalizeDate, getDay };

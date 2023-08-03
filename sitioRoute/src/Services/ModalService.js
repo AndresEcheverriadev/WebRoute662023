@@ -6,10 +6,17 @@ const ModalService = () => {
   const showModal = () => {
     setShow(true);
   };
+
   const hideModal = () => {
     setShow(false);
   };
 
-  return { show, showModal, hideModal };
+  const refreshAndScroll = () => {
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 10);
+  };
+
+  return { show, showModal, hideModal, refreshAndScroll };
 };
 export default ModalService;

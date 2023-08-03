@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../context/LoginContext.js";
 import {
   filteredSimpleDate,
@@ -124,11 +124,11 @@ function BookingsPage() {
     }
   };
 
-  const { show, showModal, hideModal } = ModalService();
+  const { show, showModal, refreshAndScroll } = ModalService();
 
   const btnsEditModalSettings = () => {
     return (
-      <button className="btnBackModalSettings" onClick={hideModal}>
+      <button className="btnBackModalSettings" onClick={refreshAndScroll}>
         Cerrar
       </button>
     );
@@ -146,7 +146,7 @@ function BookingsPage() {
         <h1>Administrador de reservas Route 66</h1>
         <div className="logBtns">
           <button className="logBtns_admin" onClick={showModal}>
-            Admin Login
+            Config options
           </button>
           <a href="/">
             <button className="logBtns_logout" onClick={() => logOut()}>

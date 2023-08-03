@@ -94,6 +94,15 @@ const addBooking = async (req, res) => {
       res,
       error: "Faltan datos para reserva",
     });
+  const filteredBookings = await bookingService.getOne({
+    emailReserva: emailReserva,
+    horaReserva: horaReserva,
+  });
+  if (filteredBookings)
+    return ServerResponse.badRequest({
+      res,
+      error: "Reserva ya existe",
+    });
   try {
     const newBooking = {
       nombreReserva,
@@ -110,7 +119,6 @@ const addBooking = async (req, res) => {
     ServerResponse.success({
       res,
       result: "Reserva creada",
-      data: createdBooking,
     });
   } catch (error) {
     ServerResponse.internalError({
@@ -128,7 +136,7 @@ const deleteBooking = async (req, res) => {
       return ServerResponse.notFound({ res, error: "Reserva no encontrada" });
     }
     let result = await bookingService.deleteOne(booking);
-    ServerResponse.success({ res, result: "Reserva borrada", data: result });
+    ServerResponse.success({ res, result: "Reserva borrada" });
   } catch (error) {
     ServerResponse.internalError({
       res,

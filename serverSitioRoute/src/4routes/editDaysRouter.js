@@ -5,7 +5,7 @@ const editDaysRouter = Router();
 
 editDaysRouter.post("/enableDay", dayController.enableDay);
 editDaysRouter.post("/disableDay", dayController.disableDay);
-editDaysRouter.post("/addTime", dayController.addTime);
-editDaysRouter.post("/eraseTime", dayController.eraseTime);
+editDaysRouter.post("/addTime", dayController.enableTime);
+editDaysRouter.post("/eraseTime", dayController.disableTime);
 
 export default editDaysRouter;

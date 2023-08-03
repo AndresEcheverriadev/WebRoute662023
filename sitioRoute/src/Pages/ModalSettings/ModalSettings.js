@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
-import AccordionModule from "../Accordion/Accordion.js";
+import AccordionModule from "../AccordionModule/AccordionModule.js";
 import { DayService } from "../../Services/DayService.js";
 import "./ModalSettings.css";
+import "./ModalSettingsResponsive.css";
 
 const ModalSettings = ({ show, contextButton }) => {
-  // useEffect(() => {
-  //   if (show === true) {
-  //     document.body.style.overflowY = "hidden";
-  //     return () => {
-  //       document.body.style.overflowY = "auto";
-  //     };
-  //   }
-  // }, [show]);
+  useEffect(() => {
+    if (show === true) {
+      document.body.style.overflowY = "hidden";
+      return () => {
+        document.body.style.overflowY = "auto";
+      };
+    }
+  }, [show]);
 
   const [days, setDays] = useState([]);
 
   const getAllDays = async () => {
     const days = await DayService.getAllDays();
     if (!days) return;
-    setDays(days.data);
+    let newDays = { ...days };
+    setDays(newDays.data);
   };
 
   useEffect(() => {
@@ -42,6 +44,16 @@ const ModalSettings = ({ show, contextButton }) => {
       disableDay(dayNumber);
     }
   };
+
+  const [updateModal, setUpdateModal] = useState(false);
+
+  const updatedModal = () => {
+    setUpdateModal(!updatedModal);
+  };
+
+  useEffect(() => {
+    getAllDays();
+  }, [updatedModal]);
 
   return (
     <div
@@ -83,9 +95,11 @@ const ModalSettings = ({ show, contextButton }) => {
                           }
                         />
                       </div>
-                      <div className="weekdayTimesContainer">
-                        <AccordionModule content={day} key={index} />
-                      </div>
+                      <AccordionModule
+                        day={day}
+                        key={day.nameDay}
+                        updateModal={updateModal}
+                      />
                     </div>
                   );
                 })}

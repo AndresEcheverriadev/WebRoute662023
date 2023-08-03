@@ -34,7 +34,7 @@ const addBooking = async (
   comentarioReserva
 ) => {
   try {
-    const { data } = await HTTPRequestService.postBooking(
+    const data = await HTTPRequestService.postBooking(
       process.env.REACT_APP_CREATE_BOOKING_URL,
       {
         nombreReserva,
@@ -47,8 +47,10 @@ const addBooking = async (
         comentarioReserva,
       }
     );
-    return { success: true, data: data.data };
+    // console.log(`BookingService: ${JSON.stringify(data)}`);
+    return { success: true, result: data };
   } catch (error) {
+    console.log(`BookingServiceError: ${JSON.stringify(error)}`);
     return { success: false };
   }
 };

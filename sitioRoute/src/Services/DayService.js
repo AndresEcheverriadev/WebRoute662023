@@ -19,7 +19,7 @@ const getFilteredDay = async (day) => {
     );
     return { success: true, data: data.data };
   } catch (error) {
-    return { success: false }, console.log(error);
+    return { success: false };
   }
 };
 
@@ -47,11 +47,11 @@ const disableDay = async (day) => {
   }
 };
 
-const addTime = async (day, time) => {
+const addTime = async (dayNumber, timeToAdd) => {
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_ADD_TIME_URL,
-      { day, time }
+      { dayNumber, timeToAdd }
     );
     return { success: true, data: data.data };
   } catch (error) {
@@ -59,11 +59,11 @@ const addTime = async (day, time) => {
   }
 };
 
-const eraseTime = async (day, time) => {
+const eraseTime = async (dayNumber, timeToErase) => {
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_ERASE_TIME_URL,
-      { day, time }
+      { dayNumber, timeToErase }
     );
     return { success: true, data: data.data };
   } catch (error) {

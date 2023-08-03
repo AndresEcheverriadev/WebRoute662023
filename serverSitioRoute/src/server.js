@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(onAuthorizationHeaders);
 
 app.use("/api/user", usersRouter);
-app.use("/api/bookings", bookingsRouter);
+app.use("/api/bookings", isAuthorized, bookingsRouter);
 app.use("/api/createBooking", createBookingRouter);
 app.use("/api/allDays", allDaysRouter);
-app.use("/api/editDays", editDaysRouter);
+app.use("/api/editDays", isAuthorized, editDaysRouter);
 
 const server = app.listen(process.env.PORT || 8085, () => {
   console.log(`Servidor escuchando en puerto ${server.address().port}`);

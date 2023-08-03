@@ -41,14 +41,14 @@ const Modal = ({ show, contextButton, bookingData, peopleBooking }) => {
                   </svg>
                 </div>
                 <div className="bookingDataContainer">
-                  <p>Nombre: {bookingData.nombreReserva}</p>
-                  <p>Email: {bookingData.emailReserva}</p>
-                  <p>Teléfono: {bookingData.telefonoReserva}</p>
-                  <p>Fecha: {bookingData.diaReserva}</p>
-                  <p>Hora:{bookingData.horaReserva}</p>
+                  <p>Nombre: {bookingData?.nombreReserva}</p>
+                  <p>Email: {bookingData?.emailReserva}</p>
+                  <p>Teléfono: {bookingData?.telefonoReserva}</p>
+                  <p>Fecha: {bookingData?.diaReserva}</p>
+                  <p>Hora:{bookingData?.horaReserva}</p>
                   <p>Cantidad de personas: {peopleBooking}</p>
-                  <p>Zona de reserva: {bookingData.zonaReserva}</p>
-                  <p>Comentario: {bookingData.comentarioReserva}</p>
+                  <p>Zona de reserva: {bookingData?.zonaReserva}</p>
+                  <p>Comentario: {bookingData?.comentarioReserva}</p>
                 </div>
               </div>
             </div>

@@ -13,6 +13,13 @@ a {
   text-decoration: none !important;
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("./Roboto-Regular.ttf") format("truetype"),
+    url("./Roboto-Bold.ttf") format("truetype"),
+    url("./Roboto-Medium.ttf") format("truetype");
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,9 +40,6 @@ body {
   --Gap: 20px;
   --Margin: 10px;
   --Padding: 10px;
-  --Title: 600;
-  --Link: 600;
-  --Cuerpo: 400;
   --h1: 2.488rem;
   --h2: 2.074rem;
   --h3: 1.728rem;
@@ -44,10 +48,12 @@ body {
   --specialTitle: 4rem;
   --notification: 0.833rem;
   --p: 14px;
+  --regular: 400;
+  --medium: 500;
   --bold: 700;
-  --italic: italic;
   background-color: var(--AzulBase) !important;
   color: var(--Blanco);
+  font-family: "Roboto", sans-serif;
 }
 
 .logo {

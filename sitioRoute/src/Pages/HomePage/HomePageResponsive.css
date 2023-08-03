@@ -5,7 +5,7 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner1-320.jpg");
+      url("../../imgs/homeBanner1-320.webp");
   }
 
   .homeBanner2 {
@@ -14,7 +14,7 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner2-320.jpg");
+      url("../../imgs/homeBanner2-320.webp");
   }
 
   #mobileEmptyBR {
@@ -32,7 +32,7 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner1-480.jpg");
+      url("../../imgs/homeBanner1-480.webp");
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -44,7 +44,7 @@
         rgba(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
       ),
-      url("../../imgs/homeBanner2-480.jpg");
+      url("../../imgs/homeBanner2-480.webp");
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -78,60 +78,60 @@
 }
 
 @media (min-width: 700px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -30px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -30px !important;
   }
 }
 
 @media (min-width: 1000px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -50px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -50px !important;
   }
 }
 
 @media (min-width: 1200px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -60px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -60px !important;
   }
 }
 @media (min-width: 1300px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -70px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -70px !important;
   }
 }
 
 @media (min-width: 1400px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -80px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -80px !important;
   }
 }
 
 @media (min-width: 1500px) {
-  .carouselControlMarginPrev {
+  .carousel-control-prev {
     margin-left: -90px !important;
   }
 
-  .carouselControlMarginNext {
+  .carousel-control-next {
     margin-right: -90px !important;
   }
 }

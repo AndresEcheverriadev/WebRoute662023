@@ -1,0 +1,7 @@
+@media (max-width: 800px) {
+  .weekday {
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+  }
+}

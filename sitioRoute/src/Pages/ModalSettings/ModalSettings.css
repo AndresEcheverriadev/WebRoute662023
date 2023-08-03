@@ -58,6 +58,13 @@
   color: var(--CremaBase);
 }
 
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
 .weekdaysSeparators {
   display: flex;
   flex-direction: row;
@@ -68,7 +75,7 @@
 }
 
 .weekdaysSeparatorWeekday {
-  width: auto;
+  width: 100%;
 }
 
 .weekdaysWrapper {
@@ -94,7 +101,7 @@
 }
 
 .weekdayTitle {
-  width: 20%;
+  width: 100px;
 }
 
 .weekdayEnabledContainer {

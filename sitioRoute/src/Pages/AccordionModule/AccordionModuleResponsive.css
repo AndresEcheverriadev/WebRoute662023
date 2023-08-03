@@ -1,0 +1,6 @@
+@media (max-width: 800px) {
+  .weekdayTimesContainer {
+    width: 300px;
+    justify-content: center;
+  }
+}

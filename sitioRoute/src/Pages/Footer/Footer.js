@@ -1,5 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from "react";
-import GoogleMapModule from "../GoogleMapModule/GoogleMapModule.js";
+import React from "react";
 import logo from "../../logo.svg";
 import logoWaze from "./logoWaze.svg";
 import "./Footer.css";
@@ -7,18 +6,6 @@ import "./FooterResponsive.css";
 
 function Footer() {
   const mail = "contacto@route66.cl";
-  const mapWidth = "200px";
-  const mapHeight = "200px";
-
-  const refMapContainer = useRef(null);
-  const [widthMapContainer, setWidthMapContainer] = useState(0);
-  const [heightMapContainer, setHeightMapContainer] = useState(0);
-
-  useLayoutEffect(() => {
-    setWidthMapContainer(refMapContainer.current.offsetWidth);
-    setHeightMapContainer(refMapContainer.current.offsetHeight);
-  }, []);
-
   return (
     <div className="footer">
       <img src={logo} alt="" className=" logo logo--azul" />
@@ -124,11 +111,16 @@ function Footer() {
             </svg>
           </a>
         </div>
-        <div className="ContactWrapperBottom" ref={refMapContainer}>
-          <GoogleMapModule
-            mapWidth={widthMapContainer}
-            mapHeight={heightMapContainer}
-          />
+        <div className="ContactWrapperBottom">
+          <iframe
+            className="ContactWrapperBottom__map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.355382160492!2d-70.60251002451236!3d-33.413977995644906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf405ad73ffb%3A0xee029d663f1a73e7!2sRoute%2066!5e0!3m2!1ses!2scl!4v1691009960317!5m2!1ses!2scl"
+            width="650"
+            height="200"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </div>

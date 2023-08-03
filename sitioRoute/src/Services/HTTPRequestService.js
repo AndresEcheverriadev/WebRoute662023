@@ -26,7 +26,6 @@ const post = async (url, data) => {
   try {
     const token = LocalStorageService.getItem("token");
     const response = await axios.post(url, data, {
-      // headers: { Authorization: `Bearer ${token}` },
       headers: { Authorization: `${token}` },
     });
     return response;
@@ -46,9 +45,9 @@ const post = async (url, data) => {
 const postBooking = async (url, data) => {
   try {
     const response = await axios.post(url, data);
-    return response;
+    return response.data.status;
   } catch (error) {
-    console.error(error);
+    return error.response.data;
   }
 };
 

@@ -4,7 +4,6 @@
   "homepage": "http://159.89.93.244/",
   "private": true,
   "dependencies": {
-    "@react-google-maps/api": "^2.18.1",
     "@react-pdf/renderer": "^3.1.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,7 +13,6 @@
     "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
-    "react-calendar": "^3.8.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
