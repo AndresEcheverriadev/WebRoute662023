@@ -96,6 +96,7 @@ const addBooking = async (req, res) => {
     });
   const filteredBookings = await bookingService.getOne({
     emailReserva: emailReserva,
+    diaReserva: diaReserva,
     horaReserva: horaReserva,
   });
   if (filteredBookings)

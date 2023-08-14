@@ -101,13 +101,20 @@ function BookingModule() {
 
   const addPeople = () => {
     setPeopleBooking(peopleBooking + 1);
+    updateBooking({ cantidadReserva: peopleBooking + 1 });
   };
 
   const minusPeople = () => {
     if (peopleBooking > 1) {
       setPeopleBooking(peopleBooking - 1);
+      updateBooking({ cantidadReserva: peopleBooking - 1 });
     }
   };
+
+  // useEffect(() => {
+  //   console.log(peopleBooking);
+  //   console.log(bookingData);
+  // }, [peopleBooking]);
 
   function updateBooking(value) {
     return setBookingData((prev) => {
@@ -147,7 +154,6 @@ function BookingModule() {
         bookingData.zonaReserva,
         bookingData.comentarioReserva
       );
-      // console.log(`BookingModule: ${JSON.stringify(sendBooking.result.error)}`);
       if (sendBooking.result.error === "Faltan datos para reserva") {
         alert("Faltan datos para generar la reserva.");
       } else if (sendBooking.result.error === "Reserva ya existe") {
