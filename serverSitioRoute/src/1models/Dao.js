@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import User from "./User.js";
 import Booking from "./Booking.js";
 import Day from "./Day.js";
+import Option from "./Option.js";
 mongoose.set("strictQuery", false);
 
 class Dao {
@@ -26,11 +27,13 @@ class Dao {
     const userSchema = mongoose.Schema(User.schema, timestamps);
     const bookingSchema = mongoose.Schema(Booking.schema, timestamps);
     const daySchema = mongoose.Schema(Day.schema, timestamps);
+    const optionSchema = mongoose.Schema(Option.schema, timestamps);
 
     this.models = {
       [User.collection]: mongoose.model(User.collection, userSchema),
       [Booking.collection]: mongoose.model(Booking.collection, bookingSchema),
       [Day.collection]: mongoose.model(Day.collection, daySchema),
+      [Option.collection]: mongoose.model(Option.collection, optionSchema),
     };
   }
 

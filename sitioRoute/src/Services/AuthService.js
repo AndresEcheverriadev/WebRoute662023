@@ -1,4 +1,4 @@
-import { LocalStorageService } from "./LocalStorageService.js";
+import { SessionStorageService } from "./SessionStorageService.js";
 import { HTTPRequestService } from "./HTTPRequestService.js";
 
 const login = async (userName, password) => {
@@ -15,7 +15,7 @@ const login = async (userName, password) => {
       }
     );
     if (data.status === 200 && data.data.token) {
-      LocalStorageService.setItem("token", data.data.token);
+      SessionStorageService.setItem("token", data.data.token);
       return { success: true, user: data.data.user };
     }
     return { success: false };
@@ -41,7 +41,7 @@ const register = async ({ userName, password }) => {
 
 const loginToken = async () => {
   try {
-    const token = await LocalStorageService.getItem("token");
+    const token = await SessionStorageService.getItem("token");
     if (!token) return { success: false };
     return { success: true, user: true };
   } catch (error) {
@@ -51,7 +51,7 @@ const loginToken = async () => {
 
 const logout = async () => {
   try {
-    const deleteToken = LocalStorageService.removeItem("token");
+    const deleteToken = SessionStorageService.removeItem("token");
     if (!deleteToken) return { success: false };
     return { success: true };
   } catch (error) {

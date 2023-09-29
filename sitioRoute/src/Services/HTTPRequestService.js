@@ -1,10 +1,10 @@
 import axios from "axios";
 import { AuthService } from "./AuthService.js";
-import { LocalStorageService } from "./LocalStorageService.js";
+import { SessionStorageService } from "./SessionStorageService.js";
 
 const get = async (url) => {
   try {
-    const token = LocalStorageService.getItem("token");
+    const token = SessionStorageService.getItem("token");
     const response = await axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -24,7 +24,7 @@ const get = async (url) => {
 
 const post = async (url, data) => {
   try {
-    const token = LocalStorageService.getItem("token");
+    const token = SessionStorageService.getItem("token");
     const response = await axios.post(url, data, {
       headers: { Authorization: `${token}` },
     });
@@ -53,7 +53,7 @@ const postBooking = async (url, data) => {
 
 const put = async (url, data) => {
   try {
-    const token = LocalStorageService.getItem("token");
+    const token = SessionStorageService.getItem("token");
     const response = await axios.put(url, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -73,7 +73,7 @@ const put = async (url, data) => {
 
 const remove = async (url, params) => {
   try {
-    const token = LocalStorageService.getItem("token");
+    const token = SessionStorageService.getItem("token");
     const response = await axios.delete(url, {
       headers: { Authorization: `Bearer ${token}` },
       params,

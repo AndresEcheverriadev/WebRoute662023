@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AccordionModule from "../AccordionModule/AccordionModule.js";
 import { DayService } from "../../Services/DayService.js";
+import { SettingsService } from "../../Services/SettingsService.js";
 import "./ModalSettings.css";
 import "./ModalSettingsResponsive.css";
 
@@ -25,6 +26,7 @@ const ModalSettings = ({ show, contextButton }) => {
 
   useEffect(() => {
     getAllDays();
+    getSameDayOption("sameDayBooking");
   }, []);
 
   const enableDay = async (dayNumber) => {
@@ -49,11 +51,27 @@ const ModalSettings = ({ show, contextButton }) => {
 
   const updatedModal = () => {
     setUpdateModal(!updatedModal);
+    alert("updated Modal");
   };
 
   useEffect(() => {
     getAllDays();
-  }, [updatedModal]);
+  }, [updateModal]);
+
+  const [sameDayBooking, setSameDayBooking] = useState();
+
+  // const getAllOptions = async () => {
+  //   const configOptions = await SettingsService.getAllOptions();
+  //   setConfigOptions(configOptions.data);
+  // };
+
+  const getSameDayOption = async (option) => {
+    const configOption = await SettingsService.getOption({ option: option });
+    setSameDayBooking({
+      name: configOption.data.name,
+      status: configOption.data.status,
+    });
+  };
 
   return (
     <div
@@ -70,9 +88,9 @@ const ModalSettings = ({ show, contextButton }) => {
           <div className="modal-body modalBodyEdit">
             {contextButton}
             <div className="modalContent">
-              <h2>Configuración de Reservas</h2>
+              <h2 className="modalTitle">Configuración de Reservas</h2>
               <div className="weekdaysSeparators">
-                <p className="weekdaysSeparatorWeekday">Día de la semana</p>
+                <h5 className="weekdaysSeparatorWeekday">Día de la semana</h5>
               </div>
               <div className="weekdaysWrapper">
                 {days.map((day, index) => {
@@ -103,6 +121,28 @@ const ModalSettings = ({ show, contextButton }) => {
                     </div>
                   );
                 })}
+              </div>
+              <div className="optionsWrapper">
+                <div className="sameDayBookingWrapper">
+                  <h5 className="sameDayBookingTitle">
+                    Permitir reservas el mismo día
+                  </h5>
+                  <div className="sameDayCheckContainer">
+                    <input
+                      type="checkbox"
+                      className="samedayCheckbox"
+                      checked={sameDayBooking?.status ? true : false}
+                      // onChange={() =>
+                      //   handleEnableSameDay(sameDayBooking.enabled)
+                      // }
+                    />
+                    {sameDayBooking?.status ? (
+                      <h6 className="samedayTitleEnabled">Habilitado</h6>
+                    ) : (
+                      <h6 className="samedayTitleDisabled">Deshabilitado</h6>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
             {contextButton}

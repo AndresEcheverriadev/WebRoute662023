@@ -8,6 +8,7 @@ import bookingsRouter from "./4routes/bookingsRouter.js";
 import createBookingRouter from "./4routes/createBookingRouter.js";
 import editDaysRouter from "./4routes/editDaysRouter.js";
 import allDaysRouter from "./4routes/allDaysRouter.js";
+import editOptionsRouter from "./4routes/editOptionsRouter.js";
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/api/bookings", isAuthorized, bookingsRouter);
 app.use("/api/createBooking", createBookingRouter);
 app.use("/api/allDays", allDaysRouter);
 app.use("/api/editDays", isAuthorized, editDaysRouter);
+app.use("/api/editOptions", editOptionsRouter);
 
 const server = app.listen(process.env.PORT || 8085, () => {
   console.log(`Servidor escuchando en puerto ${server.address().port}`);

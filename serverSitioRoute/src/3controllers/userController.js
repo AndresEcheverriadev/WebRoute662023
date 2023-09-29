@@ -14,7 +14,7 @@ const loginUser = async (req, res) => {
       });
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, {
-      expiresIn: "10m",
+      expiresIn: "30m",
     });
     ServerResponse.success({
       res,

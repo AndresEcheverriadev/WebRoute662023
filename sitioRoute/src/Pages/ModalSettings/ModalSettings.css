@@ -65,6 +65,11 @@
   height: auto;
 }
 
+.modalTitle {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .weekdaysSeparators {
   display: flex;
   flex-direction: row;
@@ -76,6 +81,7 @@
 
 .weekdaysSeparatorWeekday {
   width: 100%;
+  text-align: left;
 }
 
 .weekdaysWrapper {
@@ -86,6 +92,10 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 2px solid var(--Blanco);
+  margin-bottom: 5px;
 }
 
 .weekday {
@@ -95,7 +105,7 @@
   height: auto;
   justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid var(--Blanco);
+  border: 1px solid var(--GrisOscuro);
   padding: 10px;
   gap: 20px;
 }
@@ -140,4 +150,64 @@
 .weekdayCheckbox:checked {
   background-color: var(--Verde);
   border-color: var(--Verde);
+}
+
+.optionsWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.sameDayBookingWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sameDayBookingTitle {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--Blanco);
+}
+
+.samedayCheckbox {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 1px solid var(--Rojo);
+  outline: none;
+  cursor: pointer;
+  background-color: var(--Rojo);
+}
+
+.samedayCheckbox:checked {
+  background-color: var(--Verde);
+  border-color: var(--Verde);
+}
+
+.samedayTitleEnabled {
+  width: 100%;
+  height: auto;
+  color: var(--Verde);
+}
+
+.samedayTitleDisabled {
+  width: 100%;
+  height: auto;
+  color: var(--Rojo);
 }

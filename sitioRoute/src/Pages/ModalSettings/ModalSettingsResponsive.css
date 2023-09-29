@@ -1,7 +1,19 @@
-@media (max-width: 800px) {
+@media (max-width: 760px) {
+  .weekdaysSeparatorWeekday {
+    text-align: center;
+  }
+
   .weekday {
     flex-direction: column;
     width: 90%;
     align-items: center;
+  }
+
+  .optionsWrapper {
+    flex-direction: column;
+  }
+
+  .sameDayBookingWrapper {
+    width: 100%;
   }
 }

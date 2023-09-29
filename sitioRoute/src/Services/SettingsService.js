@@ -1,0 +1,29 @@
+import { HTTPRequestService } from "./HTTPRequestService.js";
+
+const getAllOptions = async () => {
+  try {
+    const { data } = await HTTPRequestService.get(
+      process.env.REACT_APP_CONFIG_GET_OPTIONS_URL
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const getOption = async (option) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      process.env.REACT_APP_CONFIG_GET_OPTION_URL,
+      option
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+export const SettingsService = {
+  getAllOptions,
+  getOption,
+};

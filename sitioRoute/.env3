@@ -1,0 +1,13 @@
+REACT_APP_API_URL=https://backtestings-ldm8-dev.fl0.io/
+REACT_APP_LOGIN_USER_URL=https://backtestings-ldm8-dev.fl0.io/api/user/login
+REACT_APP_REGISTER_USER_URL=https://backtestings-ldm8-dev.fl0.io/api/user/register
+REACT_APP_CREATE_BOOKING_URL=https://backtestings-ldm8-dev.fl0.io/api/createBooking
+REACT_APP_ALL_BOOKINGS_URL=https://backtestings-ldm8-dev.fl0.io/api/bookings/all
+REACT_APP_FILTERED_BOOKINGS_URL=https://backtestings-ldm8-dev.fl0.io/api/bookings/filteredBookings
+REACT_APP_DELETE_BOOKING_URL=https://backtestings-ldm8-dev.fl0.io/api/deleteBooking
+REACT_APP_ALL_DAYS_URL=https://backtestings-ldm8-dev.fl0.io/api/allDays/all
+REACT_APP_FILTERED_DAY_URL=https://backtestings-ldm8-dev.fl0.io/api/allDays/filtered
+REACT_APP_ENABLE_DAY_URL=https://backtestings-ldm8-dev.fl0.io/api/editDays/enableDay
+REACT_APP_DISABLE_DAY_URL=https://backtestings-ldm8-dev.fl0.io/api/editDays/disableDay
+REACT_APP_ADD_TIME_URL=https://backtestings-ldm8-dev.fl0.io/api/editDays/addTime
+REACT_APP_ERASE_TIME_URL=https://backtestings-ldm8-dev.fl0.io/api/editDays/eraseTime

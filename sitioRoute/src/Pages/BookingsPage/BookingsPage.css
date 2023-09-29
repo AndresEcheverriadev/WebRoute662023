@@ -190,6 +190,10 @@
   margin-top: 50px;
 }
 
+.createBookingContainer--mobile {
+  display: none;
+}
+
 .createBookingInputs {
   display: flex;
   flex-direction: column;
