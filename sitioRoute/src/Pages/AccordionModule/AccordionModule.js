@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TimeCheckboxes from "../TimeCheckboxes/TimeCheckboxes.js";
+import { DayService } from "../../Services/DayService";
 import "./AccordionModule.css";
 import "./AccordionModuleResponsive.css";
 

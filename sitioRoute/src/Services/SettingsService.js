@@ -23,7 +23,33 @@ const getOption = async (option) => {
   }
 };
 
+const enableOption = async (option) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      process.env.REACT_APP_CONFIG_ENABLE_OPTION_URL,
+      option
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const disableOption = async (option) => {
+  try {
+    const { data } = await HTTPRequestService.post(
+      process.env.REACT_APP_CONFIG_DISABLE_OPTION_URL,
+      option
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
 export const SettingsService = {
   getAllOptions,
   getOption,
+  enableOption,
+  disableOption,
 };

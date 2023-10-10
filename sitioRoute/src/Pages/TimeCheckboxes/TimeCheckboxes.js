@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DayService } from "../../Services/DayService";
 
 function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
   const [checked, setchecked] = useState(checkedProp);
 
   const addTime = async (dayNumber, time) => {
-    await DayService.addTime(dayNumber, time);
+    const addThisTime = await DayService.addTime(dayNumber, time);
   };
 
   const eraseTime = async (dayNumber, time) => {
-    await DayService.eraseTime(dayNumber, time);
+    const eraseThisTime = await DayService.eraseTime(dayNumber, time);
   };
 
   const handleAddTime = (checked, dayNumber, timeToAdd) => {
-    if (checked) {
-      eraseTime(dayNumber, timeToAdd);
-      setchecked(false);
+    if (!checked) {
+      addTime(dayNumber, time);
+      setchecked(!checked);
     } else {
-      addTime(dayNumber, timeToAdd);
-      setchecked(true);
+      eraseTime(dayNumber, time);
+      setchecked(!checked);
     }
   };
 
@@ -26,6 +26,7 @@ function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
     <div className="weekdayTime" key={index}>
       <p>{time ? time : null}</p>
       <input
+        id={`${dayNumber}${time}`}
         type="checkbox"
         className="weekdayTimeCheckbox"
         disabled={disabled ? false : true}

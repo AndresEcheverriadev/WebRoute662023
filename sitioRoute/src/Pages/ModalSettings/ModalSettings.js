@@ -51,27 +51,41 @@ const ModalSettings = ({ show, contextButton }) => {
 
   const updatedModal = () => {
     setUpdateModal(!updatedModal);
-    alert("updated Modal");
   };
 
   useEffect(() => {
     getAllDays();
+    getSameDayOption("sameDayBooking");
   }, [updateModal]);
 
+  const getSameDayOption = async (option) => {
+    const sameDayOption = await SettingsService.getOption({ option: option });
+    if (!sameDayOption) return;
+    let newSameDayOption = { ...sameDayOption };
+    setSameDayBooking({
+      name: newSameDayOption.data.name,
+      status: newSameDayOption.data.status,
+    });
+  };
+
   const [sameDayBooking, setSameDayBooking] = useState();
+
+  const handleEnableSameDay = async (enabled) => {
+    if (!enabled) {
+      await SettingsService.enableOption({
+        option: "sameDayBooking",
+      });
+    } else {
+      await SettingsService.disableOption({
+        option: "sameDayBooking",
+      });
+    }
+  };
 
   // const getAllOptions = async () => {
   //   const configOptions = await SettingsService.getAllOptions();
   //   setConfigOptions(configOptions.data);
   // };
-
-  const getSameDayOption = async (option) => {
-    const configOption = await SettingsService.getOption({ option: option });
-    setSameDayBooking({
-      name: configOption.data.name,
-      status: configOption.data.status,
-    });
-  };
 
   return (
     <div
@@ -116,7 +130,7 @@ const ModalSettings = ({ show, contextButton }) => {
                       <AccordionModule
                         day={day}
                         key={day.nameDay}
-                        updateModal={updateModal}
+                        updateModal={updatedModal}
                       />
                     </div>
                   );
@@ -132,9 +146,9 @@ const ModalSettings = ({ show, contextButton }) => {
                       type="checkbox"
                       className="samedayCheckbox"
                       checked={sameDayBooking?.status ? true : false}
-                      // onChange={() =>
-                      //   handleEnableSameDay(sameDayBooking.enabled)
-                      // }
+                      onChange={() =>
+                        handleEnableSameDay(sameDayBooking.status)
+                      }
                     />
                     {sameDayBooking?.status ? (
                       <h6 className="samedayTitleEnabled">Habilitado</h6>

@@ -93,7 +93,7 @@ const disableDay = async (req, res) => {
     let disabledDay = await dayService.updateOne(disableDay, argDisabled);
     ServerResponse.success({
       res,
-      result: "Día inhabilitado",
+      result: "Día deshabilitado",
       data: disabledDay,
     });
   } catch (error) {
@@ -145,7 +145,7 @@ const disableTime = async (req, res) => {
   )
     return ServerResponse.badRequest({
       res,
-      error: "Faltan datos para inhabilitar horario",
+      error: "Faltan datos para deshabilitar horario",
     });
   try {
     const disableTime = { dayNumber: dayNumber, "times.time": timeToErase };
@@ -153,13 +153,13 @@ const disableTime = async (req, res) => {
     let disabledTime = await dayService.updateOne(disableTime, argDisabled);
     ServerResponse.success({
       res,
-      result: "Horario inhabilitado",
+      result: "Horario deshabilitado",
       data: disabledTime,
     });
   } catch (error) {
     ServerResponse.internalError({
       res,
-      error: "Error interno inhabilitando horario",
+      error: "Error interno deshabilitando horario",
     });
   }
 };
