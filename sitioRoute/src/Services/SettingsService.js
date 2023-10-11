@@ -12,10 +12,22 @@ const getAllOptions = async () => {
 };
 
 const getOption = async (option) => {
+  alert(option);
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_CONFIG_GET_OPTION_URL,
       option
+    );
+    return { success: true, data: data.data };
+  } catch (error) {
+    return { success: false };
+  }
+};
+
+const getSameDayOption = async () => {
+  try {
+    const { data } = await HTTPRequestService.get(
+      process.env.REACT_APP_CONFIG_GET_SAMEDAY_OPTION_URL
     );
     return { success: true, data: data.data };
   } catch (error) {
@@ -50,6 +62,7 @@ const disableOption = async (option) => {
 export const SettingsService = {
   getAllOptions,
   getOption,
+  getSameDayOption,
   enableOption,
   disableOption,
 };

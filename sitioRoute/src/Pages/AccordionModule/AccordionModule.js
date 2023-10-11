@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TimeCheckboxes from "../TimeCheckboxes/TimeCheckboxes.js";
-import { DayService } from "../../Services/DayService";
 import "./AccordionModule.css";
 import "./AccordionModuleResponsive.css";
 
-const AccordionModule = ({ day, updateModal }) => {
+const AccordionModule = ({ day }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const updateTimes = () => {
+  const activateAccordion = () => {
     setIsActive(!isActive);
-    updateModal();
   };
 
   return (
     <>
-      <div className="weekdayTimesButton" onClick={updateTimes}>
+      <div className="weekdayTimesButton" onClick={activateAccordion}>
         {isActive ? (
           <>
             <svg

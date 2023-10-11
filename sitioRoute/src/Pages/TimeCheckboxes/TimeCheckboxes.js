@@ -12,12 +12,12 @@ function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
     const eraseThisTime = await DayService.eraseTime(dayNumber, time);
   };
 
-  const handleAddTime = (checked, dayNumber, timeToAdd) => {
+  const handleUpdateTime = (checked, dayNumber, timeToUpdate) => {
     if (!checked) {
-      addTime(dayNumber, time);
+      addTime(dayNumber, timeToUpdate);
       setchecked(!checked);
     } else {
-      eraseTime(dayNumber, time);
+      eraseTime(dayNumber, timeToUpdate);
       setchecked(!checked);
     }
   };
@@ -31,7 +31,7 @@ function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
         className="weekdayTimeCheckbox"
         disabled={disabled ? false : true}
         checked={checked ? true : false}
-        onChange={() => handleAddTime(checked, dayNumber, time)}
+        onChange={() => handleUpdateTime(checked, dayNumber, time)}
       />
     </div>
   );

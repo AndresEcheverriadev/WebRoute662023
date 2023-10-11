@@ -13,6 +13,7 @@ import ModalService from "../../Services/ModalService.js";
 import "./BookingModule.css";
 import "./BookingModuleResponsive.css";
 import { DayService } from "../../Services/DayService.js";
+import { SettingsService } from "../../Services/SettingsService.js";
 setDefaultLocale("es");
 registerLocale("es", es);
 
@@ -41,7 +42,6 @@ function BookingModule() {
     }
   }, [availableTimes]);
 
-  const [bookingSameDay, setBookingSameDay] = useState(false);
   const [bookingDaysRange, setBookingDaysRange] = useState(20);
   const [displayDate, setDisplayDate] = useState();
   const [peopleBooking, setPeopleBooking] = useState(1);
@@ -110,11 +110,6 @@ function BookingModule() {
       updateBooking({ cantidadReserva: peopleBooking - 1 });
     }
   };
-
-  // useEffect(() => {
-  //   console.log(peopleBooking);
-  //   console.log(bookingData);
-  // }, [peopleBooking]);
 
   function updateBooking(value) {
     return setBookingData((prev) => {
@@ -220,8 +215,18 @@ function BookingModule() {
     setBlockDays(blockDays);
   };
 
+  const [sameDayBooking, setSameDayBooking] = useState();
+
+  const getSameDayOption = async () => {
+    const sameDayOption = await SettingsService.getSameDayOption();
+    if (!sameDayOption) return;
+    let newSameDayOption = { ...sameDayOption };
+    setSameDayBooking(newSameDayOption.data.status);
+  };
+
   useEffect(() => {
     getblockDays();
+    getSameDayOption();
   }, []);
 
   return (
@@ -251,10 +256,7 @@ function BookingModule() {
                   selected={displayDate}
                   includeDateIntervals={[
                     {
-                      start: subDays(
-                        new Date(),
-                        bookingSameDay === true ? 1 : 0
-                      ),
+                      start: subDays(new Date(), sameDayBooking ? 1 : 0),
                       end: addDays(new Date(), bookingDaysRange),
                     },
                   ]}

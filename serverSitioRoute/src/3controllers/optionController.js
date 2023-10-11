@@ -18,6 +18,7 @@ const getAllOptions = async (req, res) => {
 };
 
 const getOption = async (req, res) => {
+  console.log(req.body);
   try {
     let { option } = req.body;
     if (!option) {
@@ -31,6 +32,24 @@ const getOption = async (req, res) => {
       res,
       result: "Opción obtenida",
       data: optionConfig,
+    });
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "Error interno obteniendo opcion",
+    });
+  }
+};
+
+const getSameDayOption = async (req, res) => {
+  try {
+    const sameDayConfig = await optionService.getOne({
+      name: "sameDayBooking",
+    });
+    ServerResponse.success({
+      res,
+      result: "Opción obtenida",
+      data: sameDayConfig,
     });
   } catch (error) {
     ServerResponse.internalError({
@@ -97,6 +116,7 @@ const disableOption = async (req, res) => {
 export default {
   getAllOptions,
   getOption,
+  getSameDayOption,
   enableOption,
   disableOption,
 };
