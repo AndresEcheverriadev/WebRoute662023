@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 class Day {
   static get collection() {
-    return "bloqueodias";
+    return "bloqueodias2";
   }
 
   static get schema() {
@@ -11,7 +11,8 @@ class Day {
       dayNumber: { type: Number },
       nameDay: { type: String, required: true, maxLength: 9 },
       enabled: { type: Boolean, required: true },
-      times: { type: Array },
+      timesAlmuerzo: { type: Array },
+      timesCena: { type: Array },
     };
   }
 }

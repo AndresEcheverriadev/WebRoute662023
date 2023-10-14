@@ -47,10 +47,10 @@ const disableDay = async (day) => {
   }
 };
 
-const addTime = async (dayNumber, timeToAdd) => {
+const addTime = async (segmentTime, dayNumber, timeToAdd) => {
   try {
     const { data } = await HTTPRequestService.post(
-      process.env.REACT_APP_ADD_TIME_URL,
+      `${process.env.REACT_APP_ADD_TIME_URL}/${segmentTime}`,
       { dayNumber, timeToAdd }
     );
     return { success: true, data: data.data };
@@ -59,10 +59,10 @@ const addTime = async (dayNumber, timeToAdd) => {
   }
 };
 
-const eraseTime = async (dayNumber, timeToErase) => {
+const eraseTime = async (segmentTime, dayNumber, timeToErase) => {
   try {
     const { data } = await HTTPRequestService.post(
-      process.env.REACT_APP_ERASE_TIME_URL,
+      `${process.env.REACT_APP_ERASE_TIME_URL}/${segmentTime}`,
       { dayNumber, timeToErase }
     );
     return { success: true, data: data.data };

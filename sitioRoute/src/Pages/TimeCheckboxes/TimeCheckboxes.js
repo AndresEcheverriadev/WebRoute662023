@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { DayService } from "../../Services/DayService";
 
-function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
+function TimeCheckboxes({
+  dayNumber,
+  segmentTime,
+  time,
+  index,
+  disabled,
+  checkedProp,
+}) {
   const [checked, setchecked] = useState(checkedProp);
 
-  const addTime = async (dayNumber, time) => {
-    const addThisTime = await DayService.addTime(dayNumber, time);
+  const addTime = async (segmentTime, dayNumber, time) => {
+    const addThisTime = await DayService.addTime(segmentTime, dayNumber, time);
   };
 
-  const eraseTime = async (dayNumber, time) => {
-    const eraseThisTime = await DayService.eraseTime(dayNumber, time);
+  const eraseTime = async (segmentTime, dayNumber, time) => {
+    const eraseThisTime = await DayService.eraseTime(
+      segmentTime,
+      dayNumber,
+      time
+    );
   };
 
-  const handleUpdateTime = (checked, dayNumber, timeToUpdate) => {
+  const handleUpdateTime = (checked, segmentTime, dayNumber, timeToUpdate) => {
     if (!checked) {
-      addTime(dayNumber, timeToUpdate);
+      addTime(segmentTime, dayNumber, timeToUpdate);
       setchecked(!checked);
     } else {
-      eraseTime(dayNumber, timeToUpdate);
+      eraseTime(segmentTime, dayNumber, timeToUpdate);
       setchecked(!checked);
     }
   };
@@ -31,7 +42,7 @@ function TimeCheckboxes({ dayNumber, time, index, disabled, checkedProp }) {
         className="weekdayTimeCheckbox"
         disabled={disabled ? false : true}
         checked={checked ? true : false}
-        onChange={() => handleUpdateTime(checked, dayNumber, time)}
+        onChange={() => handleUpdateTime(checked, segmentTime, dayNumber, time)}
       />
     </div>
   );

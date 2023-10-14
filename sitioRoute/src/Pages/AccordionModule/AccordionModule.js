@@ -48,9 +48,24 @@ const AccordionModule = ({ day }) => {
 
       <div className="weekdayTimesContainer">
         {isActive &&
-          day.times?.map((time, index) => {
+          day.timesAlmuerzo?.map((time, index) => {
             return (
               <TimeCheckboxes
+                segmentTime="almuerzo"
+                key={index}
+                dayNumber={day.dayNumber}
+                time={time.time}
+                index={index}
+                disabled={day.enabled ? true : false}
+                checkedProp={time.enabled ? true : false}
+              />
+            );
+          })}
+        {isActive &&
+          day.timesCena?.map((time, index) => {
+            return (
+              <TimeCheckboxes
+                segmentTime="cena"
                 key={index}
                 dayNumber={day.dayNumber}
                 time={time.time}

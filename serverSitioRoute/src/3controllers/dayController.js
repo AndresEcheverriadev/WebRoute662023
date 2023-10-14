@@ -104,7 +104,7 @@ const disableDay = async (req, res) => {
   }
 };
 
-const enableTime = async (req, res) => {
+const enableTimeAlmuerzo = async (req, res) => {
   let { dayNumber, timeToAdd } = req.body;
   if (
     dayNumber == undefined ||
@@ -118,8 +118,11 @@ const enableTime = async (req, res) => {
       error: "Faltan datos para habilitar horario",
     });
   try {
-    const enableTime = { dayNumber: dayNumber, "times.time": timeToAdd };
-    const argEnabled = { $set: { "times.$.enabled": true } };
+    const enableTime = {
+      dayNumber: dayNumber,
+      "timesAlmuerzo.time": timeToAdd,
+    };
+    const argEnabled = { $set: { "timesAlmuerzo.$.enabled": true } };
     let enabledTime = await dayService.updateOne(enableTime, argEnabled);
     ServerResponse.success({
       res,
@@ -134,7 +137,7 @@ const enableTime = async (req, res) => {
   }
 };
 
-const disableTime = async (req, res) => {
+const disableTimeAlmuerzo = async (req, res) => {
   let { dayNumber, timeToErase } = req.body;
   if (
     dayNumber == undefined ||
@@ -148,7 +151,70 @@ const disableTime = async (req, res) => {
       error: "Faltan datos para deshabilitar horario",
     });
   try {
-    const disableTime = { dayNumber: dayNumber, "times.time": timeToErase };
+    const disableTime = {
+      dayNumber: dayNumber,
+      "timesAlmuerzo.time": timeToErase,
+    };
+    const argDisabled = { $set: { "timesAlmuerzo.$.enabled": false } };
+    let disabledTime = await dayService.updateOne(disableTime, argDisabled);
+    ServerResponse.success({
+      res,
+      result: "Horario deshabilitado",
+      data: disabledTime,
+    });
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "Error interno deshabilitando horario",
+    });
+  }
+};
+
+const enableTimeCena = async (req, res) => {
+  let { dayNumber, timeToAdd } = req.body;
+  if (
+    dayNumber == undefined ||
+    dayNumber == null ||
+    dayNumber < 0 ||
+    dayNumber > 6 ||
+    !timeToAdd
+  )
+    return ServerResponse.badRequest({
+      res,
+      error: "Faltan datos para habilitar horario",
+    });
+  try {
+    const enableTime = { dayNumber: dayNumber, "timesCena.time": timeToAdd };
+    const argEnabled = { $set: { "timesCena.$.enabled": true } };
+    let enabledTime = await dayService.updateOne(enableTime, argEnabled);
+    ServerResponse.success({
+      res,
+      result: "Horario habilitado",
+      data: enabledTime,
+    });
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "Error interno habilitando horario",
+    });
+  }
+};
+
+const disableTimeCena = async (req, res) => {
+  let { dayNumber, timeToErase } = req.body;
+  if (
+    dayNumber == undefined ||
+    dayNumber == null ||
+    dayNumber < 0 ||
+    dayNumber > 6 ||
+    !timeToErase
+  )
+    return ServerResponse.badRequest({
+      res,
+      error: "Faltan datos para deshabilitar horario",
+    });
+  try {
+    const disableTime = { dayNumber: dayNumber, "timesCena.time": timeToErase };
     const argDisabled = { $set: { "times.$.enabled": false } };
     let disabledTime = await dayService.updateOne(disableTime, argDisabled);
     ServerResponse.success({
@@ -169,6 +235,8 @@ export default {
   filteredDay,
   enableDay,
   disableDay,
-  enableTime,
-  disableTime,
+  enableTimeAlmuerzo,
+  disableTimeAlmuerzo,
+  enableTimeCena,
+  disableTimeCena,
 };

@@ -4,7 +4,6 @@ import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, subDays } from "date-fns";
 import es from "date-fns/locale/es";
-import bookingZones from "../../Data/bookingZones.mjs";
 import interiorDemo from "../BookingModule/interiorDemo.jpg";
 import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
 import { BookingService } from "../../Services/BookingService.js";
@@ -27,11 +26,17 @@ function BookingModule() {
     const filteredDay = await days.data?.filter(
       (day) => day.dayNumber === dayNumber
     );
-    const filteredTimes = filteredDay[0].times.filter(
+    const filteredTimesAlmuerzo = filteredDay[0].timesAlmuerzo.filter(
       (time) => time.enabled === true
     );
-    for (let index = 0; index < filteredTimes.length; index++) {
-      availableTimesTemp.push(filteredTimes[index].time);
+    for (let index = 0; index < filteredTimesAlmuerzo.length; index++) {
+      availableTimesTemp.push(filteredTimesAlmuerzo[index].time);
+    }
+    const filteredTimesCena = filteredDay[0].timesCena.filter(
+      (time) => time.enabled === true
+    );
+    for (let index = 0; index < filteredTimesCena.length; index++) {
+      availableTimesTemp.push(filteredTimesCena[index].time);
     }
     setAvailableTimes(availableTimesTemp);
   };
@@ -41,7 +46,7 @@ function BookingModule() {
       updateBooking({ horaReserva: availableTimes[0] });
     }
   }, [availableTimes]);
-
+  const [bookingZones, setBookingZones] = useState([]);
   const [bookingDaysRange, setBookingDaysRange] = useState(20);
   const [displayDate, setDisplayDate] = useState();
   const [peopleBooking, setPeopleBooking] = useState(1);
@@ -55,7 +60,7 @@ function BookingModule() {
     diaReserva: "",
     horaReserva: availableTimes[0],
     cantidadReserva: peopleBooking,
-    zonaReserva: bookingZones[0].zone,
+    zonaReserva: bookingZones[0],
     comentarioReserva: "",
   });
   const [bookingCompleted, setBookingCompleted] = useState(false);
@@ -159,6 +164,7 @@ function BookingModule() {
     } else {
       alert("Error generando reserva. Disculpe las molestias.");
     }
+    alert(JSON.stringify(bookingData));
   };
 
   const { show, showModal, refreshAndScroll } = ModalService();
@@ -224,9 +230,23 @@ function BookingModule() {
     setSameDayBooking(newSameDayOption.data.status);
   };
 
+  const getBookingOptions = async () => {
+    let bookingZonesTemp = [];
+    const salonOption = await SettingsService.getSalonOption();
+    if (salonOption.data.status) {
+      bookingZonesTemp.push("Salón");
+    }
+    const terrazaOption = await SettingsService.getTerrazaOption();
+    if (terrazaOption.data.status) {
+      bookingZonesTemp.push("Terraza");
+    }
+    setBookingZones(bookingZonesTemp);
+  };
+
   useEffect(() => {
     getblockDays();
     getSameDayOption();
+    getBookingOptions();
   }, []);
 
   return (
@@ -308,13 +328,12 @@ function BookingModule() {
                   <select
                     className="zoneSelector"
                     id="zoneSelector"
-                    name=""
                     onChange={getOptionValue}
                   >
-                    {bookingZones.map((zones, index) => {
+                    {bookingZones?.map((zone, index) => {
                       return (
-                        <option key={index} value={zones.zone}>
-                          {zones.zone}
+                        <option key={index} value={zone}>
+                          {zone}
                         </option>
                       );
                     })}

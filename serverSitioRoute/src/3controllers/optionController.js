@@ -18,7 +18,6 @@ const getAllOptions = async (req, res) => {
 };
 
 const getOption = async (req, res) => {
-  console.log(req.body);
   try {
     let { option } = req.body;
     if (!option) {
@@ -51,6 +50,43 @@ const getSameDayOption = async (req, res) => {
       result: "Opción obtenida",
       data: sameDayConfig,
     });
+    console.log(sameDayConfig);
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "Error interno obteniendo opcion",
+    });
+  }
+};
+
+const getSalonOption = async (req, res) => {
+  try {
+    const salonConfig = await optionService.getOne({
+      name: "bookingZoneSalon",
+    });
+    ServerResponse.success({
+      res,
+      result: "Opción obtenida",
+      data: salonConfig,
+    });
+  } catch (error) {
+    ServerResponse.internalError({
+      res,
+      error: "Error interno obteniendo opcion",
+    });
+  }
+};
+
+const getTerrazaOption = async (req, res) => {
+  try {
+    const terrazaConfig = await optionService.getOne({
+      name: "bookingZoneTerraza",
+    });
+    ServerResponse.success({
+      res,
+      result: "Opción obtenida",
+      data: terrazaConfig,
+    });
   } catch (error) {
     ServerResponse.internalError({
       res,
@@ -62,7 +98,6 @@ const getSameDayOption = async (req, res) => {
 const enableOption = async (req, res) => {
   try {
     let { option } = req.body;
-    console.log("enable Option");
     if (!option) {
       return ServerResponse.badRequest({
         res,
@@ -89,7 +124,6 @@ const enableOption = async (req, res) => {
 const disableOption = async (req, res) => {
   try {
     let { option } = req.body;
-    console.log("disable Option");
     if (!option) {
       return ServerResponse.badRequest({
         res,
@@ -117,6 +151,8 @@ export default {
   getAllOptions,
   getOption,
   getSameDayOption,
+  getSalonOption,
+  getTerrazaOption,
   enableOption,
   disableOption,
 };

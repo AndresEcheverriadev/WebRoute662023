@@ -18,6 +18,8 @@ const ModalSettings = ({ show, contextButton }) => {
   useEffect(() => {
     getAllDays();
     getSameDayOption();
+    getSalonOption();
+    getTerrazaOption();
   }, []);
 
   const [days, setDays] = useState([]);
@@ -59,25 +61,53 @@ const ModalSettings = ({ show, contextButton }) => {
     });
   };
 
-  const enableOption = async () => {
+  const [salonOption, setSalonOption] = useState();
+
+  const getSalonOption = async () => {
+    const salonOption = await SettingsService.getSalonOption();
+    if (!salonOption) return;
+    let newSalonOption = { ...salonOption };
+    setSalonOption({
+      name: newSalonOption.data.name,
+      status: newSalonOption.data.status,
+    });
+  };
+
+  const [terrazaOption, setTerrazaOption] = useState();
+
+  const getTerrazaOption = async () => {
+    const terrazaOption = await SettingsService.getTerrazaOption();
+    if (!terrazaOption) return;
+    let newTerrazaOption = { ...terrazaOption };
+    setTerrazaOption({
+      name: newTerrazaOption.data.name,
+      status: newTerrazaOption.data.status,
+    });
+  };
+
+  const enableOption = async (option) => {
     await SettingsService.enableOption({
-      option: "sameDayBooking",
+      option: option,
     });
     getSameDayOption();
+    getSalonOption();
+    getTerrazaOption();
   };
 
-  const disableOption = async () => {
+  const disableOption = async (option) => {
     await SettingsService.disableOption({
-      option: "sameDayBooking",
+      option: option,
     });
     getSameDayOption();
+    getSalonOption();
+    getTerrazaOption();
   };
 
-  const handleEnableSameDay = (enabled) => {
+  const handleEnableOption = (enabled, option) => {
     if (!enabled) {
-      enableOption();
+      enableOption(option);
     } else {
-      disableOption();
+      disableOption(option);
     }
   };
 
@@ -137,10 +167,63 @@ const ModalSettings = ({ show, contextButton }) => {
                       className="samedayCheckbox"
                       checked={sameDayBooking?.status ? true : false}
                       onChange={() =>
-                        handleEnableSameDay(sameDayBooking.status)
+                        handleEnableOption(
+                          sameDayBooking.status,
+                          "sameDayBooking"
+                        )
                       }
                     />
                     {sameDayBooking?.status ? (
+                      <h6 className="samedayTitleEnabled">Habilitado</h6>
+                    ) : (
+                      <h6 className="samedayTitleDisabled">Deshabilitado</h6>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="optionsWrapper">
+                <div className="sameDayBookingWrapper">
+                  <h5 className="sameDayBookingTitle">
+                    Permitir reservas en Salon
+                  </h5>
+                  <div className="sameDayCheckContainer">
+                    <input
+                      type="checkbox"
+                      className="samedayCheckbox"
+                      checked={salonOption?.status ? true : false}
+                      onChange={() =>
+                        handleEnableOption(
+                          salonOption.status,
+                          "bookingZoneSalon"
+                        )
+                      }
+                    />
+                    {salonOption?.status ? (
+                      <h6 className="samedayTitleEnabled">Habilitado</h6>
+                    ) : (
+                      <h6 className="samedayTitleDisabled">Deshabilitado</h6>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="optionsWrapper">
+                <div className="sameDayBookingWrapper">
+                  <h5 className="sameDayBookingTitle">
+                    Permitir reservas en Terraza
+                  </h5>
+                  <div className="sameDayCheckContainer">
+                    <input
+                      type="checkbox"
+                      className="samedayCheckbox"
+                      checked={terrazaOption?.status ? true : false}
+                      onChange={() =>
+                        handleEnableOption(
+                          terrazaOption.status,
+                          "bookingZoneTerraza"
+                        )
+                      }
+                    />
+                    {terrazaOption?.status ? (
                       <h6 className="samedayTitleEnabled">Habilitado</h6>
                     ) : (
                       <h6 className="samedayTitleDisabled">Deshabilitado</h6>

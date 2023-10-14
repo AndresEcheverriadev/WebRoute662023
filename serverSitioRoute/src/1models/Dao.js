@@ -26,8 +26,8 @@ class Dao {
 
     const userSchema = mongoose.Schema(User.schema, timestamps);
     const bookingSchema = mongoose.Schema(Booking.schema, timestamps);
-    const daySchema = mongoose.Schema(Day.schema, timestamps);
-    const optionSchema = mongoose.Schema(Option.schema, timestamps);
+    const daySchema = mongoose.Schema(Day.schema);
+    const optionSchema = mongoose.Schema(Option.schema);
 
     this.models = {
       [User.collection]: mongoose.model(User.collection, userSchema),
