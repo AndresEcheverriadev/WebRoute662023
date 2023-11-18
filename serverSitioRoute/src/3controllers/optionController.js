@@ -50,7 +50,6 @@ const getSameDayOption = async (req, res) => {
       result: "Opción obtenida",
       data: sameDayConfig,
     });
-    console.log(sameDayConfig);
   } catch (error) {
     ServerResponse.internalError({
       res,

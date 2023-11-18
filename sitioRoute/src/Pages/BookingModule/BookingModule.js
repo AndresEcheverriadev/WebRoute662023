@@ -18,6 +18,7 @@ registerLocale("es", es);
 
 function BookingModule() {
   const [availableTimes, setAvailableTimes] = useState([]);
+  const [bookingZones, setBookingZones] = useState([]);
 
   const getAvailableTimes = async (day) => {
     let dayNumber = getDay(day);
@@ -46,7 +47,13 @@ function BookingModule() {
       updateBooking({ horaReserva: availableTimes[0] });
     }
   }, [availableTimes]);
-  const [bookingZones, setBookingZones] = useState([]);
+
+  useEffect(() => {
+    if (bookingZones.length !== 0) {
+      updateBooking({ zonaReserva: bookingZones[0] });
+    }
+  }, [bookingZones]);
+
   const [bookingDaysRange, setBookingDaysRange] = useState(20);
   const [displayDate, setDisplayDate] = useState();
   const [peopleBooking, setPeopleBooking] = useState(1);
@@ -89,7 +96,6 @@ function BookingModule() {
       default:
         break;
     }
-
     if (zoneSelected === "Salon ejecutivo") {
       salonNotification.style.visibility = "visible";
     } else {
@@ -164,7 +170,7 @@ function BookingModule() {
     } else {
       alert("Error generando reserva. Disculpe las molestias.");
     }
-    alert(JSON.stringify(bookingData));
+    // alert(JSON.stringify(bookingData));
   };
 
   const { show, showModal, refreshAndScroll } = ModalService();
@@ -329,6 +335,7 @@ function BookingModule() {
                     className="zoneSelector"
                     id="zoneSelector"
                     onChange={getOptionValue}
+                    defaultValue={bookingZones[0]}
                   >
                     {bookingZones?.map((zone, index) => {
                       return (

@@ -21,22 +21,6 @@ const sendMail = async (bookingData) => {
     from: "reservas@route66.cl",
     to: bookingData.emailReserva,
     subject: `Tu reserva en Route 66 esta lista`,
-    text: `Hola ${bookingData.nombreReserva}.
-
-    Estos son los datos de tu reserva:
-    Nombre:${bookingData.nombreReserva},
-    Fecha:${bookingData.diaReserva},
-    Hora:${bookingData.horaReserva},
-    Cantidad de Personas:${bookingData.cantidadReserva},
-    Zona:${bookingData.zonaReserva},
-    Comentario:${bookingData.comentarioReserva}.
-
-    Te esperamos.
-    Route 66 
-    Isidora Goyenechea 2960
-    Las Condes
-    232669954
-    `,
     html: `${styledHTML}`,
   };
 

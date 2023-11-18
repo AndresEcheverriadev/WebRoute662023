@@ -83,8 +83,9 @@ const mailGen = (bookingData) => {
 <p><strong>Datos de tu reserva:</strong><br />
 Nombre: ${bookingData.nombreReserva}<br />
 Email: ${bookingData.emailReserva}<br />
-Cantidad de personas: ${bookingData.cantidadReserva}<br />
 Fecha: ${bookingData.diaReserva} ${bookingData.horaReserva} hrs.<br />
+Zona de reserva: ${bookingData.zonaReserva}<br />
+Cantidad de personas: ${bookingData.cantidadReserva}<br />
 Comentario: ${bookingData.comentarioReserva}</p>
 </div>
 </td>

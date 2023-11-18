@@ -1,20 +1,30 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
+import Loading from "../Loading/Loading.js";
 import Navbar from "../Navbar/Navbar";
-import BookingModule from "../BookingModule/BookingModule.js";
-import CartaModule from "../CartaModule/CartaModule.js";
-import Footer from "../Footer/Footer.js";
-import CarouselHome from "../CarouselHome/CarouselHome.js";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
+
+const CarouselHome = lazy(() => import("../CarouselHome/CarouselHome.js"));
+const CartaModule = lazy(() => import("../CartaModule/CartaModule.js"));
+const BookingModule = lazy(() => import("../BookingModule/BookingModule.js"));
+const Footer = lazy(() => import("../Footer/Footer.js"));
 
 function HomePage() {
   return (
     <div className="homePage">
       <Navbar />
-      <CarouselHome />
-      <CartaModule />
-      <BookingModule />
-      <Footer />
+      <Suspense fallback={<Loading />}>
+        <CarouselHome />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <CartaModule />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <BookingModule />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
