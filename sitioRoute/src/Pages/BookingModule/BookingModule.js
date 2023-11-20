@@ -170,7 +170,6 @@ function BookingModule() {
     } else {
       alert("Error generando reserva. Disculpe las molestias.");
     }
-    // alert(JSON.stringify(bookingData));
   };
 
   const { show, showModal, refreshAndScroll } = ModalService();

@@ -13,6 +13,7 @@ class Day {
       enabled: { type: Boolean, required: true },
       timesAlmuerzo: { type: Array },
       timesCena: { type: Array },
+      sortDay: { type: Number },
     };
   }
 }

@@ -3,7 +3,7 @@ import { dayService } from "../2services/index.js";
 
 const allDays = async (req, res) => {
   try {
-    const days = await dayService.getAll();
+    const days = await dayService.getAll({}, { sortDay: 1 });
     ServerResponse.success({
       res,
       result: "Fechas obtenidas",

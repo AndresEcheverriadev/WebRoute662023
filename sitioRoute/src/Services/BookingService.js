@@ -47,7 +47,6 @@ const addBooking = async (
         comentarioReserva,
       }
     );
-    alert(`BookingService: ${JSON.stringify(zonaReserva)}`);
     return { success: true, result: data };
   } catch (error) {
     console.log(`BookingServiceError: ${JSON.stringify(error)}`);

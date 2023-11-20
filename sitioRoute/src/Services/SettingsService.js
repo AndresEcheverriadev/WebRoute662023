@@ -12,7 +12,6 @@ const getAllOptions = async () => {
 };
 
 const getOption = async (option) => {
-  alert(option);
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_CONFIG_GET_OPTION_URL,
@@ -58,7 +57,6 @@ const getTerrazaOption = async () => {
 };
 
 const enableOption = async (option) => {
-  alert(JSON.stringify(option));
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_CONFIG_ENABLE_OPTION_URL,
@@ -71,7 +69,6 @@ const enableOption = async (option) => {
 };
 
 const disableOption = async (option) => {
-  alert(JSON.stringify(option));
   try {
     const { data } = await HTTPRequestService.post(
       process.env.REACT_APP_CONFIG_DISABLE_OPTION_URL,
