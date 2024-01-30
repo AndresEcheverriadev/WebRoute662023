@@ -1,6 +1,6 @@
 import specialities1 from "./imgsCarta/CamaronSaltadoALaCriolla.webp";
 import specialities2 from "./imgsCarta/ChickenDeluxe.webp";
-import specialities3 from "./imgsCarta/FrutosDelPacíficoALaParrilla.webp";
+import specialities3 from "./imgsCarta/frutosPacificoParrilla.webp";
 import specialities4 from "./imgsCarta/HinduSalmon.webp";
 import specialities5 from "./imgsCarta/LomoSaltadoALaCriolla.webp";
 import specialities6 from "./imgsCarta/PulpoAlOlivo.webp";
@@ -9,6 +9,11 @@ import specialities8 from "./imgsCarta/SalmonQuinoa.webp";
 import specialities9 from "./imgsCarta/ClassicBbqRibs.webp";
 import specialities10 from "./imgsCarta/HoneyBbq.webp";
 import specialities11 from "./imgsCarta/RibsTenders.webp";
+import specialities12 from "./imgsCarta/3pepperCornMushroomSteak.webp";
+import specialities13 from "./imgsCarta/surfTurf.webp";
+import specialities14 from "./imgsCarta/triplePlay.webp";
+import specialities15 from "./imgsCarta/pulpoParrilla.webp";
+import specialities16 from "./imgsCarta/entrañaIsidora.webp";
 
 const specialities = [
   {
@@ -81,13 +86,47 @@ const specialities = [
     img: `${specialities9}`,
     id: 9,
   },
-
   {
     nombre: "Ribs & Tenders",
     texto:
       "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
     img: `${specialities11}`,
     id: 11,
+  },
+  {
+    nombre: "3 Pepper Corn Mushroom Steak",
+    texto:
+      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+    img: `${specialities12}`,
+    id: 12,
+  },
+  {
+    nombre: "Surf Turf",
+    texto:
+      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+    img: `${specialities13}`,
+    id: 13,
+  },
+  {
+    nombre: "Triple Play",
+    texto:
+      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+    img: `${specialities14}`,
+    id: 14,
+  },
+  {
+    nombre: "Pulpo a la Parrilla",
+    texto:
+      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+    img: `${specialities15}`,
+    id: 15,
+  },
+  {
+    nombre: "Entraña Isidora",
+    texto:
+      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+    img: `${specialities16}`,
+    id: 16,
   },
 ];
 

@@ -1,7 +1,7 @@
 import pastas1 from "./imgsCarta/MiticoFileteConPastaALaHuancaina.webp";
-import pastas2 from "./imgsCarta/EncantoDeFileteConGnocchi.webp";
+import pastas2 from "./imgsCarta/encantoFileteGnochi.webp";
 import pastas3 from "./imgsCarta/ThaiPastaShrimps.webp";
-import pastas4 from "./imgsCarta/PastaConPolloALaHuancaina.webp";
+import pastas4 from "./imgsCarta/pastaPolloHuancaina.webp";
 import pastas5 from "./imgsCarta/TomatoCreamShrimpPasta.webp";
 import pastas6 from "./imgsCarta/SpicyJambalayaPasta.webp";
 

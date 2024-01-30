@@ -1,11 +1,12 @@
 import burgers1 from "./imgsCarta/FreshBurger.webp";
-import burgers2 from "./imgsCarta/AmericanCheeseburger.webp";
+import burgers2 from "./imgsCarta/americanCheeseBurger.webp";
 import burgers3 from "./imgsCarta/BaconCheeseburger.webp";
 import burgers4 from "./imgsCarta/Route66Burger.webp";
 import burgers5 from "./imgsCarta/BaconGuacamoleBurger.webp";
 import burgers6 from "./imgsCarta/VeggieBurguer.webp";
 import burgers7 from "./imgsCarta/BbqPorkSandwich.webp";
 import burgers8 from "./imgsCarta/BeyondMeat.webp";
+import burgers9 from "./imgsCarta/crispyChickenSandwich.webp";
 
 const burgers = [
   {
@@ -67,6 +68,13 @@ const burgers = [
     img: `${burgers8}`,
     vegan: true,
     id: 8,
+  },
+  {
+    nombre: "Crispy Chicken Sandwich",
+    texto:
+      "Hamburguesa sucedánea de carne. 100%​ proteína de plantas, con nuestra salsa de la casa, lechuga, pimentones y champiñones asados y cebolla caramelizada.",
+    img: `${burgers9}`,
+    id: 9,
   },
 ];
 

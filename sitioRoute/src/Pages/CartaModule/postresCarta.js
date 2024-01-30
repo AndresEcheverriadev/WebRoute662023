@@ -4,6 +4,8 @@ import postres3 from "./imgsCarta/Brownie.webp";
 import postres4 from "./imgsCarta/RedVelvet.webp";
 import postres5 from "./imgsCarta/CarrotCake.webp";
 import postres6 from "./imgsCarta/ApplePie.webp";
+import postres7 from "./imgsCarta/newYorkCheesecake.webp";
+import postres8 from "./imgsCarta/tortaChocolateSinGlutenNiAzucar.webp";
 
 const postres = [
   {
@@ -46,6 +48,20 @@ const postres = [
       "Deliciosa tarta hecha por diferentes capas de masa quebrada, cubierta por un relleno de manzana y canela, acompañado de helado de vainilla.",
     img: `${postres6}`,
     id: 6,
+  },
+  {
+    nombre: "New York Cheesecake",
+    texto:
+      "Deliciosa tarta hecha por diferentes capas de masa quebrada, cubierta por un relleno de manzana y canela, acompañado de helado de vainilla.",
+    img: `${postres7}`,
+    id: 7,
+  },
+  {
+    nombre: "Torta Chocolate Sin Gluten Ni Azucar",
+    texto:
+      "Deliciosa tarta hecha por diferentes capas de masa quebrada, cubierta por un relleno de manzana y canela, acompañado de helado de vainilla.",
+    img: `${postres8}`,
+    id: 8,
   },
 ];
 

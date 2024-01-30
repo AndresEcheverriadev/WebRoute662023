@@ -1,9 +1,10 @@
-import pizzas1 from "./imgsCarta/BbqChicken.webp";
+import pizzas1 from "./imgsCarta/pizzaBBQChicken.webp";
 import pizzas2 from "./imgsCarta/Capresse.webp";
 import pizzas3 from "./imgsCarta/Gamberetti.webp";
 import pizzas4 from "./imgsCarta/Pepperoni.webp";
 import pizzas5 from "./imgsCarta/SerranoArugula.webp";
 import pizzas6 from "./imgsCarta/TheWorks.webp";
+import pizzas7 from "./imgsCarta/pizzaMargerita.webp";
 
 const pizzas = [
   {
@@ -46,6 +47,13 @@ const pizzas = [
       "Champiñones, salchicha spicy, pepperoni, mozzarella, cebolla morada, pimento verde, aceitunas y orégano.",
     img: `${pizzas6}`,
     id: `pizzas6`,
+  },
+  {
+    nombre: "Margerita",
+    texto:
+      "Clásica pizza elaborada con tomate, mozzarella, albahaca fresca, sal y aceite.",
+    img: `${pizzas7}`,
+    id: `pizzas7`,
   },
 ];
 

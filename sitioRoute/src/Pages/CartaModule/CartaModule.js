@@ -6,6 +6,7 @@ import pizzasCarta from "./pizzasCarta.js";
 import postresCarta from "./postresCarta.js";
 import ensaladasCarta from "./ensaladasCarta.js";
 import specialitiesCarta from "./specialitiesCarta.js";
+import cocktailsCarta from "./cocktailsCarta.js";
 import "./CartaModule.css";
 import "./CartaModuleResponsive.css";
 
@@ -72,6 +73,12 @@ function CartaModule() {
           onClick={() => changeCarta(postresCarta)}
         >
           Postres
+        </button>
+        <button
+          className="carta__Selectors__Btn"
+          onClick={() => changeCarta(cocktailsCarta)}
+        >
+          Coctéles
         </button>
       </div>
       <div className="carta__DisplayContainer">

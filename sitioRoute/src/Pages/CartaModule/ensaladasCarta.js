@@ -5,6 +5,7 @@ import ensaladas4 from "./imgsCarta/QuinoaShrimpSalad.webp";
 import ensaladas5 from "./imgsCarta/ShrimpCaesarSalad.webp";
 import ensaladas6 from "./imgsCarta/SmokeSalmonHoneySalad.webp";
 import ensaladas7 from "./imgsCarta/TunaGrilledSalad.webp";
+import ensaladas8 from "./imgsCarta/smokeSalmon.webp";
 
 const ensaladas = [
   {
@@ -56,6 +57,13 @@ const ensaladas = [
       "Combinación perfecta de salmón ahumado, queso de cabra, lechuga hidropónica, almendras, tomate, palta y nuestra salsa honey.",
     img: `${ensaladas6}`,
     id: 6,
+  },
+  {
+    nombre: "Smoke Salmon",
+    texto:
+      "Combinación perfecta de salmón ahumado, queso de cabra, lechuga hidropónica, almendras, tomate, palta y nuestra salsa honey.",
+    img: `${ensaladas8}`,
+    id: 8,
   },
 ];
 
