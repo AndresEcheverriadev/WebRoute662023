@@ -72,7 +72,7 @@ const burgers = [
   {
     nombre: "Crispy Chicken Sandwich",
     texto:
-      "Hamburguesa sucedánea de carne. 100%​ proteína de plantas, con nuestra salsa de la casa, lechuga, pimentones y champiñones asados y cebolla caramelizada.",
+      "Sensacional sandwich de pollo panko. Salsa de queso cheddar, tiras de tocino ahumado, salsa tártara, lechuga y tomate.",
     img: `${burgers9}`,
     id: 9,
   },

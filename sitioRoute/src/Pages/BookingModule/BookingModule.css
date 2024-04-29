@@ -92,7 +92,7 @@
 .react-datepicker__header {
   border-radius: 15px;
   border-top-right-radius: 15px !important;
-  background-color: var(--CafePrimario);
+  background-color: var(--AzulBase);
   border: 1px solid var(--CafeOscuro);
 }
 
@@ -102,7 +102,7 @@
 }
 
 .react-datepicker__day--selected {
-  background-color: var(--CafeOscuro);
+  background-color: var(--AzulBase);
 }
 
 .timePickerContainer {

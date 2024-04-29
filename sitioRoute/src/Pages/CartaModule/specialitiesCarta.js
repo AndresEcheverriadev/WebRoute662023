@@ -13,7 +13,7 @@ import specialities12 from "./imgsCarta/3pepperCornMushroomSteak.webp";
 import specialities13 from "./imgsCarta/surfTurf.webp";
 import specialities14 from "./imgsCarta/triplePlay.webp";
 import specialities15 from "./imgsCarta/pulpoParrilla.webp";
-import specialities16 from "./imgsCarta/entrañaIsidora.webp";
+import specialities16 from "./imgsCarta/rissotoIsidora.webp";
 
 const specialities = [
   {
@@ -96,14 +96,14 @@ const specialities = [
   {
     nombre: "3 Pepper Corn Mushroom Steak",
     texto:
-      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+      "Lomo liso angus americano de 400 gramos, sazonado con nuestra variedad de pimientas y cubierto con champiñones grillados.",
     img: `${specialities12}`,
     id: 12,
   },
   {
     nombre: "Surf Turf",
     texto:
-      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+      "Delicioso lomo liso angus americano de 400 gramos, cubierto con camarones y salsa de queso parmesano.",
     img: `${specialities13}`,
     id: 13,
   },
@@ -117,14 +117,14 @@ const specialities = [
   {
     nombre: "Pulpo a la Parrilla",
     texto:
-      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+      "Espectacular pulpo marinado en aceite de oliva, ajo y tomillo, acompañado de vegetales salteados y deliciosas papas cocidas en salsa chimichurri.",
     img: `${specialities15}`,
     id: 15,
   },
   {
-    nombre: "Entraña Isidora",
+    nombre: "Rissoto Isidora",
     texto:
-      "Sensacional combinación de media Baby-Back Ribs bañada con salsa BBQ y filetillos de pollo crispy. Servido con papas fritas caseras, porotos negros y coleslaw.",
+      "Cremoso Rissoto al pesto coronado con Entraña Americana bañado en salsa chimichurri, acompañado de nuestra exquisita salsa acevichada.",
     img: `${specialities16}`,
     id: 16,
   },

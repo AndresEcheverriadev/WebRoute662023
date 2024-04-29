@@ -51,15 +51,14 @@ const postres = [
   },
   {
     nombre: "New York Cheesecake",
-    texto:
-      "Deliciosa tarta hecha por diferentes capas de masa quebrada, cubierta por un relleno de manzana y canela, acompañado de helado de vainilla.",
+    texto: "Cremoso cheesecake acompañado de salsa de frutilla.",
     img: `${postres7}`,
     id: 7,
   },
   {
     nombre: "Torta Chocolate Sin Gluten Ni Azucar",
     texto:
-      "Deliciosa tarta hecha por diferentes capas de masa quebrada, cubierta por un relleno de manzana y canela, acompañado de helado de vainilla.",
+      "Finas capas de chocolate belga semi amargo, rellena con manjar de campo sin gluten y sin azúcar.",
     img: `${postres8}`,
     id: 8,
   },

@@ -35,7 +35,7 @@ const aperitivos = [
   {
     nombre: "Shrimp Quesadilla",
     texto:
-      "Crocante tortilla de harina rellena con queso, trocitos de pollo y pico de gallo. Acompañada de salsa, guacamole y sour cream.",
+      "Crocante tortilla de harina rellena con camarón, queso mozzarella, cheddar y pico de gallo. Acompañada de salsa, guacamole y sour cream.",
     img: `${aperitivos2}`,
     id: 2,
   },
@@ -118,21 +118,21 @@ const aperitivos = [
   {
     nombre: "Tiradito Nikkei",
     texto:
-      "Pescado del día, salmón, camarones y pulpo en su leche de tigre y ajíes al cilantro.",
+      "Finas láminas de salmón del día marinadas con salsa nikkei aromatizado con aceite sésamo.",
     img: `${aperitivos15}`,
     id: 15,
   },
   {
     nombre: "Boneless Chicken Tender",
     texto:
-      "Pescado del día, salmón, camarones y pulpo en su leche de tigre y ajíes al cilantro.",
+      "Deliciosos filetillos de pollo rebozados y fritos servidos con papas fritas caseras, coleslaw y honey mustard.",
     img: `${aperitivos16}`,
     id: 16,
   },
   {
     nombre: "Empanaditas Frutos Del Mar",
     texto:
-      "Pescado del día, salmón, camarones y pulpo en su leche de tigre y ajíes al cilantro.",
+      "Deliciosas empanaditas de pulpo, calamar, salmón, queso crema, cebollín, cebolla , cilantro y pimentón. Acompañada de salsa de olivo y salsa acevichada.",
     img: `${aperitivos17}`,
     id: 17,
   },

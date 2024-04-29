@@ -9,10 +9,10 @@ import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
 import { BookingService } from "../../Services/BookingService.js";
 import Modal from "../Modal/Modal.js";
 import ModalService from "../../Services/ModalService.js";
-import "./BookingModule.css";
-import "./BookingModuleResponsive.css";
 import { DayService } from "../../Services/DayService.js";
 import { SettingsService } from "../../Services/SettingsService.js";
+import "./BookingModule.css";
+import "./BookingModuleResponsive.css";
 setDefaultLocale("es");
 registerLocale("es", es);
 

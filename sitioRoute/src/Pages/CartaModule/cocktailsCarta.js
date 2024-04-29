@@ -22,22 +22,19 @@ const cocktails = [
   },
   {
     nombre: "Hypnotic",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    texto: "Absolut-Chambord-Syrup Mandarina-Espumante Brut.",
     img: `${cocktails1}`,
     id: 1,
   },
   {
     nombre: "Pink Juliet",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    texto: "Beefeater Pink-Syrup Rosas-Limón-Tónica.",
     img: `${cocktails2}`,
     id: 2,
   },
   {
     nombre: "Polaroid",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    texto: "Vodka-Baileys-Vainilla-Noisette.",
     img: `${cocktails3}`,
     id: 3,
   },
@@ -70,15 +67,13 @@ const cocktails = [
   },
   {
     nombre: "Iced Tea On The Beach",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    texto: "Whisky Durazno-Margarita Mix-Té Negro-Sprite.",
     img: `${cocktails9}`,
     id: 9,
   },
   {
     nombre: "Newton Apple",
-    texto:
-      "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
+    texto: "Whisky Manzana-Syrup Manzana-Margarita mix-Sprite.",
     img: `${cocktails10}`,
     id: 10,
   },
@@ -91,8 +86,7 @@ const cocktails = [
   },
   {
     nombre: "Angel Face",
-    texto:
-      "Una elegante y exótica combinación de Pisco, Coco, Maracuyá y Curaçao.",
+    texto: "Jack Daniels-Licor Durazno-Mango-Syrup Sandía-Limón.",
     img: `${cocktails12}`,
     id: 12,
   },
