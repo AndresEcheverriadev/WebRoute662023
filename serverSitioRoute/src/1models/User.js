@@ -8,7 +8,7 @@ class User {
 
   static get schema() {
     return {
-      userName: { type: String, maxLength: 20, require: true },
+      userName: { type: String, maxLength: 30, require: true },
       password: { type: String, require: true },
       role: {
         type: String,

@@ -5,7 +5,6 @@ import "./HomePage.css";
 import "./HomePageResponsive.css";
 import { useNavigate } from "react-router-dom";
 import { analyticService } from "../../Services/AnalyticService.js";
-
 const CarouselHome = lazy(() => import("../CarouselHome/CarouselHome.js"));
 const CartaModule = lazy(() => import("../CartaModule/CartaModule.js"));
 const BookingModule = lazy(() => import("../BookingModule/BookingModule.js"));

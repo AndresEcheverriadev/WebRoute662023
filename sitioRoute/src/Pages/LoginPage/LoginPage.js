@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logo-blanco.svg";
 import { LoginContext } from "../context/LoginContext.js";
 import { AuthService } from "../../Services/AuthService.js";
 import { Helmet } from "react-helmet";
+import { analyticService } from "../../Services/AnalyticService.js";
 import "./LoginPage.css";
 
 function LoginPage() {
@@ -37,6 +38,14 @@ function LoginPage() {
       inputPassword.value = "";
     }
   };
+
+  useEffect(() => {
+    analyticService.pageTrackingListen();
+
+    return () => {
+      analyticService.pageTrackingUnlisten(navigate);
+    };
+  }, [navigate]);
 
   return (
     <>

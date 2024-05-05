@@ -12,6 +12,8 @@ import { downloadPdf } from "./pdfGenerator.js";
 import { Helmet } from "react-helmet";
 import ModalService from "../../Services/ModalService.js";
 import ModalSettings from "../ModalSettings/ModalSettings.js";
+import { analyticService } from "../../Services/AnalyticService.js";
+import { useNavigate } from "react-router-dom";
 import "./BookingsPage.css";
 import "./BookingsPageResponsive.css";
 
@@ -21,6 +23,7 @@ function BookingsPage() {
   const toDay = new Date();
   const toDayFilter = filteredSimpleDate(toDay, filterDays);
   const [filteredBookings, setfilteredBookings] = useState([]);
+  const navigate = useNavigate();
 
   const handlerFilterDay = (days) => {
     setfilterDays(filterDays + days);
@@ -133,6 +136,14 @@ function BookingsPage() {
       </button>
     );
   };
+
+  useEffect(() => {
+    analyticService.pageTrackingListen();
+
+    return () => {
+      analyticService.pageTrackingUnlisten(navigate);
+    };
+  }, [navigate]);
 
   return (
     <>
@@ -330,7 +341,7 @@ function BookingsPage() {
 
           <div className="bookingsTimesContainer">
             <div className="bookingPodsHeader">
-              <h5>Reservas realizadas</h5>{" "}
+              <h5>Reservas realizadas</h5>
               {downloadPdf(
                 toDayFilter,
                 filteredBookings.length,
