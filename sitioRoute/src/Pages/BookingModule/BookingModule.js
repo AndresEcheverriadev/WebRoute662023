@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  simpleDate,
-  getDay,
-  normalizeHour,
-  getDiaDeSemana,
-} from "../../Data/utils/formatDates.js";
+import { simpleDate, getDay } from "../../Data/utils/formatDates.js";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, subDays } from "date-fns";
@@ -166,20 +161,7 @@ function BookingModule() {
         bookingData.zonaReserva,
         bookingData.comentarioReserva
       );
-      let date = new Date();
-
-      analyticService.bookEvent(
-        "resevar",
-        "reservarHome",
-        "clickReservar",
-        `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
-        normalizeHour(date),
-        getDiaDeSemana(date),
-        bookingData.diaReserva,
-        bookingData.nombreReserva,
-        bookingData.cantidadReserva,
-        bookingData.zonaReserva
-      );
+      analyticService.customEvent("Reservar");
       if (sendBooking.result.error === "Faltan datos para reserva") {
         alert("Faltan datos para generar la reserva.");
       } else if (sendBooking.result.error === "Reserva ya existe") {

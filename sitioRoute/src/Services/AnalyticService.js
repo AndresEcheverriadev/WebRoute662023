@@ -26,42 +26,15 @@ const pageTrackingUnlisten = (history) => {
   });
 };
 
-const customEvent = (eventName, category, action, label, value) => {
+const customEvent = (eventName, variable) => {
   TagManager.dataLayer({
     dataLayer: {
       event: `${eventName}`,
-      category: `${category}`,
-      action: `${action}`,
-      label: `${label}`,
-      value: `${value}`,
-    },
-  });
-};
-
-const bookEvent = (
-  eventName,
-  category,
-  action,
-  fecha,
-  hora,
-  diaSemana,
-  fechaReserva,
-  nombreReserva,
-  cantidadReserva,
-  zonaReserva
-) => {
-  TagManager.dataLayer({
-    dataLayer: {
-      event: `${eventName}`,
-      category: `${category}`,
-      action: `${action}`,
-      fecha: `${fecha}`,
-      hora: `${hora}`,
-      diaSemana: `${diaSemana}`,
-      fechaReserva: `${fechaReserva}`,
-      nombreReserva: `${nombreReserva}`,
-      cantidadReserva: `${cantidadReserva}`,
-      zonaReserva: `${zonaReserva}`,
+      variable: `${variable}`,
+      // category: `${category}`,
+      // action: `${action}`,
+      // label: `${label}`,
+      // value: `${value}`,
     },
   });
 };
@@ -71,5 +44,4 @@ export const analyticService = {
   pageTrackingListen,
   pageTrackingUnlisten,
   customEvent,
-  bookEvent,
 };

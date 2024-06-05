@@ -7,13 +7,15 @@ import postresCarta from "./postresCarta.js";
 import ensaladasCarta from "./ensaladasCarta.js";
 import specialitiesCarta from "./specialitiesCarta.js";
 import cocktailsCarta from "./cocktailsCarta.js";
+import { analyticService } from "../../Services/AnalyticService.js";
 import "./CartaModule.css";
 import "./CartaModuleResponsive.css";
 
 function CartaModule() {
   const [cartaSelected, setcartaSelected] = useState(pastasCarta);
 
-  function changeCarta(carta) {
+  function changeCarta(carta, nameCarta) {
+    analyticService.customEvent("verPlatos", nameCarta);
     setcartaSelected(carta);
   }
 
@@ -34,49 +36,49 @@ function CartaModule() {
       <div className="carta__SelectorsContainer">
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(aperitivosCarta)}
+          onClick={() => changeCarta(aperitivosCarta, "Aperitivos")}
         >
           Aperitivos
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(pastasCarta)}
+          onClick={() => changeCarta(pastasCarta, "Pastas")}
         >
           Pastas
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(burgersCarta)}
+          onClick={() => changeCarta(burgersCarta, "Burgers")}
         >
           Burgers & Sandwiches
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(pizzasCarta)}
+          onClick={() => changeCarta(pizzasCarta, "Pizzas")}
         >
           Pizzas
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(ensaladasCarta)}
+          onClick={() => changeCarta(ensaladasCarta, "Ensaladas")}
         >
           Ensaladas
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(specialitiesCarta)}
+          onClick={() => changeCarta(specialitiesCarta, "Specialities")}
         >
           Specialities & Ribs
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(postresCarta)}
+          onClick={() => changeCarta(postresCarta, "Postres")}
         >
           Postres
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(cocktailsCarta)}
+          onClick={() => changeCarta(cocktailsCarta, "Cocktails")}
         >
           Coctéles
         </button>

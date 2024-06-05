@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TimeCheckboxes from "../TimeCheckboxes/TimeCheckboxes.js";
 import "./AccordionModule.css";
 import "./AccordionModuleResponsive.css";

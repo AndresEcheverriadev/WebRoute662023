@@ -1,11 +1,16 @@
 import React from "react";
 import logo from "../../logo.svg";
 import logoWaze from "./logoWaze.svg";
+import { analyticService } from "../../Services/AnalyticService.js";
 import "./Footer.css";
 import "./FooterResponsive.css";
 
 function Footer() {
-  const mail = "contacto@route66.cl";
+  const mail = process.env.REACT_APP_MAIL;
+  const handleClickFooter = (link) => {
+    analyticService.customEvent("clicFooter", link);
+  };
+
   return (
     <div className="footer">
       <img src={logo} alt="" className=" logo logo--azul" />
@@ -24,7 +29,6 @@ function Footer() {
           <hr />
         </div>
       </div>
-
       <div className="footer__ContactWrapper">
         <div className="ContactWrapperUp">
           <div className="ContactWrapperUp__Block">
@@ -73,6 +77,7 @@ function Footer() {
             href="https://ul.waze.com/ul?place=ChIJ-z_XWkDPYpYR53MaP2adAu4&ll=-33.41398000%2C-70.59992880&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickFooter("waze")}
           >
             <img className="logoWaze" src={logoWaze} alt="logo Waze" />
           </a>
@@ -81,6 +86,7 @@ function Footer() {
             href="https://www.instagram.com/route66_chile/"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickFooter("instagram")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +104,7 @@ function Footer() {
             href="https://www.facebook.com/route66chile"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickFooter("facebook")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -117,9 +124,9 @@ function Footer() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.355382160492!2d-70.60251002451236!3d-33.413977995644906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf405ad73ffb%3A0xee029d663f1a73e7!2sRoute%2066!5e0!3m2!1ses!2scl!4v1691009960317!5m2!1ses!2scl"
             width="650"
             height="200"
-            allowfullscreen=""
+            allowFullScreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

@@ -1,18 +1,31 @@
 import React from "react";
 import logo from "../../logo-contraste.svg";
+import { analyticService } from "../../Services/AnalyticService.js";
 import "./Navbar.css";
 import "./NavbarResponsive.css";
 
 function Navbar() {
+  const handleClickNavbar = (link) => {
+    analyticService.customEvent("clicNavbar", link);
+  };
+
   return (
     <div className="NavbarWrapper">
       <img src={logo} className="logo" alt="logo Route 66" />
       <div className="navbarLinksContainer">
         <div className="navbarLinksTop">
-          <a className="navbarLink" href="#carta">
+          <a
+            className="navbarLink"
+            href="#carta"
+            onClick={() => handleClickNavbar("carta")}
+          >
             Nuestra Carta
           </a>
-          <a className="navbarLink" href="#reservas">
+          <a
+            className="navbarLink"
+            href="#reservas"
+            onClick={() => handleClickNavbar("reservas")}
+          >
             Reservas
           </a>
           <a
@@ -20,6 +33,7 @@ function Navbar() {
             href="https://www.route66.cl/"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickNavbar("delivery")}
           >
             Delivery
           </a>
@@ -30,6 +44,7 @@ function Navbar() {
             href="https://www.instagram.com/route66_chile/"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickNavbar("instagram")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +62,7 @@ function Navbar() {
             href="https://www.facebook.com/route66chile"
             target="_blank"
             rel="noreferrer"
+            onClick={() => handleClickNavbar("facebook")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

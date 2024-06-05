@@ -33,13 +33,13 @@ function BookingsPage() {
     setfilterDays(0);
   };
 
-  const getBookings = async () => {
-    const bookings = await BookingService.getFilteredBookings(toDayFilter);
-    if (!bookings) return;
-    setfilteredBookings(bookings.data);
-  };
-
   useEffect(() => {
+    const getBookings = async () => {
+      const bookings = await BookingService.getFilteredBookings(toDayFilter);
+      if (!bookings) return;
+      setfilteredBookings(bookings.data);
+    };
+
     getBookings();
   }, [toDayFilter]);
 
@@ -338,7 +338,6 @@ function BookingsPage() {
               </div>
             </div>
           </div>
-
           <div className="bookingsTimesContainer">
             <div className="bookingPodsHeader">
               <h5>Reservas realizadas</h5>
@@ -359,7 +358,6 @@ function BookingsPage() {
               {filteredDates}
             </div>
           </div>
-
           <div className="createBookingContainer--mobile">
             <h5 className="createBookingHeaderTitle">Crear reserva</h5>
             <div className="createBookingInputs">
@@ -380,7 +378,6 @@ function BookingsPage() {
                   </div>
                   <div className="bookingInput">
                     <p className="bookingInputName">Hora</p>
-
                     <select
                       className="bookingInputField"
                       name=""

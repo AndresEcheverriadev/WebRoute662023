@@ -30,10 +30,12 @@ function LoginPage() {
       loginData.password
     );
     if (response.success) {
+      analyticService.customEvent("Login");
       setisLoggedIn(true);
       navigate("/bookings");
     } else {
-      alert("Intente Nuevamente");
+      analyticService.customEvent("LoginFail");
+      alert("Error en Login");
       inputUser.value = "";
       inputPassword.value = "";
     }
