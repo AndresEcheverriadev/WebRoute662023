@@ -78,9 +78,9 @@ function CartaModule() {
         </button>
         <button
           className="carta__Selectors__Btn"
-          onClick={() => changeCarta(cocktailsCarta, "Cocktails")}
+          onClick={() => changeCarta(cocktailsCarta, "Cócteles")}
         >
-          Coctéles
+          Cócteles
         </button>
       </div>
       <div className="carta__DisplayContainer">
