@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { simpleDate, getDay } from "../../Data/utils/formatDates.js";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { addDays, subDays } from "date-fns";
 import es from "date-fns/locale/es";
-import interiorDemo from "../BookingModule/interiorDemo.jpg";
-import terrazaDemo from "../BookingModule/terrazaDemo.jpg";
+import interiorDemo from "../BookingModule/interiorDemo.webp";
+import terrazaDemo from "../BookingModule/terrazaDemo.webp";
 import { BookingService } from "../../Services/BookingService.js";
 import Modal from "../Modal/Modal.js";
 import ModalService from "../../Services/ModalService.js";
@@ -254,6 +254,9 @@ function BookingModule() {
     getblockDays();
     getSameDayOption();
     getBookingOptions();
+    const datePickerRef = document.querySelector(".datePicker");
+    datePickerRef.setAttribute("aria-label", "selector fecha de reserva");
+    console.log(datePickerRef);
   }, []);
 
   return (
@@ -269,13 +272,13 @@ function BookingModule() {
           <h2 id="bookingTitle">Agenda tu reserva</h2>
           <img id="bookingImg" src={interiorDemo} alt="" />
         </div>
-
         <div className="conditionalWrapper">
           <div className="bookingWrapper">
             <div className="pickersWrapper">
               <div className="datePickerContainer">
                 <p>Seleccione día</p>
                 <DatePicker
+                  aria-label="selector fecha"
                   className="datePicker"
                   dateFormat="dd/MM/yyyy"
                   locale="es"
@@ -294,6 +297,7 @@ function BookingModule() {
               <div className="timePickerContainer">
                 <p>Seleccione horario</p>
                 <select
+                  aria-label="selector hora reserva"
                   defaultValue={availableTimes[0]}
                   className="timeSelector"
                   name=""
@@ -333,6 +337,7 @@ function BookingModule() {
                 <p id="titleZones">¿En que zona te gustaría reservar?</p>
                 <div className="zoneContainer">
                   <select
+                    aria-label="selector zona de reserva"
                     className="zoneSelector"
                     id="zoneSelector"
                     onChange={getOptionValue}
@@ -377,8 +382,11 @@ function BookingModule() {
               />
             </div>
             <div className="userMessaggeContainer">
-              <p id="titleMessagge">¿Algún comentario sobre tu reserva? </p>
+              <p id="titleMessagge">
+                ¿Tienes algún comentario sobre tu reserva?{" "}
+              </p>
               <textarea
+                aria-label="comentario sobre reserva"
                 maxLength="100"
                 id="userMessaggeInput"
                 onChange={(e) =>

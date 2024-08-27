@@ -30,7 +30,7 @@ function Navbar() {
           </a>
           <a
             className="navbarLink"
-            href="https://www.route66.cl/"
+            href="https://delivery.route66.cl/pedir"
             target="_blank"
             rel="noreferrer"
             onClick={() => handleClickNavbar("delivery")}
@@ -40,6 +40,7 @@ function Navbar() {
         </div>
         <div className="navbarLinksBottom">
           <a
+            aria-label="link a Instagram"
             className="navbarLink"
             href="https://www.instagram.com/route66_chile/"
             target="_blank"
@@ -58,6 +59,7 @@ function Navbar() {
             </svg>
           </a>
           <a
+            aria-label="link a Facebook"
             className="navbarLink"
             href="https://www.facebook.com/route66chile"
             target="_blank"

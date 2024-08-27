@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Banner1 from "../HomePage/Banner1";
 import Banner2 from "../HomePage/Banner2";
+import "./CarouselHome.css";
 
 function CarouselHome() {
   return (

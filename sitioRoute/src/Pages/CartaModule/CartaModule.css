@@ -7,6 +7,7 @@
   height: auto;
   width: 100%;
   gap: 20px;
+  order: 3;
 }
 
 .carta__SelectorsContainer {
@@ -29,6 +30,7 @@
   border: 1px solid var(--Blanco);
   border-radius: 8px;
   padding: 5px;
+  color: black;
 }
 
 .carta__Selectors__Btn:hover {
@@ -49,17 +51,15 @@
 }
 
 .carta__PlatoCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 23%;
-  height: 380px;
+  height: auto;
   border: 1px solid var(--Blanco);
   border-radius: 4px;
   text-align: left;
-}
-
-.accordion {
-  display: none !important;
+  background-color: var(--AzulBase);
 }
 
 .carta__PlatoCard__Imagen {
@@ -68,20 +68,14 @@
   width: auto;
   height: 150px;
   object-fit: cover;
-  z-index: -1;
-}
-
-.carta__PlatoCard__Imagen--Responsive {
-  border: 1px solid hidden;
-  border-radius: 2px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  z-index: -1;
 }
 
 .carta__PlatoCard__TextContainer {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
   overflow: hidden;
 }
 
@@ -96,21 +90,35 @@
 .carta__PlatoCard__Nombre {
   height: 50px;
   font-weight: var(--bold);
+  margin: 0;
 }
 
 .carta__PlatoCard__Descripcion {
   font-size: 12px;
   height: 90px;
+  margin: 0;
 }
 
 .carta__PlatoCard__IconsContainer {
+  position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 50px;
+  justify-content: center;
+  align-items: center;
   width: auto;
   gap: 5px;
+  top: 5px;
+  left: 5px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.carta__PlatoCard__Top {
+  background-color: var(--Rojo);
+}
+
+.carta__PlatoCard__Vegan {
+  background-color: var(--Verde);
 }
 
 .carta__PlatoCard__IconText {
@@ -156,5 +164,11 @@
   }
   100% {
     border-color: var(--Blanco);
+  }
+}
+
+@media (max-width: 480px) {
+  .cartaWrapper {
+    order: 4 !important;
   }
 }

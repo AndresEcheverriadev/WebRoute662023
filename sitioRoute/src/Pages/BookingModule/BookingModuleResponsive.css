@@ -1,4 +1,8 @@
 @media (max-width: 480px) {
+  .bookingModuleMainWrapper {
+    order: 3;
+  }
+
   .bookingWrapper {
     flex-direction: column;
     width: 100%;
@@ -18,10 +22,12 @@
     height: auto;
   }
 
+  .datePickerContainer div {
+    width: 100%;
+  }
+
   .datePicker {
     width: 100%;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
   }
 
   .timePickerContainer {
@@ -39,7 +45,7 @@
 
   .optionsWrapper {
     flex-direction: column;
-    width: 80%;
+    width: 100%;
   }
 
   .peopleContainer {
@@ -66,6 +72,10 @@
 
   .zonesContainer #titleZones {
     height: auto;
+  }
+
+  .zoneContainer {
+    width: 100%;
   }
 
   .zoneSelector {

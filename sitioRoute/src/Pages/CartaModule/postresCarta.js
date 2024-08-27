@@ -56,7 +56,7 @@ const postres = [
     id: 7,
   },
   {
-    nombre: "Torta Chocolate Sin Gluten Ni Azucar",
+    nombre: "Torta Chocolate Sin Gluten Ni Azúcar",
     texto:
       "Finas capas de chocolate belga semi amargo, rellena con manjar de campo sin gluten y sin azúcar.",
     img: `${postres8}`,

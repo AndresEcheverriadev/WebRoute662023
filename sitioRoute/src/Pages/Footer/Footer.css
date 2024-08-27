@@ -1,16 +1,25 @@
 .footer {
+  order: 5;
+  width: 88%;
+}
+
+.footer__topWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 88%;
   height: auto;
+  width: 100%;
   background-color: var(--Blanco);
   padding: 20px 20px 0px 20px;
   margin-top: 50px;
   color: var(--AzulBase);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+}
+
+.footer__titleHorarios {
+  font-size: 20px;
 }
 
 .footer__Block {
@@ -96,4 +105,38 @@
 .logoWaze {
   width: 30px;
   height: auto;
+}
+
+.footer__bottomWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 16px;
+  order: 6;
+}
+
+.footer__Copyright {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+}
+
+.footer__logoSpinoffContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.footer__spinoffText {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 2px;
+  color: white;
 }
