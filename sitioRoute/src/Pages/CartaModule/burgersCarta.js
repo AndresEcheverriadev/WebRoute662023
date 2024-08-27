@@ -17,13 +17,14 @@ const burgers = [
     id: 4,
     top: true,
   },
-  {
-    nombre: "Fresh Burger",
-    texto:
-      "¡Sensacional! Queso de cabra, espárragos y pimentón asado glaseados con salsa teriyaki. Acompañado de rucula, tomate y cebolla.",
-    img: `${burgers1}`,
-    id: 1,
-  },
+  //plato borrado - se mantiene inactivo
+  // {
+  //   nombre: "Fresh Burger",
+  //   texto:
+  //     "¡Sensacional! Queso de cabra, espárragos y pimentón asado glaseados con salsa teriyaki. Acompañado de rucula, tomate y cebolla.",
+  //   img: `${burgers1}`,
+  //   id: 1,
+  // },
   {
     nombre: "American Cheeseburger",
     texto:
@@ -61,14 +62,15 @@ const burgers = [
     img: `${burgers7}`,
     id: 7,
   },
-  {
-    nombre: "Beyond Meat",
-    texto:
-      "Hamburguesa sucedánea de carne. 100%​ proteína de plantas, con nuestra salsa de la casa, lechuga, pimentones y champiñones asados y cebolla caramelizada.",
-    img: `${burgers8}`,
-    vegan: true,
-    id: 8,
-  },
+  //plato borrado - se mantiene inactivo
+  // {
+  //   nombre: "Beyond Meat",
+  //   texto:
+  //     "Hamburguesa sucedánea de carne. 100%​ proteína de plantas, con nuestra salsa de la casa, lechuga, pimentones y champiñones asados y cebolla caramelizada.",
+  //   img: `${burgers8}`,
+  //   vegan: true,
+  //   id: 8,
+  // },
   {
     nombre: "Crispy Chicken Sandwich",
     texto:

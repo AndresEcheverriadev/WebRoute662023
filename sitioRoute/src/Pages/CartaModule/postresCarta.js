@@ -22,26 +22,27 @@ const postres = [
     img: `${postres2}`,
     id: 2,
   },
-  {
-    nombre: "Brownie",
-    texto: "Un imperdible, servido a una cálida temperatura!",
-    img: `${postres3}`,
-    id: 3,
-  },
-  {
-    nombre: "Red Velvet",
-    texto:
-      "Espectacular pastel de chocolate color rojo cubierto con un glaseado de queso cremoso.",
-    img: `${postres4}`,
-    id: 4,
-  },
-  {
-    nombre: "Carrot Cake",
-    texto:
-      "Delicioso pastel de zanahoria cubierto con un glaseado de queso cremoso.",
-    img: `${postres5}`,
-    id: 5,
-  },
+  //platos borrados - se mantienen inactivos
+  // {
+  //   nombre: "Brownie",
+  //   texto: "Un imperdible, servido a una cálida temperatura!",
+  //   img: `${postres3}`,
+  //   id: 3,
+  // },
+  // {
+  //   nombre: "Red Velvet",
+  //   texto:
+  //     "Espectacular pastel de chocolate color rojo cubierto con un glaseado de queso cremoso.",
+  //   img: `${postres4}`,
+  //   id: 4,
+  // },
+  // {
+  //   nombre: "Carrot Cake",
+  //   texto:
+  //     "Delicioso pastel de zanahoria cubierto con un glaseado de queso cremoso.",
+  //   img: `${postres5}`,
+  //   id: 5,
+  // },
   {
     nombre: "Apple Pie",
     texto:
