@@ -77,7 +77,7 @@ function BookingModule() {
     const quantityNotification = document.getElementById(
       "quantityNotification"
     );
-    if (peopleBooking > 6) {
+    if (peopleBooking > 10) {
       quantityNotification.style.visibility = "visible";
     } else {
       quantityNotification.style.visibility = "hidden";
@@ -256,8 +256,9 @@ function BookingModule() {
     getBookingOptions();
     const datePickerRef = document.querySelector(".datePicker");
     datePickerRef.setAttribute("aria-label", "selector fecha de reserva");
-    console.log(datePickerRef);
   }, []);
+
+  console.log(bookingZones);
 
   return (
     <>
@@ -336,21 +337,41 @@ function BookingModule() {
               <div className="zonesContainer">
                 <p id="titleZones">¿En que zona te gustaría reservar?</p>
                 <div className="zoneContainer">
-                  <select
-                    aria-label="selector zona de reserva"
-                    className="zoneSelector"
-                    id="zoneSelector"
-                    onChange={getOptionValue}
-                    defaultValue={bookingZones[0]}
-                  >
-                    {bookingZones?.map((zone, index) => {
-                      return (
-                        <option key={index} value={zone}>
-                          {zone}
-                        </option>
-                      );
-                    })}
-                  </select>
+                  {peopleBooking > 10 ? (
+                    <select
+                      aria-label="selector zona de reserva"
+                      className="zoneSelector"
+                      id="zoneSelector"
+                      onChange={getOptionValue}
+                      defaultValue={bookingZones[0]}
+                    >
+                      {bookingZones
+                        ?.filter((zone) => zone != "Terraza")
+                        .map((zone, index) => {
+                          return (
+                            <option key={index} value={zone}>
+                              {zone}
+                            </option>
+                          );
+                        })}
+                    </select>
+                  ) : (
+                    <select
+                      aria-label="selector zona de reserva"
+                      className="zoneSelector"
+                      id="zoneSelector"
+                      onChange={getOptionValue}
+                      defaultValue={bookingZones[0]}
+                    >
+                      {bookingZones.map((zone, index) => {
+                        return (
+                          <option key={index} value={zone}>
+                            {zone}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  )}
                 </div>
                 <p id="salonNotification">*Sujeto a disponibilidad</p>
               </div>
