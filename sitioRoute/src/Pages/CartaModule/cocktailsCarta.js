@@ -10,6 +10,9 @@ import cocktails9 from "./imgsCarta/icedTeaOnTheBeach.webp";
 import cocktails10 from "./imgsCarta/newtonApple.webp";
 import cocktails11 from "./imgsCarta/amazonic.webp";
 import cocktails12 from "./imgsCarta/angelFace.webp";
+import cocktails13 from "./imgsCarta/dulceTravesura.webp";
+import cocktails14 from "./imgsCarta/londiniumSunset.webp";
+import cocktails15 from "./imgsCarta/kraken.webp";
 
 const cocktails = [
   {
@@ -18,7 +21,6 @@ const cocktails = [
       "Una explosión de sabores con Tequila, Limonchello, Mandarina, Limón y Kombucha cedrón.",
     img: `${cocktails7}`,
     id: 7,
-    top: true,
   },
   {
     nombre: "Hypnotic",
@@ -67,13 +69,15 @@ const cocktails = [
   },
   {
     nombre: "Iced Tea On The Beach",
-    texto: "Whisky Durazno-Margarita Mix-Té Negro-Sprite.",
+    texto:
+      "Este cóctel combina Whisky de durazno, margarita mix, té negro y Sprite en una mezcla fresca y equilibrada",
     img: `${cocktails9}`,
     id: 9,
   },
   {
     nombre: "Newton Apple",
-    texto: "Whisky Manzana-Syrup Manzana-Margarita mix-Sprite.",
+    texto:
+      "Whisky y syrup de manzana con margarita mix y un toque de Sprite, creando una mezcla fresca, ligeramente dulce y burbujeante.",
     img: `${cocktails10}`,
     id: 10,
   },
@@ -86,9 +90,31 @@ const cocktails = [
   },
   {
     nombre: "Angel Face",
-    texto: "Jack Daniels-Licor Durazno-Mango-Syrup Sandía-Limón.",
+    texto:
+      "Jack Daniels, licor de durazno, mango, syrup de sandía y limón para un sabor dulce y refrescante.",
     img: `${cocktails12}`,
     id: 12,
+  },
+  {
+    nombre: "Dulce Travesura",
+    texto:
+      "Vodka, Saint Germain, limón, maracuyá y berries en una mezcla fresca y frutal.",
+    img: `${cocktails13}`,
+    id: 13,
+  },
+  {
+    nombre: "Londinium Sunset",
+    texto:
+      "Este cóctel mezcla gin Bombay, sirope de mandarina, limón y un toque de granadina, logrando un balance fresco, afrutado y vibrante.",
+    img: `${cocktails14}`,
+    id: 14,
+  },
+  {
+    nombre: "Kraken",
+    texto:
+      "Una mezcla exótica y equilibrada. Una combinación de ron añejo y Amaretto con un toque ácido de limón, el dulzor de un mix de berries y la frescura tropical de gaseosas de piña y maracuyá.",
+    img: `${cocktails15}`,
+    id: 15,
   },
 ];
 

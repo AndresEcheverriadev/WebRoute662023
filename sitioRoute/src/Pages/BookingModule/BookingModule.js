@@ -22,6 +22,9 @@ function BookingModule() {
   const [bookingZones, setBookingZones] = useState([]);
 
   const getAvailableTimes = async (day) => {
+    let date = new Date(day).toDateString();
+    let toDay = new Date().toDateString();
+    let hour = new Date().getHours();
     let dayNumber = getDay(day);
     let availableTimesTemp = [];
     const days = await DayService.getAllDays();
@@ -40,7 +43,12 @@ function BookingModule() {
     for (let index = 0; index < filteredTimesCena.length; index++) {
       availableTimesTemp.push(filteredTimesCena[index].time);
     }
-    setAvailableTimes(availableTimesTemp);
+    const filteredAvailableTime = availableTimesTemp.filter(
+      (time) => time > `${hour}:45` && time < "18:15"
+    );
+    if (date === toDay) {
+      setAvailableTimes(filteredAvailableTime);
+    } else setAvailableTimes(availableTimesTemp);
   };
 
   useEffect(() => {
@@ -258,7 +266,7 @@ function BookingModule() {
     datePickerRef.setAttribute("aria-label", "selector fecha de reserva");
   }, []);
 
-  console.log(bookingZones);
+  console.log("display date: ", displayDate);
 
   return (
     <>
@@ -298,6 +306,7 @@ function BookingModule() {
               <div className="timePickerContainer">
                 <p>Seleccione horario</p>
                 <select
+                  disabled={displayDate === undefined ? true : false}
                   aria-label="selector hora reserva"
                   defaultValue={availableTimes[0]}
                   className="timeSelector"
@@ -307,13 +316,17 @@ function BookingModule() {
                     updateBooking({ horaReserva: e.target.value })
                   }
                 >
-                  {availableTimes.map((times, index) => {
-                    return (
-                      <option key={index} value={times}>
-                        {times}
-                      </option>
-                    );
-                  })}
+                  {availableTimes.length === 0 && displayDate != undefined ? (
+                    <option>Sin horario disponible</option>
+                  ) : (
+                    availableTimes.map((times, index) => {
+                      return (
+                        <option key={index} value={times}>
+                          {times}
+                        </option>
+                      );
+                    })
+                  )}
                 </select>
               </div>
             </div>
