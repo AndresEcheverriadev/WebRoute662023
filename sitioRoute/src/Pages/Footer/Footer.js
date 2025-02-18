@@ -5,6 +5,7 @@ import { analyticService } from "../../Services/AnalyticService.js";
 import logoSpinoff from "../../imgs/logoSpinoffBlanco.svg";
 import "./Footer.css";
 import "./FooterResponsive.css";
+import CoverManager from "../CoverManager/CoverManager.js";
 
 function Footer() {
   const mail = process.env.REACT_APP_MAIL;
@@ -17,6 +18,7 @@ function Footer() {
 
   return (
     <footer className="footer">
+      <CoverManager />
       <div className="footer__topWrapper">
         <img src={logo} alt="" className=" logo logo--azul" />
         <p className="footer__titleHorarios">Horarios:</p>

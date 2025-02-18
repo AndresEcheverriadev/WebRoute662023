@@ -16,6 +16,7 @@ const pageTrackingListen = () => {
 };
 
 const pageTrackingUnlisten = (history) => {
+  console.log("history: ", history);
   history.listen((location) => {
     TagManager.dataLayer({
       dataLayer: {

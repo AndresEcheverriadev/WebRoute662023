@@ -12,9 +12,9 @@ const Banner1 = (props) => (
       <br />
       seleccionados especialmente para ti.
     </h2>
-    <div href="#reservas" className="botonReservaWrapper">
+    <a href="#reservas" className="botonReservaWrapper">
       <button className="botonReserva">Reservar</button>
-    </div>
+    </a>
   </main>
 );
 
