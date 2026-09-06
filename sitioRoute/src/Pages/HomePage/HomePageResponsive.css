@@ -1,64 +1,29 @@
-@media (max-width: 320px) {
-  .homeBanner {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 0)
-      ),
-      url("../../imgs/homeBanner1-320.webp");
-  }
-
-  .homeBanner2 {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 0)
-      ),
-      url("../../imgs/homeBanner2-320.webp");
-  }
-
-  #mobileEmptyBR {
-    display: block;
-    width: auto;
-    height: 32.15px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 699px) {
   .homeBanner {
     width: 100%;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 0)
-      ),
-      url("../../imgs/homeBanner1-480.webp");
+    height: auto;
+    background-image: url("../../imgs/bannerSept1Mobile.webp");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100% auto;
   }
 
   .homeBanner2 {
     width: 100%;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 1),
-        rgba(0, 0, 0, 0)
-      ),
-      url("../../imgs/homeBanner2-480.webp");
+    height: auto;
+    background-image: url("../../imgs/bannerSept2Mobile.webp");
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100% auto;
   }
 
-  .homeBanner__Title2 {
-    display: none;
-  }
-
-  .homeBanner__MobileTitle2 {
-    display: block;
-  }
-
-  .homeBanner__subtitle {
-    display: none;
+  .homeBanner3 {
+    width: 100%;
+    height: auto;
+    background-image: url("../../imgs/bannerSept3Mobile.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
   }
 
   .botonReservaWrapper {
@@ -74,6 +39,30 @@
     padding: 10px 10px 10px 10px;
     width: 100%;
     height: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .homeBanner,
+  .homeBanner2,
+  .homeBanner3 {
+    height: 300px;
+  }
+}
+
+@media (max-width: 390px) {
+  .homeBanner,
+  .homeBanner2,
+  .homeBanner3 {
+    height: 315px;
+  }
+}
+
+@media (max-width: 699px) {
+  .homeBanner,
+  .homeBanner2,
+  .homeBanner3 {
+    height: 315px;
   }
 }
 
@@ -128,6 +117,12 @@
 }
 
 @media (min-width: 1500px) {
+  .homeBanner,
+  .homeBanner2,
+  .homeBanner3 {
+    height: 500px;
+  }
+
   .carousel-control-prev {
     margin-left: -80px !important;
   }

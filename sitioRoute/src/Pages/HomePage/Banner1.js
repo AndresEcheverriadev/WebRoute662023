@@ -2,19 +2,13 @@ import * as React from "react";
 
 const Banner1 = (props) => (
   <main className="homeBanner">
-    <h1 className="homeBanner__Title">
-      La mejor onda,
-      <br />
-      la comida mas rica.
-    </h1>
+    <h1 className="homeBanner__Title">Nuevos sabores en la ruta.</h1>
     <h2 className="homeBanner__subtitle">
-      Disfruta platos y sabores de distintos lugares del mundo,
-      <br />
-      seleccionados especialmente para ti.
+      Platos y sabores del mundo, seleccionados para ti.
     </h2>
-    <div href="#reservas" className="botonReservaWrapper">
+    <a href="#reservas" className="botonReservaWrapper">
       <button className="botonReserva">Reservar</button>
-    </div>
+    </a>
   </main>
 );
 

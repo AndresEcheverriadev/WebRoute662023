@@ -1,7 +1,7 @@
 {
   "name": "route66_web",
   "version": "0.1.0",
-  "homepage": "http://159.89.93.244/",
+  "homepage": "https://www.route66.cl/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

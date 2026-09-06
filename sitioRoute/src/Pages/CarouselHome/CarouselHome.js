@@ -1,18 +1,21 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-// import Banner1 from "../HomePage/Banner1";
-import BannerHalloween from "../HomePage/BannerHalloween";
+import Banner1 from "../HomePage/Banner1";
 import Banner2 from "../HomePage/Banner2";
+import Banner3 from "../HomePage/Banner3";
 import "./CarouselHome.css";
 
 function CarouselHome() {
   return (
     <Carousel>
       <Carousel.Item>
-        <BannerHalloween />
+        <Banner1 />
       </Carousel.Item>
       <Carousel.Item>
         <Banner2 />
+      </Carousel.Item>
+      <Carousel.Item>
+        <Banner3 />
       </Carousel.Item>
     </Carousel>
   );

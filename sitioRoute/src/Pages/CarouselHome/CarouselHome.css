@@ -1,3 +1,18 @@
 .carousel {
   order: 2;
+  width: 100% !important;
+  height: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* .carousel-control-prev,
+.carousel-control-next {
+  display: none;
+} */
+
+@media (max-width: 767px) {
+  .carousel-indicators {
+    display: none !important;
+  }
 }
