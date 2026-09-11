@@ -1,11 +1,9 @@
 import ensaladas1 from "./imgsCarta/CaliforniaCobbSalad.webp";
 import ensaladas2 from "./imgsCarta/ChickenCaesarSalad.webp";
 import ensaladas3 from "./imgsCarta/ChickenCaesarSalad.webp";
-import ensaladas4 from "./imgsCarta/QuinoaShrimpSalad.webp";
 import ensaladas5 from "./imgsCarta/ShrimpCaesarSalad.webp";
 import ensaladas6 from "./imgsCarta/SmokeSalmonHoneySalad.webp";
 import ensaladas7 from "./imgsCarta/TunaGrilledSalad.webp";
-import ensaladas8 from "./imgsCarta/smokeSalmon.webp";
 
 const ensaladas = [
   {
@@ -38,13 +36,6 @@ const ensaladas = [
     id: 3,
   },
   {
-    nombre: "Quínoa & Shrimp Salad",
-    texto:
-      "Deliciosos camarones a la parrilla, acompañados de ensaladas de quinoa y salsa de maracuyá",
-    img: `${ensaladas4}`,
-    id: 4,
-  },
-  {
     nombre: "Shrimp Caesar Salad",
     texto:
       "Camarones a la plancha, hojas de lechuga, crutones, queso parmesano y nuestro aderezo caesar.",
@@ -57,13 +48,6 @@ const ensaladas = [
       "Combinación perfecta de salmón ahumado, queso de cabra, lechuga hidropónica, almendras, tomate, palta y nuestra salsa honey.",
     img: `${ensaladas6}`,
     id: 6,
-  },
-  {
-    nombre: "Smoke Salmon",
-    texto:
-      "Combinación perfecta de salmón ahumado, queso de cabra, lechuga hidropónica, almendras, tomate, palta y nuestra salsa honey.",
-    img: `${ensaladas8}`,
-    id: 8,
   },
 ];
 

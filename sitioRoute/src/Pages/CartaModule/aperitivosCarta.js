@@ -1,7 +1,6 @@
 import aperitivos1 from "./imgsCarta/ClassicChickenQuesadilla.webp";
 import aperitivos2 from "./imgsCarta/shrimpQuesadilla.webp";
 import aperitivos3 from "./imgsCarta/EmpanaditasDeCamaronYQuesoRicota.webp";
-import aperitivos4 from "./imgsCarta/EmpanaditasDePulpoALaCriolla.webp";
 import aperitivos5 from "./imgsCarta/NachosRoute.webp";
 import aperitivos6 from "./imgsCarta/OnionRings.webp";
 import aperitivos7 from "./imgsCarta/Route66Sampler.webp";
@@ -9,7 +8,6 @@ import aperitivos8 from "./imgsCarta/SpicyBuffaloWings.webp";
 import aperitivos9 from "./imgsCarta/TunaTartar.webp";
 import aperitivos10 from "./imgsCarta/tatakiAtun.webp";
 import aperitivos11 from "./imgsCarta/cevicheLujoso.webp";
-import aperitivos12 from "./imgsCarta/cevicheCarretillero.webp";
 import aperitivos13 from "./imgsCarta/ceviche.webp";
 import aperitivos14 from "./imgsCarta/trilogiaCeviches.webp";
 import aperitivos15 from "./imgsCarta/tiraditoNikkei.webp";
@@ -45,13 +43,6 @@ const aperitivos = [
       "Deliciosas empanaditas fritas rellenas de camarón, espinaca y queso ricota. Acompañados con nuestra espectacular salsa spring rolls.",
     img: `${aperitivos3}`,
     id: 3,
-  },
-  {
-    nombre: "Empanaditas De Pulpo A La Criolla",
-    texto:
-      "Deliciosas empanaditas fritas de pulpo. Acompañadas de salsa huancaína y salsa de aceitunas.",
-    img: `${aperitivos4}`,
-    id: 4,
   },
   {
     nombre: "Nachos Route",
@@ -93,13 +84,6 @@ const aperitivos = [
       "Pescado fresco del día en su leche de tigre, con láminas de palta y camarones crocantes. Una frescura que redefine el sabor.",
     img: `${aperitivos11}`,
     id: 11,
-  },
-  {
-    nombre: "Ceviche Carretillero",
-    texto:
-      "Ceviche que en las calles de Lima se vende en carretillas. Con leche de tigre, salsa huancaína y pescado del día. Montado con chicharrón de calamar.",
-    img: `${aperitivos12}`,
-    id: 12,
   },
   {
     nombre: "Ceviche",

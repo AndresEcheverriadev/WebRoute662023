@@ -1,5 +1,3 @@
-import specialities1 from "./imgsCarta/CamaronSaltadoALaCriolla.webp";
-import specialities2 from "./imgsCarta/ChickenDeluxe.webp";
 import specialities3 from "./imgsCarta/frutosPacificoParrilla.webp";
 import specialities4 from "./imgsCarta/HinduSalmon.webp";
 import specialities5 from "./imgsCarta/LomoSaltadoALaCriolla.webp";
@@ -13,7 +11,6 @@ import specialities12 from "./imgsCarta/3pepperCornMushroomSteak.webp";
 import specialities13 from "./imgsCarta/surfTurf.webp";
 import specialities14 from "./imgsCarta/triplePlay.webp";
 import specialities15 from "./imgsCarta/pulpoParrilla.webp";
-import specialities16 from "./imgsCarta/rissotoIsidora.webp";
 
 const specialities = [
   {
@@ -23,20 +20,6 @@ const specialities = [
     img: `${specialities10}`,
     id: 10,
     top: true,
-  },
-  {
-    nombre: "Camaron Saltado A La Criolla",
-    texto:
-      "Camarones salteados con cebolla, tomate, cebollín y orégano. Servido con arroz blanco y papas fritas caseras.",
-    img: `${specialities1}`,
-    id: 1,
-  },
-  {
-    nombre: "Chicken Deluxe",
-    texto:
-      "Deliciosas pechugas de pollo, cubiertas con queso mozzarella derretido, salsa thai, champiñones y espárragos. Servidas con puré de papas.",
-    img: `${specialities2}`,
-    id: 2,
   },
   {
     nombre: "Frutos Del Pacífico A La Parrilla",
@@ -120,13 +103,6 @@ const specialities = [
       "Espectacular pulpo marinado en aceite de oliva, ajo y tomillo, acompañado de vegetales salteados y deliciosas papas cocidas en salsa chimichurri.",
     img: `${specialities15}`,
     id: 15,
-  },
-  {
-    nombre: "Rissoto Isidora",
-    texto:
-      "Cremoso Rissoto al pesto coronado con Entraña Americana bañado en salsa chimichurri, acompañado de nuestra exquisita salsa acevichada.",
-    img: `${specialities16}`,
-    id: 16,
   },
 ];
 
