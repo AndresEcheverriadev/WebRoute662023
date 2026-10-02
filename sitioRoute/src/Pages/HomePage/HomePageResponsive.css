@@ -17,15 +17,6 @@
     background-size: 100% auto;
   }
 
-  .homeBanner3 {
-    width: 100%;
-    height: auto;
-    background-image: url("../../imgs/bannerSept3Mobile.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-  }
-
   .botonReservaWrapper {
     display: flex;
     flex-direction: column;
@@ -44,24 +35,21 @@
 
 @media (max-width: 360px) {
   .homeBanner,
-  .homeBanner2,
-  .homeBanner3 {
+  .homeBanner2 {
     height: 300px;
   }
 }
 
 @media (max-width: 390px) {
   .homeBanner,
-  .homeBanner2,
-  .homeBanner3 {
+  .homeBanner2 {
     height: 315px;
   }
 }
 
 @media (max-width: 699px) {
   .homeBanner,
-  .homeBanner2,
-  .homeBanner3 {
+  .homeBanner2 {
     height: 315px;
   }
 }

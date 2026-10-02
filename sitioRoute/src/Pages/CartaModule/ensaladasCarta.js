@@ -1,6 +1,6 @@
 import ensaladas1 from "./imgsCarta/CaliforniaCobbSalad.webp";
 import ensaladas2 from "./imgsCarta/ChickenCaesarSalad.webp";
-import ensaladas3 from "./imgsCarta/ChickenCaesarSalad.webp";
+import ensaladas3 from "./imgsCarta/QuinoaChickenCaesarSalad.webp";
 import ensaladas5 from "./imgsCarta/ShrimpCaesarSalad.webp";
 import ensaladas6 from "./imgsCarta/SmokeSalmonHoneySalad.webp";
 import ensaladas7 from "./imgsCarta/TunaGrilledSalad.webp";

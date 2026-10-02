@@ -20,7 +20,9 @@ function Footer() {
     <footer className="footer">
       <CoverManager />
       <div className="footer__topWrapper">
-        <img src={logo} alt="" className=" logo logo--azul" />
+        <a href="/">
+          <img src={logo} alt="" className=" logo logo--azul" />
+        </a>
         <p className="footer__titleHorarios">Horarios:</p>
         <div className="footer__Block footerBlock--leftAligned">
           <div className="footer__BlockUp">

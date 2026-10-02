@@ -1,10 +1,10 @@
 import aperitivos1 from "./imgsCarta/ClassicChickenQuesadilla.webp";
 import aperitivos2 from "./imgsCarta/shrimpQuesadilla.webp";
-import aperitivos3 from "./imgsCarta/EmpanaditasDeCamaronYQuesoRicota.webp";
+import aperitivos3 from "./imgsCarta/empanaditasFrutosDelMar-2.webp";
 import aperitivos5 from "./imgsCarta/NachosRoute.webp";
 import aperitivos6 from "./imgsCarta/OnionRings.webp";
 import aperitivos7 from "./imgsCarta/Route66Sampler.webp";
-import aperitivos8 from "./imgsCarta/SpicyBuffaloWings.webp";
+import aperitivos8 from "./imgsCarta/buffaloWings.webp";
 import aperitivos9 from "./imgsCarta/TunaTartar.webp";
 import aperitivos10 from "./imgsCarta/tatakiAtun.webp";
 import aperitivos11 from "./imgsCarta/cevicheLujoso.webp";
@@ -12,14 +12,14 @@ import aperitivos13 from "./imgsCarta/ceviche.webp";
 import aperitivos14 from "./imgsCarta/trilogiaCeviches.webp";
 import aperitivos15 from "./imgsCarta/tiraditoNikkei.webp";
 import aperitivos16 from "./imgsCarta/bonelessChickenTender.webp";
-import aperitivos17 from "./imgsCarta/empanaditasFrutosDelMar.webp";
+// import aperitivos17 from "./imgsCarta/empanaditasFrutosDelMar.webp";
 
 const aperitivos = [
   {
-    nombre: "Spicy Buffalo Wings",
+    nombre: "Buffalo Wings",
     texto:
       "Clásicas alitas de pollo bañadas con salsa hot, bbq o thai acompañadas de palitos de apio y salsa blue cheese.",
-    img: `${aperitivos7}`,
+    img: `${aperitivos8}`,
     id: 7,
     top: true,
   },
@@ -38,7 +38,7 @@ const aperitivos = [
     id: 2,
   },
   {
-    nombre: "Empanaditas De Camaron Y Queso Ricota",
+    nombre: "Empanaditas Frutos Del Mar",
     texto:
       "Deliciosas empanaditas fritas rellenas de camarón, espinaca y queso ricota. Acompañados con nuestra espectacular salsa spring rolls.",
     img: `${aperitivos3}`,
@@ -61,7 +61,7 @@ const aperitivos = [
     nombre: "Route 66 Sampler",
     texto:
       "Una combinación perfecta para compartir. Nachos acompañados de guacamole, mozzarella sticks, chicken tenders y springrolls. Servidos con salsa marinara, salsa ranch, salsa honey mustard y pico de gallo.",
-    img: `${aperitivos8}`,
+    img: `${aperitivos7}`,
     id: 8,
   },
   {
@@ -113,13 +113,13 @@ const aperitivos = [
     img: `${aperitivos16}`,
     id: 16,
   },
-  {
-    nombre: "Empanaditas Frutos Del Mar",
-    texto:
-      "Deliciosas empanaditas de pulpo, calamar, salmón, queso crema, cebollín, cebolla , cilantro y pimentón. Acompañada de salsa de olivo y salsa acevichada.",
-    img: `${aperitivos17}`,
-    id: 17,
-  },
+  // {
+  //   nombre: "Empanaditas Frutos Del Mar",
+  //   texto:
+  //     "Deliciosas empanaditas de pulpo, calamar, salmón, queso crema, cebollín, cebolla , cilantro y pimentón. Acompañada de salsa de olivo y salsa acevichada.",
+  //   img: `${aperitivos17}`,
+  //   id: 17,
+  // },
 ];
 
 export default aperitivos;

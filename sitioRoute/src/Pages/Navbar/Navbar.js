@@ -11,7 +11,9 @@ function Navbar() {
 
   return (
     <div className="NavbarWrapper">
-      <img src={logo} className="logo" alt="logo Route 66" />
+      <a href="/">
+        <img src={logo} className="logo" alt="logo Route 66" />
+      </a>
       <div className="navbarLinksContainer">
         <div className="navbarLinksTop">
           <a

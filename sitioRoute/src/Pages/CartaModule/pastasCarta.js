@@ -1,7 +1,6 @@
 import pastas1 from "./imgsCarta/MiticoFileteConPastaALaHuancaina.webp";
 import pastas2 from "./imgsCarta/encantoFileteGnochi.webp";
 import pastas4 from "./imgsCarta/pastaPolloHuancaina.webp";
-import pastas5 from "./imgsCarta/TomatoCreamShrimpPasta.webp";
 
 const pastas = [
   {
@@ -25,13 +24,6 @@ const pastas = [
       "Linguini a la huancaína, servido con pollo marinado en salsa teriyaki.",
     img: `${pastas4}`,
     id: 4,
-  },
-  {
-    nombre: "Tomato Cream Shrimp Pasta",
-    texto:
-      "Pasta linguini cubierta con nuestra espectacular salsa de crema de tomates con camarones y queso parmesano.",
-    img: `${pastas5}`,
-    id: 5,
   },
 ];
 
